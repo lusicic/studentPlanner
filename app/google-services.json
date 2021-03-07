@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "949505469236",
+    "project_id": "studentplanner21",
+    "storage_bucket": "studentplanner21.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949505469236:android:6d3713961768e6b2c95361",
+        "android_client_info": {
+          "package_name": "com.unipu.mobapp.studentplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "949505469236-hmhpbqisomupdkaao9lq3gpe4uv0u2ft.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuaTe4ccMjceAHYsPurhLald9Dmp4E2GA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "949505469236-hmhpbqisomupdkaao9lq3gpe4uv0u2ft.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
