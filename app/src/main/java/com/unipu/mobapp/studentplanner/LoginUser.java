@@ -28,7 +28,7 @@ LoginUser extends AppCompatActivity implements View.OnClickListener{
     private Button login;
 
     private FirebaseAuth mAuth;
-    private ProgressBar progressBar;
+    //private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ LoginUser extends AppCompatActivity implements View.OnClickListener{
         editTextEmail = (EditText) findViewById(R.id.txtEmail);
         editTextPassword = (EditText) findViewById(R.id.txtPassword);
 
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        //progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -93,7 +93,7 @@ LoginUser extends AppCompatActivity implements View.OnClickListener{
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
+       //progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
