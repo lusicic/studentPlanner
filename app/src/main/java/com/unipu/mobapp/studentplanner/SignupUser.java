@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class signupUser extends AppCompatActivity implements View.OnClickListener{
+public class SignupUser extends AppCompatActivity implements View.OnClickListener{
 
     private TextView signup, banner;
     private EditText editTextEmail, editTextPassword;
@@ -40,8 +40,8 @@ public class signupUser extends AppCompatActivity implements View.OnClickListene
         signup = (Button) findViewById(R.id.btnSignup);
         signup.setOnClickListener(this);
 
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextEmail = (EditText) findViewById(R.id.txtEmail);
+        editTextPassword = (EditText) findViewById(R.id.txtPassword);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
@@ -50,10 +50,11 @@ public class signupUser extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.txtBanner:
-                startActivity(new Intent(this, loginUser.class));
+                startActivity(new Intent(this, LoginUser.class));
                 break;
 
             case R.id.btnSignup:
+                progressBar.setVisibility(View.VISIBLE);
                 signUp();
                 break;
 
@@ -88,7 +89,6 @@ public class signupUser extends AppCompatActivity implements View.OnClickListene
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -104,17 +104,17 @@ public class signupUser extends AppCompatActivity implements View.OnClickListene
                                 public void onComplete(@NonNull Task<Void> task) {
 
                                     if(task.isSuccessful()){
-                                        Toast.makeText(signupUser.this, "User has been successfully", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignupUser.this, "User has been successfully", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                     else{
-                                        Toast.makeText(signupUser.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(SignupUser.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             });
                         }else{
-                            Toast.makeText(signupUser.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignupUser.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }
