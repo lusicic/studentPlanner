@@ -1,8 +1,10 @@
 package com.unipu.mobapp.studentplanner;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -14,19 +16,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class
+public class LoginUser extends AppCompatActivity implements View.OnClickListener{
 
-
-LoginUser extends AppCompatActivity implements View.OnClickListener{
-
-    private TextView signup;
+    private TextView signup; //forgot;
     private EditText editTextEmail, editTextPassword;
     private Button login;
-
     private FirebaseAuth mAuth;
     //private ProgressBar progressBar;
 
@@ -43,9 +43,9 @@ LoginUser extends AppCompatActivity implements View.OnClickListener{
 
         editTextEmail = (EditText) findViewById(R.id.txtEmail);
         editTextPassword = (EditText) findViewById(R.id.txtPassword);
+        //forgot = (TextView) findViewById(R.id.fPass);
 
         //progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
         mAuth = FirebaseAuth.getInstance();
 
         if(mAuth.getCurrentUser() != null){
@@ -106,5 +106,43 @@ LoginUser extends AppCompatActivity implements View.OnClickListener{
                 }
             }
         });
+
+        //forgotpass
+        /*forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final EditText resetMail = new EditText(v.getContext());
+                final AlertDialog.Builder passReset = new AlertDialog.Builder(v.getContext());
+                passReset.setTitle("Reset password? ");
+                passReset.setMessage("Enter your email: ");
+                passReset.setView(resetMail);
+
+                passReset.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //link do user-a
+                        String mail = resetMail.getText().toString();
+                        mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(LoginUser.this, "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(LoginUser.this, "Error, reset link is no valid", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
+                passReset.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                passReset.create().show();
+            }
+        });*/
     }
 }

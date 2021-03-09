@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class MenuActivity extends AppCompatActivity {
 
     private Button logout;
+    private Button btnStat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,12 +20,21 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         logout = (Button) findViewById(R.id.btnLogout);
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MenuActivity.this, LoginUser.class));
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
+            }
+        });
+
+        btnStat = (Button) findViewById(R.id.btnStat);
+        btnStat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, MainActivity.class));
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });
     }

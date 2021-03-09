@@ -51,13 +51,14 @@ public class SignupUser extends AppCompatActivity implements View.OnClickListene
         switch (v.getId()){
             case R.id.txtBanner:
                 startActivity(new Intent(this, LoginUser.class));
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
                 break;
 
             case R.id.btnSignup:
                 progressBar.setVisibility(View.VISIBLE);
                 signUp();
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
                 break;
-
         }
     }
 
