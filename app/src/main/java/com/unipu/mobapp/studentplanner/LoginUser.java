@@ -24,7 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginUser extends AppCompatActivity implements View.OnClickListener{
 
-    private TextView signup; //forgot;
+    private TextView signup, forgotPasword;
     private EditText editTextEmail, editTextPassword;
     private Button login;
     private FirebaseAuth mAuth;
@@ -43,7 +43,9 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
 
         editTextEmail = (EditText) findViewById(R.id.txtEmail);
         editTextPassword = (EditText) findViewById(R.id.txtPassword);
-        //forgot = (TextView) findViewById(R.id.fPass);
+
+        forgotPasword = (TextView) findViewById(R.id.forgotPassword);
+        forgotPasword.setOnClickListener(this);
 
         //progressBar = (ProgressBar) findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
@@ -62,6 +64,8 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
             case R.id.btnLogin:
                 userLogin();
                 break;
+            case R.id.forgotPassword:
+                startActivity(new Intent(this, ForgotActivity.class));
         }
     }
 
@@ -69,80 +73,43 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
         String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        if(email.isEmpty()){
+        if (email.isEmpty()) {
             editTextEmail.setError("Email is required");
             editTextEmail.requestFocus();
             return;
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editTextEmail.setError("Not a valid email");
             editTextPassword.requestFocus();
             return;
         }
 
-        if(password.isEmpty()){
+        if (password.isEmpty()) {
             editTextPassword.setError("Password is required");
             editTextPassword.requestFocus();
             return;
         }
 
-        if(password.length() < 6){
+        if (password.length() < 6) {
             editTextPassword.setError("Min length is 6 characters");
             editTextPassword.requestFocus();
             return;
         }
 
-       //progressBar.setVisibility(View.VISIBLE);
+        //progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    startActivity(new Intent(LoginUser.this, MenuActivity.class));
-                }else{
-                    Toast.makeText(LoginUser.this, "Failed to login! Check your credentials", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-        //forgotpass
-        /*forgot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                final EditText resetMail = new EditText(v.getContext());
-                final AlertDialog.Builder passReset = new AlertDialog.Builder(v.getContext());
-                passReset.setTitle("Reset password? ");
-                passReset.setMessage("Enter your email: ");
-                passReset.setView(resetMail);
-
-                passReset.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //link do user-a
-                        String mail = resetMail.getText().toString();
-                        mAuth.sendPasswordResetEmail(mail).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(LoginUser.this, "Reset Link Sent To Your Email", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(LoginUser.this, "Error, reset link is no valid", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            startActivity(new Intent(LoginUser.this, MenuActivity.class));
+                        } else {
+                            Toast.makeText(LoginUser.this, "Failed to login! Check your credentials", Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
-                passReset.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                passReset.create().show();
-            }
-        });*/
+
     }
 }
