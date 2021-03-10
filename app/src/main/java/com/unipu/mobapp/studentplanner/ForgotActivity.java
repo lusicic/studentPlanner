@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ForgotActivity extends AppCompatActivity {
 
-    ProgressBar progressBar;
+    //ProgressBar progressBar;
     EditText userEmail;
     Button userPass;
     FirebaseAuth mFA;
@@ -26,7 +26,7 @@ public class ForgotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        progressBar = findViewById(R.id.progressBar);
+        //progressBar = findViewById(R.id.progressBar);
         userEmail = findViewById(R.id.TextEmailAddress);
         userPass = findViewById(R.id.btnForgotPass);
 

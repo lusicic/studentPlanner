@@ -13,6 +13,8 @@ public class MenuActivity extends AppCompatActivity {
 
     private Button logout;
     private Button btnStat;
+    private Button btnCourses;
+    private Button btnCalendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(MenuActivity.this, LoginUser.class));
-                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
+                overridePendingTransition(R.anim.activity_anim_two, R.anim.activity_anim_two);
             }
         });
 
@@ -33,7 +35,25 @@ public class MenuActivity extends AppCompatActivity {
         btnStat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, MainActivity.class));
+                startActivity(new Intent(MenuActivity.this, StatisticActivity.class));
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
+            }
+        });
+
+        btnCourses = (Button) findViewById(R.id.btnCourses);
+        btnCourses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, CoursesActivity.class));
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
+            }
+        });
+
+        btnCalendar = (Button) findViewById(R.id.btnCalendar);
+        btnCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, CalendarActivity.class));
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });
