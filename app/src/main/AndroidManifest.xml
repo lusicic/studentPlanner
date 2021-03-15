@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.unipu.mobapp.studentplanner">
-<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <application
         android:allowBackup="true"
@@ -17,10 +18,14 @@
         <activity android:name=".StatisticActivity"/>
         <activity android:name=".CoursesActivity"/>
         <activity android:name=".CalendarActivity"/>
+        <activity android:name=".OneCourse"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".CourseAdapter"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".CourseDetails"/>
         <activity android:name=".LoginUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -28,5 +33,4 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 </manifest>

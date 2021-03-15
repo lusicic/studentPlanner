@@ -1,24 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#554F4F"
+    android:background="#716666"
+    android:orientation="vertical"
     tools:context=".CoursesActivity">
 
-    <TextView
-        android:id="@+id/txtCourses"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="198dp"
+        android:background="#554F4F"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="127dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="125dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/titlepage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/almendra"
+                    android:text="My Courses"
+                    android:textAlignment="center"
+                    android:textColor="#FF9800"
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/subtitlepage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="28dp"
+                    android:text="All my Courses"
+                    android:textAlignment="center"
+                    android:textColor="#DCB479"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddNew"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/round_grey"
+                android:text="+"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="38sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="#FFFFFF" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/ourcoursee"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginLeft="136dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/almendra"
-        android:text="COURSES"
-        android:textColor="#FF9800"
-        android:textColorLink="#FF9800"
-        android:textSize="35sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="-45dp"
+        android:layout_marginRight="16dp" />
+
+    <TextView
+        android:id="@+id/endpage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="No More Courses"
+        android:textAlignment="center"
+        android:textColor="#9A9A9A"
+        android:textSize="16sp" />
+</LinearLayout>
