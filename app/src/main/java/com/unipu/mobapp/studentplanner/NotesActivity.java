@@ -47,7 +47,7 @@ public class NotesActivity extends AppCompatActivity {
 
     // Function to tell the app to start getting
     // data from database on starting of the activity
-    @Override protected void onStart()
+    /*@Override protected void onStart()
     {
         super.onStart();
         adapter.startListening();
@@ -59,5 +59,5 @@ public class NotesActivity extends AppCompatActivity {
     {
         super.onStop();
         adapter.stopListening();
-    }
+    }*/
 }

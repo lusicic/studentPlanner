@@ -1,62 +1,55 @@
 package com.unipu.mobapp.studentplanner;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-import java.util.ArrayList;
 
-public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseHolder>{
+public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter.courseViewholder> {
 
-    Context context;
-    ArrayList<Course> course;
+    public CourseAdapter(
+            @NonNull FirebaseRecyclerOptions<Course> options)
+    {
+        super(options);
+    }
 
-    public CourseAdapter(Context c, ArrayList<Course> p) {
-        context = c;
-        course = p;
+    @Override
+    protected void
+    onBindViewHolder(@NonNull courseViewholder holder,
+                     int position, @NonNull Course model)
+    {
+
+        holder.courseName.setText(model.getCourseName());
+        holder.examNum.setText(model.getExamNum());
+
     }
 
     @NonNull
     @Override
-    public CourseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new CourseHolder(LayoutInflater.from(context).inflate(R.layout.course, parent, false));
+    public courseViewholder
+    onCreateViewHolder(@NonNull ViewGroup parent,
+                       int viewType)
+    {
+        View view
+                = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.course, parent, false);
+        return new courseViewholder(view);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull CourseHolder courseHolder, int i) {
-        courseHolder.courseName.setText(course.get(i).getCourseName());
-        courseHolder.examNum.setText(course.get(i).getExamNum());
-
-        final String getCourseName = course.get(i).getCourseName();
-        final String getExamNum = course.get(i).getExamNum();
-
-        /*courseHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent aa = new Intent(context, EditTaskTable.class);
-                aa.putExtra("course", getTitleOfCourse);
-                aa.putExtra("number", getnumberOfColloquium);
-                context.startActivity(aa);
-            }
-        });*/
-    }
-
-    @Override
-    public int getItemCount() {
-        return course.size();
-    }
-
-    public class CourseHolder extends RecyclerView.ViewHolder{
-        public TextView courseName, examNum;
-        public CourseHolder(@NonNull View itemView) {
+    class courseViewholder
+            extends RecyclerView.ViewHolder {
+        TextView courseName, examNum;
+        public courseViewholder(@NonNull View itemView)
+        {
             super(itemView);
-            courseName = (TextView) itemView.findViewById(R.id.courseName);
-            examNum = (TextView) itemView.findViewById(R.id.examNum);
+
+            courseName = itemView.findViewById(R.id.courseName);
+            examNum = itemView.findViewById(R.id.examNum);
         }
     }
 }

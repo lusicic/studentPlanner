@@ -1,16 +1,9 @@
 package com.unipu.mobapp.studentplanner;
 
 public class Notey {
-    // Variable to store data corresponding
-    // to firstname keyword in database
+
     private String noteTitle;
-
-    // Variable to store data corresponding
-    // to lastname keyword in database
     private String noteDate;
-
-    // Variable to store data corresponding
-    // to age keyword in database
     private String noteDesc;
 
     // Mandatory empty constructor
@@ -18,7 +11,6 @@ public class Notey {
     public Notey() {}
 
     // Getter and setter method
-
     public String getNoteTitle() {
         return noteTitle;
     }

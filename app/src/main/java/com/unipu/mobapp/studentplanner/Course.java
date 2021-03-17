@@ -8,11 +8,6 @@ public class Course {
     public Course() {
     }
 
-    public Course(String courseName, String examNum) {
-        this.courseName = courseName;
-        this.examNum = examNum;
-    }
-
     public String getCourseName() {
         return courseName;
     }
