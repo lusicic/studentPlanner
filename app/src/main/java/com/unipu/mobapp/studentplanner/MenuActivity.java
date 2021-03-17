@@ -15,6 +15,7 @@ public class MenuActivity extends AppCompatActivity {
     private Button btnStat;
     private Button btnCourses;
     private Button btnCalendar;
+    private Button btnNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,15 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MenuActivity.this, CalendarActivity.class));
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
+            }
+        });
+
+        btnNotes = (Button) findViewById(R.id.btnNotes);
+        btnNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuActivity.this, NotesActivity.class));
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });

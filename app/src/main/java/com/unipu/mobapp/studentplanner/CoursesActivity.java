@@ -25,7 +25,7 @@ public class CoursesActivity extends AppCompatActivity {
 
     DatabaseReference reference;
     RecyclerView ourcoursee;
-    ArrayList<OneCourse> list;
+    ArrayList<Course> list;
     CourseAdapter courseAdapter;
 
     @Override
@@ -48,9 +48,9 @@ public class CoursesActivity extends AppCompatActivity {
         });
 
         //working with data
-        ourcoursee = findViewById(R.id.ourcoursee);
+        ourcoursee = findViewById(R.id.theCourses);
         ourcoursee.setLayoutManager(new LinearLayoutManager(this));
-        list = new ArrayList<OneCourse>();
+        list = new ArrayList<Course>();
 
         //get data from firebase
         reference = FirebaseDatabase.getInstance().getReference().child("CourseApp");
@@ -62,7 +62,7 @@ public class CoursesActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren())
                 {
-                    OneCourse p = dataSnapshot1.getValue(OneCourse.class);
+                    Course p = dataSnapshot1.getValue(Course.class);
                     list.add(p);
                 }
                 courseAdapter = new CourseAdapter(CoursesActivity.this, list);

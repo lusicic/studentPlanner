@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.unipu.mobapp.studentplanner">
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,26 +13,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".NotesActivity"></activity>
+        <activity android:name=".MenuActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupUser" />
-        <activity android:name=".ForgotActivity"/>
-        <activity android:name=".StatisticActivity"/>
-        <activity android:name=".CoursesActivity"/>
-        <activity android:name=".CalendarActivity"/>
-        <activity android:name=".OneCourse"
+        <activity android:name=".ForgotActivity" />
+        <activity android:name=".StatisticActivity" />
+        <activity android:name=".CoursesActivity" />
+        <activity android:name=".CalendarActivity" />
+        <activity
+            android:name=".Course"
             tools:ignore="Instantiatable" />
-        <activity android:name=".CourseAdapter"
+        <activity
+            android:name=".CourseAdapter"
             tools:ignore="Instantiatable" />
-        <activity android:name=".CourseDetails"/>
+        <activity android:name=".CourseDetails" />
         <activity android:name=".LoginUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
+
 </manifest>
