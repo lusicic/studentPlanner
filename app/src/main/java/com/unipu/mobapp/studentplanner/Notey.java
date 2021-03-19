@@ -1,5 +1,7 @@
 package com.unipu.mobapp.studentplanner;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Notey {
 
     private String noteTitle;

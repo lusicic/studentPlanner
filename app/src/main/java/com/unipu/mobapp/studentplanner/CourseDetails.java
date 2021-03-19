@@ -26,7 +26,7 @@ public class CourseDetails extends AppCompatActivity {
     Button btnSave, btnCancel;
 
     DatabaseReference reference;
-    Integer boo = new Random().nextInt();
+    Integer brojac = new Random().nextInt();
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -36,8 +36,8 @@ public class CourseDetails extends AppCompatActivity {
         textView = findViewById(R.id.addtitle);
         textView = findViewById(R.id.addNumber);
 
-        numberOfColloquium = (EditText) findViewById(R.id.numberofcolloquium);
-        titleOfCourse = (EditText) findViewById(R.id.titleofcourse);
+        numberOfColloquium = (EditText) findViewById(R.id.examNum);
+        titleOfCourse = (EditText) findViewById(R.id.courseName);
 
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
@@ -45,12 +45,12 @@ public class CourseDetails extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference = FirebaseDatabase.getInstance().getReference().child("StudentPlanner").child("CourseApp" + boo);
+                reference = FirebaseDatabase.getInstance().getReference().child("Course").child("Course" + brojac);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange( DataSnapshot dataSnapshot) {
-                        dataSnapshot.getRef().child("Course1").setValue(titleOfCourse.getText().toString());
-                        dataSnapshot.getRef().child("numberOfColloquium").setValue(numberOfColloquium.getText().toString());
+                        dataSnapshot.getRef().child("courseName").setValue(titleOfCourse.getText().toString());
+                        dataSnapshot.getRef().child("examNum").setValue(numberOfColloquium.getText().toString());
 
                         Intent a = new Intent(CourseDetails.this,CoursesActivity.class);
                         startActivity(a);

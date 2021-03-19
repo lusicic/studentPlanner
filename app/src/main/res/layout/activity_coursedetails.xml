@@ -62,7 +62,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/titleofcourse"
+                android:id="@+id/courseName"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="Title of Course"
@@ -87,7 +87,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/numberofcolloquium"
+                android:id="@+id/examNum"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="Number of Colloquium"

@@ -19,8 +19,6 @@ public class CoursesActivity extends AppCompatActivity {
 
     Button btnAddNew;
 
-    ArrayList<Course> list;
-
     private RecyclerView courseView;
     CourseAdapter adapter; // Create Object of the Adapter class
     DatabaseReference mbase; // Create object of the
@@ -30,12 +28,7 @@ public class CoursesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
 
-        /*textView = findViewById(R.id.titlepage);
-        textView = findViewById(R.id.subtitlepage);
-        textView = findViewById(R.id.endpage);*/
-
         btnAddNew = findViewById(R.id.btnAddNew);
-
         btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,11 +38,11 @@ public class CoursesActivity extends AppCompatActivity {
         });
 
         mbase = FirebaseDatabase.getInstance().getReference().child("Course");
-
         courseView = findViewById(R.id.theCourses);
 
         // To display the Recycler view linearly
-        courseView.setLayoutManager(new LinearLayoutManager(this));
+        courseView.setLayoutManager(
+                new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<Course> options
                 = new FirebaseRecyclerOptions.Builder<Course>()
@@ -57,7 +50,6 @@ public class CoursesActivity extends AppCompatActivity {
                 .build();
 
         adapter = new CourseAdapter(options);
-
         courseView.setAdapter(adapter);
     }
 

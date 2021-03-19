@@ -18,14 +18,14 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
         super(options);
     }
 
-    @Override
+   @Override
     protected void
     onBindViewHolder(@NonNull courseViewholder holder,
                      int position, @NonNull Course model)
     {
 
-        holder.courseName.setText(model.getCourseName());
-        holder.examNum.setText(model.getExamNum());
+        holder.courseName.setText(Long.toString(model.getCourseName()));
+        holder.examNum.setText(Long.toString(model.getExamNum()));
 
     }
 

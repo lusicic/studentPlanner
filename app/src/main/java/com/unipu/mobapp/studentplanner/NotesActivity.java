@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.widget.TextView;
+
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -14,18 +16,15 @@ public class NotesActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     NoteyAdapter adapter; // Create Object of the Adapter class
     DatabaseReference mbase; // Create object of the
-    // Firebase Realtime Database
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
         // Create a instance of the database and get
         // its reference
         mbase = FirebaseDatabase.getInstance().getReference().child("Notey");
-
         recyclerView = findViewById(R.id.theNotes);
 
         // To display the Recycler view linearly
@@ -47,7 +46,7 @@ public class NotesActivity extends AppCompatActivity {
 
     // Function to tell the app to start getting
     // data from database on starting of the activity
-    /*@Override protected void onStart()
+    @Override protected void onStart()
     {
         super.onStart();
         adapter.startListening();
@@ -59,5 +58,5 @@ public class NotesActivity extends AppCompatActivity {
     {
         super.onStop();
         adapter.stopListening();
-    }*/
+    }
 }
