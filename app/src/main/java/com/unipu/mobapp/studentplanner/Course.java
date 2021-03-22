@@ -2,17 +2,17 @@ package com.unipu.mobapp.studentplanner;
 
 public class Course {
 
-    Long courseName;
+    String courseName;
     Long examNum;
 
     public Course() {
     }
 
-    public Long getCourseName() {
+    public String getCourseName() {
         return courseName;
     }
 
-    public void setCourseName(Long courseName) {
+    public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 

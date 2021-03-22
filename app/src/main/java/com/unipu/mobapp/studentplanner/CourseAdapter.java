@@ -12,28 +12,27 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter.courseViewholder> {
 
-    public CourseAdapter(
-            @NonNull FirebaseRecyclerOptions<Course> options)
+    public CourseAdapter(@NonNull FirebaseRecyclerOptions<Course> options)
     {
         super(options);
     }
 
    @Override
     protected void
-    onBindViewHolder(@NonNull courseViewholder holder,
-                     int position, @NonNull Course model)
+    onBindViewHolder(@NonNull courseViewholder holder, int position, @NonNull Course model)
     {
 
-        holder.courseName.setText(Long.toString(model.getCourseName()));
-        holder.examNum.setText(Long.toString(model.getExamNum()));
+        holder.courseName.setText(model.getCourseName());
+        holder.examNum.setText(String.valueOf(model.getExamNum()));
 
     }
+
+
 
     @NonNull
     @Override
     public courseViewholder
-    onCreateViewHolder(@NonNull ViewGroup parent,
-                       int viewType)
+    onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
         View view
                 = LayoutInflater.from(parent.getContext())
