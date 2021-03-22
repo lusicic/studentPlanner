@@ -52,12 +52,20 @@ public class CourseCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(numberOfColloquium.getText())));
 
                         Intent a = new Intent(CourseCreate.this,CoursesActivity.class);
-                        startActivity(a);
+                        CourseCreate.super.onBackPressed();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
                 });
+            }
+        });
+
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CourseCreate.super.onBackPressed();
             }
         });
     }
