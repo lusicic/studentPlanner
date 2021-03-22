@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#47444C"
     android:orientation="vertical"
-    tools:context=".CourseDetails">
+    tools:context=".CourseCreate">
 
     <LinearLayout
         android:layout_width="match_parent"

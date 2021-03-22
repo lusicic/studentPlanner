@@ -13,8 +13,6 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
 public class CoursesActivity extends AppCompatActivity {
 
     Button btnAddNew;
@@ -32,7 +30,7 @@ public class CoursesActivity extends AppCompatActivity {
         btnAddNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(CoursesActivity.this, CourseDetails.class);
+                Intent a = new Intent(CoursesActivity.this, CourseCreate.class);
                 startActivity(a);
             }
         });

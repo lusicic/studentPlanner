@@ -5,7 +5,7 @@
 
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NotesActivity"/>
+        <activity android:name=".CourseDetails"></activity>
+        <activity android:name=".NotesActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".SignupUser" />
@@ -28,10 +29,11 @@
         <activity
             android:name=".CourseAdapter"
             tools:ignore="Instantiatable" />
-        <activity android:name=".CourseDetails" />
+        <activity android:name=".CourseCreate" />
         <activity android:name=".LoginUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
