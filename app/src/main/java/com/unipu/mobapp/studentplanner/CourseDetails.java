@@ -50,7 +50,7 @@ public class CourseDetails extends AppCompatActivity {
                     @Override
                     public void onDataChange( DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("courseName").setValue(titleOfCourse.getText().toString());
-                        dataSnapshot.getRef().child("examNum").setValue(numberOfColloquium.getText().toString());
+                        dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(numberOfColloquium.getText())));
 
                         Intent a = new Intent(CourseDetails.this,CoursesActivity.class);
                         startActivity(a);

@@ -28,7 +28,6 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
     }
 
 
-
     @NonNull
     @Override
     public courseViewholder
