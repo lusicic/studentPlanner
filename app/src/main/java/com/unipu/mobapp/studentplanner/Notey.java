@@ -4,13 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Notey {
 
-    private String noteTitle;
-    private String noteDate;
-    private String noteDesc;
+        String noteTitle;
+        String noteDate;
+        String noteDesc;
 
     // Mandatory empty constructor
     // for use of FirebaseUI
     public Notey() {}
+
+
 
     // Getter and setter method
     public String getNoteTitle() {
@@ -36,4 +38,6 @@ public class Notey {
     public void setNoteDesc(String noteDesc) {
         this.noteDesc = noteDesc;
     }
+
+
 }
