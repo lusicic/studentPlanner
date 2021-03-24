@@ -55,6 +55,22 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
         final String noteDate = String.valueOf(model.getNoteDate());
         final String noteDesc = String.valueOf(model.getNoteDesc());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    Intent intent = new Intent (v.getContext(), EditNotesActivity.class);
+
+                    //dodano za povlacenje iz baze u edit
+                    intent.putExtra("noteTitle", String.valueOf(noteTitle));
+                    intent.putExtra("noteDate", String.valueOf(noteDate));
+                    intent.putExtra("noteDesc", String.valueOf(noteDesc));
+                    v.getContext().startActivity(intent);
+
+                }
+
+        });
+
     }
 
    
@@ -92,7 +108,8 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
 
         }
 
-
+//ovaj dio je mozda visak je je vec gore dodan ,ali ga za sada ne brisem jer kad ga obrisem javlja error
+// zbog class noteyViewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Override
         public void onClick(View v) {
             Intent intent = new Intent (v.getContext(), EditNotesActivity.class);

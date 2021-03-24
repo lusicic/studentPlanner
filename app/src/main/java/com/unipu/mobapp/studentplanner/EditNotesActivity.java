@@ -25,8 +25,8 @@ public class EditNotesActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
 
         //get a value
-        editTitle.setText(getIntent().getStringExtra("editTitle"));
-        editDate.setText(getIntent().getStringExtra("editDate"));
-        editDescr.setText(getIntent().getStringExtra("editDescr"));
+        editTitle.setText(getIntent().getStringExtra("noteTitle"));
+        editDate.setText(getIntent().getStringExtra("noteDate"));
+        editDescr.setText(getIntent().getStringExtra("noteDesc"));
     }
 }
