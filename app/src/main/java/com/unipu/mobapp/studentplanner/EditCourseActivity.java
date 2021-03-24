@@ -17,13 +17,13 @@ public class EditCourseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_course);
 
         editTitle = findViewById(R.id.editTitle);
-        editColloquium = findViewById(R.id.editDate);
+        editColloquium = findViewById(R.id.editColloquium);
 
         btnEditSave = findViewById(R.id.btnEditSave);
         btnDelete = findViewById(R.id.btnDelete);
 
         //get a value
         editTitle.setText(getIntent().getStringExtra("courseName"));
-        //editColloquium.setText(getIntent().getStringExtra(Long.toString(Long.parseLong(String.valueOf(Long.valueOf("examNum"))))));
-    }
+        editColloquium.setText(getIntent().getStringExtra("examNum"));
+}
 }

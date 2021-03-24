@@ -38,17 +38,13 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
                 Intent intent = new Intent (v.getContext(), EditCourseActivity.class);
 
                 //dodano za povlacenje iz baze u edit
-                intent.putExtra("noteTitle", String.valueOf(courseName));
-                intent.putExtra("noteDate", String.valueOf(examNum));
+                intent.putExtra("courseName", String.valueOf(courseName));
+                intent.putExtra("examNum", String.valueOf(examNum));
                 v.getContext().startActivity(intent);
-
             }
 
         });
-
-
     }
-
 
     @NonNull
     @Override
@@ -77,8 +73,8 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
         @Override
         public void onClick(View v) {
             Intent intent = new Intent (v.getContext(), EditCourseActivity.class);
-            intent.putExtra("noteTitle", String.valueOf(courseName));
-            intent.putExtra("noteDate", String.valueOf(examNum));
+            intent.putExtra("courseName", String.valueOf(courseName));
+            intent.putExtra("examNum", String.valueOf(examNum));
             v.getContext().startActivity(intent);
         }
     }

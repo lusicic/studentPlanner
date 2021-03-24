@@ -97,9 +97,6 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
             noteDate = itemView.findViewById(R.id.noteDate);
             noteDesc = itemView.findViewById(R.id.noteDesc);
 
-
-
-
         }
 
 //ovaj dio je mozda visak je je vec gore dodan ,ali ga za sada ne brisem jer kad ga obrisem javlja error
