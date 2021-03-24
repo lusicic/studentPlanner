@@ -26,6 +26,7 @@ public class CourseCreate extends AppCompatActivity {
 
     DatabaseReference reference;
     Integer brojac = new Random().nextInt();
+    String keydoes = Integer.toString(brojac);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -50,6 +51,7 @@ public class CourseCreate extends AppCompatActivity {
                     public void onDataChange( DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("courseName").setValue(titleOfCourse.getText().toString());
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(numberOfColloquium.getText())));
+                        dataSnapshot.getRef().child("keydoes").setValue(keydoes);
 
                         Intent a = new Intent(CourseCreate.this,CoursesActivity.class);
                         CourseCreate.super.onBackPressed();

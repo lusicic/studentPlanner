@@ -4,8 +4,23 @@ public class Course {
 
     String courseName;
     Long examNum;
+    String keydoes;
 
     public Course() {
+    }
+
+    public Course(String courseName, Long examNum, String keydoes) {
+        this.courseName = courseName;
+        this.examNum = examNum;
+        this.keydoes = keydoes;
+    }
+
+    public String getKeydoes() {
+        return keydoes;
+    }
+
+    public void setKeydoes(String keydoes) {
+        this.keydoes = keydoes;
     }
 
     public String getCourseName() {
