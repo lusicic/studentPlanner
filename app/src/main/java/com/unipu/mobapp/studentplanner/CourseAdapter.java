@@ -1,13 +1,10 @@
 package com.unipu.mobapp.studentplanner;
 
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,10 +21,32 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
 
    @Override
     protected void
-    onBindViewHolder(@NonNull courseViewholder holder, int position, @NonNull Course model)
+    onBindViewHolder(@NonNull courseViewholder holder,
+                     int position, @NonNull Course model)
     {
-        holder.courseName.setText(model.getCourseName());
+        holder.courseName.setText(String.valueOf(model.getCourseName()));
         holder.examNum.setText(String.valueOf(model.getExamNum()));
+
+        //dodano za povlacenje iz baze u edit
+        final String courseName = String.valueOf(model.getCourseName());
+        final String examNum = String.valueOf(model.getExamNum());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent (v.getContext(), EditCourseActivity.class);
+
+                //dodano za povlacenje iz baze u edit
+                intent.putExtra("noteTitle", String.valueOf(courseName));
+                intent.putExtra("noteDate", String.valueOf(examNum));
+                v.getContext().startActivity(intent);
+
+            }
+
+        });
+
+
     }
 
 
@@ -57,7 +76,9 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent (v.getContext(), CourseDetails.class);
+            Intent intent = new Intent (v.getContext(), EditCourseActivity.class);
+            intent.putExtra("noteTitle", String.valueOf(courseName));
+            intent.putExtra("noteDate", String.valueOf(examNum));
             v.getContext().startActivity(intent);
         }
     }

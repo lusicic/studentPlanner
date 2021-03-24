@@ -40,14 +40,8 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
         // view (here "person.xml")
         holder.noteTitle.setText(String.valueOf(model.getNoteTitle()));
 
-        // Add lastname from model class (here
-        // "person.class")to appropriate view in Card
-        // view (here "person.xml")
         holder.noteDate.setText(String.valueOf(model.getNoteDate()));
 
-        // Add age from model class (here
-        // "person.class")to appropriate view in Card
-        // view (here "person.xml")
         holder.noteDesc.setText(String.valueOf(model.getNoteDesc()));
 
         //dodano za povlacenje iz baze u edit
@@ -117,7 +111,7 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
             //dodano za povlacenje iz baze u edit
             intent.putExtra("noteTitle", String.valueOf(noteTitle));
             intent.putExtra("noteDate", String.valueOf(noteDate));
-            intent.putExtra("noteDesc", String.valueOf(this.noteDesc));
+            intent.putExtra("noteDesc", String.valueOf(noteDesc));
                     v.getContext().startActivity(intent);
 
         }
