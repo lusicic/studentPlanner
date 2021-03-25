@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -35,7 +37,11 @@ public class CoursesActivity extends AppCompatActivity {
             }
         });
 
-        mbase = FirebaseDatabase.getInstance().getReference().child("Course");
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser usery = auth.getCurrentUser();
+        final String uid = usery.getUid();
+
+        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course");
         courseView = findViewById(R.id.theCourses);
 
         // To display the Recycler view linearly

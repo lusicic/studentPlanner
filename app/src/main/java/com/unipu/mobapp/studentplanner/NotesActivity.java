@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,15 +36,19 @@ public class NotesActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        mbase = FirebaseDatabase.getInstance().getReference().child("Notey");
+
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser usery = auth.getCurrentUser();
+        final String uid = usery.getUid();
+
+        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Notey");
+
         recyclerView = findViewById(R.id.theNotes);
 
         // To display the Recycler view linearly
-        recyclerView.setLayoutManager(
-                new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // It is a class provide by the FirebaseUI to make a
-        // query in the database to fetch appropriate data
+        // It is a class provide by the FirebaseUI to make a query in the database to fetch appropriate data
         FirebaseRecyclerOptions<Notey> options
                 = new FirebaseRecyclerOptions.Builder<Notey>()
                 .setQuery(mbase, Notey.class)

@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,10 +46,14 @@ public class NotesCreate extends AppCompatActivity {
         btnSaveNotes = findViewById(R.id.btnCreate);
         btnCancelNotes = findViewById(R.id.btnCancelNotes);
 
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser usery = auth.getCurrentUser();
+        final String uid = usery.getUid();
+
         btnSaveNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference = FirebaseDatabase.getInstance().getReference().child("Notey").child("Notey" + brojac);
+                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Notey").child("Notey" + brojac);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange( DataSnapshot dataSnapshot) {
