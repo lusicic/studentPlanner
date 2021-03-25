@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".EditCourseActivity"></activity>
+        <activity android:name=".EditNotesActivity"></activity>
         <activity android:name=".NotesActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".MainActivity" />
@@ -30,15 +31,17 @@
             android:name=".CourseAdapter"
             tools:ignore="Instantiatable" />
         <activity android:name=".CourseCreate" />
+        <activity android:name=".Notey"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".NoteyAdapter"
+            tools:ignore="Instantiatable" />
+        <activity android:name=".NotesCreate"/>
         <activity android:name=".LoginUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".EditNotesActivity" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -26,7 +26,6 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
     {
         holder.courseName.setText(String.valueOf(model.getCourseName()));
         holder.examNum.setText(String.valueOf(model.getExamNum()));
-       // holder.keydoes.setText(String.valueOf(model.getKeydoes()));
 
         //dodano za povlacenje iz baze u edit
         final String courseName = String.valueOf(model.getCourseName());

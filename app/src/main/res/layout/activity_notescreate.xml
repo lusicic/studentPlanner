@@ -21,7 +21,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
             android:fontFamily="@font/almendra"
-            android:text="Edit Notes"
+            android:text="Create Notes"
             android:textAlignment="center"
             android:textColor="#FF9800"
             android:textSize="35sp" />
@@ -131,7 +131,7 @@
         android:layout_marginRight="16dp"
         android:background="#FF9800"
         android:shadowColor="#EDE6E6"
-        android:text="Edit and Save"
+        android:text="Save"
         android:textAllCaps="false"
         android:textColor="#1C1C1C"
         android:textColorLink="#FFFFFF"
@@ -145,7 +145,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginRight="16dp"
         android:background="#C8BDBD"
-        android:text="Delete"
+        android:text="Cancel"
         android:textAllCaps="false"
         android:textColor="#776B6B"
         android:textSize="22sp" />

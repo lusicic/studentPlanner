@@ -39,15 +39,14 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
         // "person.class")to appropriate view in Card
         // view (here "person.xml")
         holder.noteTitle.setText(String.valueOf(model.getNoteTitle()));
-
         holder.noteDate.setText(String.valueOf(model.getNoteDate()));
-
         holder.noteDesc.setText(String.valueOf(model.getNoteDesc()));
 
         //dodano za povlacenje iz baze u edit
         final String noteTitle = String.valueOf(model.getNoteTitle());
         final String noteDate = String.valueOf(model.getNoteDate());
         final String noteDesc = String.valueOf(model.getNoteDesc());
+        final String getKey = String.valueOf(model.getKey());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +58,7 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
                     intent.putExtra("noteTitle", String.valueOf(noteTitle));
                     intent.putExtra("noteDate", String.valueOf(noteDate));
                     intent.putExtra("noteDesc", String.valueOf(noteDesc));
+                    intent.putExtra("key", String.valueOf(getKey));
                     v.getContext().startActivity(intent);
 
                 }

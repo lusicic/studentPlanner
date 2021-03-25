@@ -98,7 +98,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnEditSave"
+        android:id="@+id/btnCreate"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="16dp"
@@ -113,7 +113,7 @@
         android:textSize="22sp" />
 
     <Button
-        android:id="@+id/btnDelete"
+        android:id="@+id/btnCancelNotes"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_marginLeft="16dp"

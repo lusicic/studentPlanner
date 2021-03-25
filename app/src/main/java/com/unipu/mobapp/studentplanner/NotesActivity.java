@@ -3,15 +3,19 @@ package com.unipu.mobapp.studentplanner;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 public class NotesActivity extends AppCompatActivity {
+
+    Button btnAdd;
 
     private RecyclerView recyclerView;
     NoteyAdapter adapter; // Create Object of the Adapter class
@@ -22,8 +26,14 @@ public class NotesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notes);
 
-        // Create a instance of the database and get
-        // its reference
+        btnAdd = findViewById(R.id.btnAdd);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NotesActivity.this, NotesCreate.class);
+                startActivity(intent);
+            }
+        });
         mbase = FirebaseDatabase.getInstance().getReference().child("Notey");
         recyclerView = findViewById(R.id.theNotes);
 

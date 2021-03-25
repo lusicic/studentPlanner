@@ -50,7 +50,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/btnAddNew"
+                android:id="@+id/btnAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
