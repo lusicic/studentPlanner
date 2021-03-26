@@ -23,7 +23,7 @@ import java.util.Random;
 
 public class CourseCreate extends AppCompatActivity {
     TextView textView;
-    EditText titleOfCourse, numberOfColloquium;
+    EditText titleOfCourse, numberOfColloquium, numberActivity, numberHomework;
     Button btnSave, btnCancel;
 
     DatabaseReference reference;
@@ -37,9 +37,14 @@ public class CourseCreate extends AppCompatActivity {
         textView = findViewById(R.id.titlepage);
         textView = findViewById(R.id.addtitle);
         textView = findViewById(R.id.addNumber);
+        textView = findViewById(R.id.addActivity);
+        textView = findViewById(R.id.addHomework);
+
 
         numberOfColloquium = (EditText) findViewById(R.id.examNum);
         titleOfCourse = (EditText) findViewById(R.id.courseName);
+        numberActivity = (EditText) findViewById(R.id.numActivity);
+        numberHomework = (EditText) findViewById(R.id.numHomework);
 
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
@@ -60,6 +65,8 @@ public class CourseCreate extends AppCompatActivity {
                     public void onDataChange( DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("courseName").setValue(titleOfCourse.getText().toString());
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(numberOfColloquium.getText())));
+                        dataSnapshot.getRef().child("numActivity").setValue(numberActivity.getText().toString());
+                        dataSnapshot.getRef().child("numHomework").setValue(numberHomework.getText().toString());
                         dataSnapshot.getRef().child("keydoes").setValue(keydoes);
 
                         Intent a = new Intent(CourseCreate.this,CoursesActivity.class);
@@ -71,7 +78,6 @@ public class CourseCreate extends AppCompatActivity {
                 });
             }
         });
-
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override

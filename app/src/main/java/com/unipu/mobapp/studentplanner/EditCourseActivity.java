@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class EditCourseActivity extends AppCompatActivity {
 
-    EditText editTitle, editColloquium;
+    EditText editTitle, editColloquium, editActivity, editHome;
     Button btnEditSave, btnDelete;
     DatabaseReference reference;
     @Override
@@ -32,6 +32,8 @@ public class EditCourseActivity extends AppCompatActivity {
 
         editTitle = findViewById(R.id.editTitle);
         editColloquium = findViewById(R.id.editColloquium);
+        editActivity = findViewById(R.id.editActivity);
+        editHome = findViewById(R.id.editHome);
 
         btnEditSave = findViewById(R.id.btnCreate);
         btnDelete = findViewById(R.id.btnCancelNotes);
@@ -39,6 +41,8 @@ public class EditCourseActivity extends AppCompatActivity {
         //get a value
         editTitle.setText(getIntent().getStringExtra("courseName"));
         editColloquium.setText(getIntent().getStringExtra("examNum"));
+        editHome.setText(getIntent().getStringExtra("numHomework"));
+        editActivity.setText(getIntent().getStringExtra("numActivity"));
 
         final String keykeyDoes = getIntent().getStringExtra("keydoes");
         final FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -75,6 +79,8 @@ public class EditCourseActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("courseName").setValue(editTitle.getText().toString());
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(editColloquium.getText())));
+                        dataSnapshot.getRef().child("numHomework").setValue(editHome.getText().toString());
+                        dataSnapshot.getRef().child("numActivity").setValue(editActivity.getText().toString());
                         dataSnapshot.getRef().child("keydoes").setValue(keykeyDoes);
                         Intent a = new Intent(EditCourseActivity.this,CoursesActivity.class);
                        // CourseCreate.super.onBackPressed();
@@ -86,12 +92,7 @@ public class EditCourseActivity extends AppCompatActivity {
 
                     }
                 });
-
-
             }
         });
-
-
-
   }
 }

@@ -30,6 +30,8 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
         //dodano za povlacenje iz baze u edit
         final String courseName = String.valueOf(model.getCourseName());
         final String examNum = String.valueOf(model.getExamNum());
+        final String numActivity = String.valueOf(model.getNumActivity());
+        final String numHomework = String.valueOf(model.getNumHomework());
         final String getKeyDoes = String.valueOf(model.getKeydoes());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -41,6 +43,8 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
                 //dodano za povlacenje iz baze u edit
                 intent.putExtra("courseName", String.valueOf(courseName));
                 intent.putExtra("examNum", String.valueOf(examNum));
+                intent.putExtra("numActivity", String.valueOf(numActivity));
+                intent.putExtra("numHomework", String.valueOf(numHomework));
                 intent.putExtra("keydoes", String.valueOf(getKeyDoes));
                 v.getContext().startActivity(intent);
             }
@@ -61,7 +65,7 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
 
     class courseViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        TextView courseName, examNum, keydoes;
+        TextView courseName, examNum, keydoes, numActivity, numHomework ;
         public courseViewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -70,6 +74,9 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
 
             courseName = itemView.findViewById(R.id.courseName);
             examNum = itemView.findViewById(R.id.examNum);
+            numHomework = itemView.findViewById(R.id.numHomework);
+            numActivity = itemView.findViewById(R.id.numActivity);
+
         }
 
         @Override
@@ -77,6 +84,8 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
             Intent intent = new Intent (v.getContext(), EditCourseActivity.class);
             intent.putExtra("courseName", String.valueOf(courseName));
             intent.putExtra("examNum", String.valueOf(examNum));
+            intent.putExtra("numHomework", String.valueOf(numHomework));
+            intent.putExtra("numActivity", String.valueOf(numActivity));
             v.getContext().startActivity(intent);
         }
     }

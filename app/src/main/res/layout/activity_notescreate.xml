@@ -32,6 +32,33 @@
             android:layout_marginTop="20dp"
             android:background="#F8F5F5" />
 
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_grey"
+            android:foreground="@drawable/ic_create"
+            android:shadowColor="#EDE6E6"
+            android:textAllCaps="false"
+            android:textColor="#1C1C1C"
+            android:textColorLink="#FFFFFF"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/btnCancelNotes"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="345dp"
+            android:layout_marginTop="-51dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_primary"
+            android:foreground="@drawable/ic_exit"
+            android:textAllCaps="false"
+            android:textColor="#776B6B"
+            android:textSize="22sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -39,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="-40dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
@@ -65,7 +92,7 @@
                 android:id="@+id/editTitle"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:hint="Title of Course"
+                android:hint="Title of notes:"
                 android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
@@ -90,7 +117,7 @@
                 android:id="@+id/editDate"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:hint="Number of Colloquium"
+                android:hint="Add date"
                 android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
@@ -107,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Date"
+                android:text="Description"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
 
@@ -115,39 +142,13 @@
                 android:id="@+id/editDescr"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:hint="Description"
+                android:hint="Add description"
                 android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnCreate"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:background="#FF9800"
-        android:shadowColor="#EDE6E6"
-        android:text="Save"
-        android:textAllCaps="false"
-        android:textColor="#1C1C1C"
-        android:textColorLink="#FFFFFF"
-        android:textSize="22sp" />
 
-    <Button
-        android:id="@+id/btnCancelNotes"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginRight="16dp"
-        android:background="#C8BDBD"
-        android:text="Cancel"
-        android:textAllCaps="false"
-        android:textColor="#776B6B"
-        android:textSize="22sp" />
 
 </LinearLayout>
