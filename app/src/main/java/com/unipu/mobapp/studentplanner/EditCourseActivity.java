@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class EditCourseActivity extends AppCompatActivity {
 
     EditText editTitle, editColloquium, editActivity, editHome;
-    Button btnEditSave, btnDelete;
+    Button btnEditSave, btnDelete, btnTaskCreate;
     DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +92,15 @@ public class EditCourseActivity extends AppCompatActivity {
 
                     }
                 });
+            }
+        });
+
+        btnTaskCreate = (Button) findViewById(R.id.btnTaskCreate);
+        btnTaskCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(EditCourseActivity.this, TaskCreateActivity.class));
+                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });
   }

@@ -39,6 +39,7 @@
             android:name=".NoteyAdapter"
             tools:ignore="Instantiatable" />
         <activity android:name=".NotesCreate" />
+        <activity android:name=".TaskCreateActivity"/>
         <activity android:name=".LoginUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
