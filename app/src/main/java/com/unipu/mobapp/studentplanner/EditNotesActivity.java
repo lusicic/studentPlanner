@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,8 +39,12 @@ public class EditNotesActivity extends AppCompatActivity {
 
         btnEditSave = findViewById(R.id.btnCreate);
         btnDelete = findViewById(R.id.btnCancelNotes);
+
         final String key = getIntent().getStringExtra("key");
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Notey").child("Notey" + key);
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser usery = auth.getCurrentUser();
+        final String uid = usery.getUid();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Notey").child("Notey" + key);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -28,18 +28,46 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="3dp"
             android:layout_marginTop="20dp"
             android:background="#F8F5F5" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_grey"
+            android:foreground="@drawable/ic_create"
+            android:shadowColor="#EDE6E6"
+            android:textAllCaps="false"
+            android:textColor="#1C1C1C"
+            android:textColorLink="#FFFFFF"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="345dp"
+            android:layout_marginTop="-51dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_primary"
+            android:foreground="@drawable/ic_exit"
+            android:textAllCaps="false"
+            android:textColor="#776B6B"
+            android:textSize="22sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="394dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="-40dp"
+        android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
         android:background="#FFFFFF"
         android:orientation="vertical"
@@ -57,7 +85,7 @@
                 android:id="@+id/addtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add Title"
+                android:text="Add title"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
 
@@ -82,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Add Number of Colloquium"
+                android:text="Add number of colloquium"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
 
@@ -90,39 +118,61 @@
                 android:id="@+id/examNum"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:hint="Number of Colloquium"
+                android:hint="Number of colloquium"
+                android:inputType="text"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/addActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Add number of activity:"
+                android:textColor="#FF9800"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/numActivity"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Number of activity:"
+                android:inputType="text"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/addHomework"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Add number of homework:"
+                android:textColor="#FF9800"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/numHomework"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Number of homework:"
                 android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:background="#FF9800"
-        android:shadowColor="#EDE6E6"
-        android:text="Create"
-        android:textAllCaps="false"
-        android:textColor="#1C1C1C"
-        android:textColorLink="#FFFFFF"
-        android:textSize="22sp" />
-
-    <Button
-        android:id="@+id/btnCancel"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginRight="16dp"
-        android:background="#C8BDBD"
-        android:text="Cancel"
-        android:textAllCaps="false"
-        android:textColor="#776B6B"
-        android:textSize="22sp" />
 
 </LinearLayout>

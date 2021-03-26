@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,12 +41,14 @@ public class EditCourseActivity extends AppCompatActivity {
         editColloquium.setText(getIntent().getStringExtra("examNum"));
 
         final String keykeyDoes = getIntent().getStringExtra("keydoes");
-        reference = FirebaseDatabase.getInstance().getReference().child("Course").child("Course" + keykeyDoes);
+        final FirebaseAuth auth = FirebaseAuth.getInstance();
+        final FirebaseUser usery = auth.getCurrentUser();
+        final String uid = usery.getUid();
+        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + keykeyDoes);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              //  DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Course").child("Course-204719274" + keykeyDoes);
                 reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
