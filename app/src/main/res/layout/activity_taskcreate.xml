@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="198dp"
+        android:layout_height="wrap_content"
         android:background="#38363C"
         android:orientation="vertical">
 
@@ -20,23 +20,14 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
-            android:fontFamily="@font/almendra"
+            android:fontFamily="@font/assistant"
             android:text="Create New Task"
             android:textAlignment="center"
             android:textColor="#FF9800"
             android:textSize="35sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#F8F5F5" />
-
-
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/background"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginLeft="16dp"
@@ -58,6 +49,7 @@
                 android:id="@+id/addtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/assistant"
                 android:text="Task Name"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -66,6 +58,7 @@
                 android:id="@+id/courseName"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Task Name"
                 android:inputType="text"
                 android:textColor="#000000" />
@@ -83,6 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/assistant"
                 android:text="Grade Percentage"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -91,16 +85,16 @@
                 android:id="@+id/examNum"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Grade Percentage"
                 android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:background="#38363C"
         android:orientation="vertical">
 
@@ -111,40 +105,41 @@
             android:layout_gravity="left"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
-            android:fontFamily="@font/almendra"
-            android:text="    Task Type"
-            android:textAlignment="textStart"
+            android:fontFamily="@font/assistant"
+            android:text=" Task Type"
             android:textColor="#FF9800"
             android:textSize="20dp" />
 
         <RadioGroup
-            android:layout_width="wrap_content"
+            android:id="@+id/radioGroup"
+            android:layout_width="271dp"
             android:layout_height="wrap_content"
-            android:id="@+id/radioGroup">
+            android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/exam"
-                android:layout_width="wrap_content"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:text="Exam"
+                android:checked="true"
                 android:onClick="checkButton"
-                android:checked="true"/>
+                android:orientation="horizontal"
+                android:text="Exam" />
 
             <RadioButton
                 android:id="@+id/homework"
-                android:layout_width="wrap_content"
+                android:layout_width="114dp"
                 android:layout_height="wrap_content"
-                android:text="Homework"
-                android:onClick="checkButton" />
+                android:onClick="checkButton"
+                android:orientation="horizontal"
+                android:text="Homework" />
 
             <RadioButton
                 android:id="@+id/activity"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
-                android:text="Activity"
-                android:onClick="checkButton" />
+                android:onClick="checkButton"
+                android:text="Activity" />
         </RadioGroup>
-
-
     </LinearLayout>
 
     <LinearLayout
@@ -171,6 +166,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/assistant"
                 android:text="Description:"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -179,9 +175,9 @@
                 android:id="@+id/numHomework"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Description"
                 android:inputType="text"
-
                 android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>

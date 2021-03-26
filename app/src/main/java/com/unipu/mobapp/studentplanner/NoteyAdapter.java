@@ -109,7 +109,7 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
             intent.putExtra("noteTitle", String.valueOf(noteTitle));
             intent.putExtra("noteDate", String.valueOf(noteDate));
             intent.putExtra("noteDesc", String.valueOf(noteDesc));
-                    v.getContext().startActivity(intent);
+            v.getContext().startActivity(intent);
 
         }
        

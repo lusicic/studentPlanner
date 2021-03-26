@@ -55,8 +55,6 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-
-
         btnCalendar = (Button) findViewById(R.id.btnCalendar);
         btnCalendar.setOnClickListener(new View.OnClickListener() {
             @Override

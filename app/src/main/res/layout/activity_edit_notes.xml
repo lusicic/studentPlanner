@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
-            android:fontFamily="@font/almendra"
+            android:fontFamily="@font/assistant"
             android:text="Edit Notes"
             android:textAlignment="center"
             android:textColor="#FF9800"
@@ -57,6 +57,7 @@
                 android:id="@+id/titleTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/assistant"
                 android:text="Title"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -65,6 +66,7 @@
                 android:id="@+id/editTitle"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Title of notes"
                 android:inputType="text"
                 android:textColor="#000000" />
@@ -82,6 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/assistant"
                 android:text="Date"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -90,6 +93,7 @@
                 android:id="@+id/editDate"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Add date"
                 android:inputType="text"
                 android:textColor="#000000" />
@@ -107,6 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/assistant"
                 android:text="Description"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -115,6 +120,7 @@
                 android:id="@+id/editDescr"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Add description"
                 android:inputType="text"
                 android:textColor="#000000" />

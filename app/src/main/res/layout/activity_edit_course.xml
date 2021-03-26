@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
-            android:fontFamily="@font/almendra"
+            android:fontFamily="@font/assistant"
             android:text="Course"
             android:textAlignment="center"
             android:textColor="#FF9800"
@@ -34,6 +34,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="35dp"
         android:clickable="true"
+        android:fontFamily="@font/assistant"
         android:hint="Course"
         android:inputType="text"
         android:singleLine="true"
@@ -61,15 +62,17 @@
                 android:id="@+id/titleColloquium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/assistant"
                 android:text="Colloquium"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
 
             <EditText
                 android:id="@+id/editColloquium"
-                android:layout_alignParentLeft="true"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:fontFamily="@font/assistant"
                 android:hint="Colloquium"
                 android:inputType="text"
                 android:textColor="#000000" />
@@ -83,6 +86,7 @@
                 android:id="@+id/numAct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/assistant"
                 android:text="Activity:"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -91,6 +95,7 @@
                 android:id="@+id/editActivity"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Activity:"
                 android:inputType="text"
                 android:textColor="#000000" />
@@ -99,6 +104,7 @@
                 android:id="@+id/numHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/assistant"
                 android:text="Homework:"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
@@ -107,51 +113,49 @@
                 android:id="@+id/editHome"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:hint="Homework:"
                 android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#38363C"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btnTaskCreate"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/c_button"
-            android:text="CREATE NEW TASK"
-            android:textColor="#FFFFFF" />
-
-    </LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/incoming"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="15dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/round_grey"
         android:gravity="center_horizontal"
         android:text="Incoming tasks:"
         android:textAlignment="center"
         android:textColor="#000000"
-        android:textColorHighlight="#FFC107"
-        android:textSize="16sp" />
+        android:textColorHighlight="#ECEBE9"
+        android:textColorLink="#E6DBDB"
+        android:textSize="19sp" />
+    <Button
+        android:id="@+id/btnTaskCreate"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:foreground="@drawable/ic_new"
+        android:background="@drawable/menu_button"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>
+
     <Button
         android:id="@+id/btnCancelNotes"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginLeft="345dp"
-        android:layout_marginTop="-280dp"
+        android:layout_marginTop="-300dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/round_primary"
         android:foreground="@drawable/ic_delete"

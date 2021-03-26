@@ -52,5 +52,4 @@ public class Notey {
         this.noteDesc = noteDesc;
     }
 
-
 }

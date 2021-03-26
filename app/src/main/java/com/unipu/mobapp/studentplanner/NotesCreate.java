@@ -61,7 +61,12 @@ public class NotesCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("noteDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("noteDesc").setValue(editDesc.getText().toString());
                         dataSnapshot.getRef().child("key").setValue(key);
-                        Intent a = new Intent(NotesCreate.this,CoursesActivity.class);
+                        Intent a = new Intent(NotesCreate.this, NotesActivity.class);
+                       // a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                       // a.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                       // a.putExtra("EXIT", true);
+                       // startActivity(a);
+                       // finish();
                         NotesCreate.super.onBackPressed();
                     }
                     @Override

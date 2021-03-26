@@ -76,7 +76,6 @@ public class CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter
             examNum = itemView.findViewById(R.id.examNum);
             numHomework = itemView.findViewById(R.id.numHomework);
             numActivity = itemView.findViewById(R.id.numActivity);
-
         }
 
         @Override

@@ -110,6 +110,5 @@ public class LoginUser extends AppCompatActivity implements View.OnClickListener
                         }
                     }
                 });
-
     }
 }
