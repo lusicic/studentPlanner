@@ -25,6 +25,40 @@
             android:textAlignment="center"
             android:textColor="#FF9800"
             android:textSize="35sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="20dp"
+            android:background="#F8F5F5" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="280dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_grey"
+            android:foreground="@drawable/ic_create"
+            android:shadowColor="#EDE6E6"
+            android:textAllCaps="false"
+            android:textColor="#1C1C1C"
+            android:textColorLink="#FFFFFF"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="345dp"
+            android:layout_marginTop="-51dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/round_primary"
+            android:foreground="@drawable/ic_exit"
+            android:textAllCaps="false"
+            android:textColor="#776B6B"
+            android:textSize="22sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -55,7 +89,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/courseName"
+                android:id="@+id/taskName"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:fontFamily="@font/assistant"
@@ -82,7 +116,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/examNum"
+                android:id="@+id/grade"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:fontFamily="@font/assistant"
@@ -172,7 +206,7 @@
                 android:textSize="20dp" />
 
             <EditText
-                android:id="@+id/numHomework"
+                android:id="@+id/descript"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:fontFamily="@font/assistant"
