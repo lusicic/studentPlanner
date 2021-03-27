@@ -119,6 +119,7 @@
                 android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
+
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -148,14 +149,33 @@
         android:foreground="@drawable/ic_new"
         android:background="@drawable/menu_button"
         android:textColor="#FFFFFF" />
+
+
 </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/theTasks"
+            android:layout_width="match_parent"
+            android:layout_height="486dp"
+            android:paddingTop="40dp"></androidx.recyclerview.widget.RecyclerView>
+
+
+    </RelativeLayout>
+
+
 
     <Button
         android:id="@+id/btnCancelNotes"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginLeft="345dp"
-        android:layout_marginTop="-300dp"
+        android:layout_marginTop="-650dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/round_primary"
         android:foreground="@drawable/ic_delete"
@@ -176,4 +196,6 @@
         android:textColor="#1C1C1C"
         android:textColorLink="#FFFFFF"
         android:textSize="22sp" />
+
+
 </LinearLayout>

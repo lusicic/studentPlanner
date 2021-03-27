@@ -40,6 +40,8 @@
             tools:ignore="Instantiatable" />
         <activity android:name=".NotesCreate" />
         <activity android:name=".TaskCreateActivity"/>
+        <activity android:name=".Task"/>
+        <activity android:name="TaskAdapter"/>
         <activity android:name=".LoginUser">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
