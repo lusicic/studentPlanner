@@ -12,7 +12,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 
-public class    CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter.courseViewholder> {
+public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapter.courseViewholder> {
 
     public CourseAdapter(@NonNull FirebaseRecyclerOptions<Course> options)
     {

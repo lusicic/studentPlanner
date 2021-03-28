@@ -12,18 +12,15 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 
-public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskViewholder> {
+public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.taskViewholder> {
 
-    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Task> options)
-    {
-        super(options);
-    }
+    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Taskk> options) { super(options); }
 
 
 
 
     @Override
-    protected void onBindViewHolder(@NonNull taskViewholder holder, int position, @NonNull Task model) {
+    protected void onBindViewHolder(@NonNull taskViewholder holder, int position, @NonNull Taskk model) {
 
 
         holder.taskName.setText(String.valueOf(model.getTaskName()));
@@ -35,6 +32,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
         final String grade = String.valueOf(model.getGrade());
         final String descript = String.valueOf(model.getDescript());
         final String getKeytask = String.valueOf(model.getKeytask());
+
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

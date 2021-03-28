@@ -40,7 +40,7 @@
             tools:ignore="Instantiatable" />
         <activity android:name=".NotesCreate" />
 
-        <activity android:name="Task"
+        <activity android:name=".Taskk"
             tools:ignore="Instantiatable" />
         <activity android:name="TaskAdapter"
             tools:ignore="Instantiatable" />

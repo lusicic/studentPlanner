@@ -1,21 +1,21 @@
 package com.unipu.mobapp.studentplanner;
 
-public class Task {
+public class Taskk {
     String taskName;
     Long grade;
     String descript;
-    String keytask;
+    String keydoes;
 
     //trebao bi ga hvatati u recycler kao Course.java ili Notey.java
-    public Task(){
+    public Taskk(){
 
     }
 
-    public Task(String taskName, Long grade, String descript, String keytask) {
+    public Taskk(String taskName, Long grade, String descript, String keydoes) {
         this.taskName = taskName;
         this.grade = grade;
         this.descript = descript;
-        this.keytask = keytask;
+        this.keydoes = keydoes;
     }
 
     public String getTaskName() {
@@ -43,10 +43,10 @@ public class Task {
     }
 
     public String getKeytask() {
-        return keytask;
+        return keydoes;
     }
 
     public void setKeytask(String keytask) {
-        this.keytask = keytask;
+        this.keydoes = keytask;
     }
 }

@@ -33,7 +33,7 @@ public class EditCourseActivity extends AppCompatActivity {
     TaskAdapter adapter;
 
     Integer brojac = new Random().nextInt();
-    String keytask = Integer.toString(brojac);
+    String keydoes = Integer.toString(brojac);
 
     private RecyclerView taskView;
 
@@ -111,6 +111,10 @@ public class EditCourseActivity extends AppCompatActivity {
 
         //   OD OVOG DIJELA SAM DODAVALA NOVO ,ODNOSNO ISPIS KOJI BI TREBAO DOCI U INCOMING....
 
+        final String courseID = getIntent().getExtras().getString("keydoes");
+
+
+
         btnTaskCreate = (Button) findViewById(R.id.btnTaskCreate);
         btnTaskCreate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +126,7 @@ public class EditCourseActivity extends AppCompatActivity {
             }
         });
 
-        reference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course").child("Task");
+        reference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course"+courseID).child("Task").child("Task");
         taskView = findViewById(R.id.theTasks);
 
         // To display the Recycler view linearly
@@ -130,9 +134,9 @@ public class EditCourseActivity extends AppCompatActivity {
         taskView.setLayoutManager(
                 new LinearLayoutManager(this));
 
-        FirebaseRecyclerOptions<com.unipu.mobapp.studentplanner.Task> options
-                = new FirebaseRecyclerOptions.Builder<com.unipu.mobapp.studentplanner.Task>()
-                .setQuery(reference2, com.unipu.mobapp.studentplanner.Task.class)
+        FirebaseRecyclerOptions<Taskk> options
+                = new FirebaseRecyclerOptions.Builder<Taskk>()
+                .setQuery(reference2, Taskk.class)
                 .build();
 
         adapter = new TaskAdapter(options);
