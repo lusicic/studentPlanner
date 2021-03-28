@@ -62,13 +62,14 @@ public class TaskCreateActivity extends AppCompatActivity {
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
+        final String courseID = getIntent().getExtras().getString("keydoes");
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //ovaj dio bi trebao unositi Task unutar postojeceg odabrenog kolegija
-                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Task").child("Task" + brojac);
+                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course"+courseID).child("Task").child("Task" + brojac);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

@@ -115,7 +115,9 @@ public class EditCourseActivity extends AppCompatActivity {
         btnTaskCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(EditCourseActivity.this, TaskCreateActivity.class));
+                Intent newTask = new Intent(EditCourseActivity.this, TaskCreateActivity.class);
+                newTask.putExtra("keydoes", keykeyDoes);
+                startActivity(newTask);
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });
