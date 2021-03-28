@@ -57,13 +57,12 @@ public class EditCourseActivity extends AppCompatActivity {
         editHome.setText(getIntent().getStringExtra("numHomework"));
         editActivity.setText(getIntent().getStringExtra("numActivity"));
 
-
-        final String keydoes = getIntent().getStringExtra("keydoes");
+        final String keykeyDoes = getIntent().getStringExtra("keydoes");
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
+        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + keykeyDoes);
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + keydoes).child("Task").child("Task" + brojac);
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +94,7 @@ public class EditCourseActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(editColloquium.getText())));
                         dataSnapshot.getRef().child("numHomework").setValue(editHome.getText().toString());
                         dataSnapshot.getRef().child("numActivity").setValue(editActivity.getText().toString());
-                        dataSnapshot.getRef().child("keydoes").setValue(keydoes);
+                        dataSnapshot.getRef().child("keydoes").setValue(keykeyDoes);
                         Intent a = new Intent(EditCourseActivity.this, CoursesActivity.class);
                         // CourseCreate.super.onBackPressed();
                         startActivity(a);
