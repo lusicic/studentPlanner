@@ -2,6 +2,7 @@ package com.unipu.mobapp.studentplanner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,28 +59,31 @@ public class TaskCreateActivity extends AppCompatActivity {
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
 
+        taskName.setText(getIntent().getStringExtra("taskName"));
+        grade.setText(getIntent().getStringExtra("grade"));
+        descript.setText(getIntent().getStringExtra("descript"));
+
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
         final String courseID = getIntent().getExtras().getString("keydoes");
 
+        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course"+courseID).child("Task").child("Task" + brojac);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 //ovaj dio bi trebao unositi Task unutar postojeceg odabrenog kolegija
-                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course"+courseID).child("Task").child("Task" + brojac);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-
                         dataSnapshot.getRef().child("taskName").setValue(taskName.getText().toString());
                         dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keytask);
 
-                        Intent a = new Intent(TaskCreateActivity.this, EditCourseActivity.class);
+                        Intent intent = new Intent(TaskCreateActivity.this, EditCourseActivity.class);
                         TaskCreateActivity.super.onBackPressed();
                     }
 
@@ -96,14 +100,11 @@ public class TaskCreateActivity extends AppCompatActivity {
                 TaskCreateActivity.super.onBackPressed();
             }
         });
-
     }
 
     public void checkButton(View V) {
         int radioId = radioGroup.getCheckedRadioButtonId();
         radioButton = findViewById(radioId);
-
         Toast.makeText(this, "Selected " + radioButton.getText(), Toast.LENGTH_SHORT).show();
-
     }
 }

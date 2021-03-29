@@ -40,7 +40,6 @@ public class CourseCreate extends AppCompatActivity {
         textView = findViewById(R.id.addActivity);
         textView = findViewById(R.id.addHomework);
 
-
         numberOfColloquium = (EditText) findViewById(R.id.examNum);
         titleOfCourse = (EditText) findViewById(R.id.courseName);
         numberActivity = (EditText) findViewById(R.id.numActivity);
@@ -68,9 +67,8 @@ public class CourseCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("numActivity").setValue(numberActivity.getText().toString());
                         dataSnapshot.getRef().child("numHomework").setValue(numberHomework.getText().toString());
                         dataSnapshot.getRef().child("keydoes").setValue(keydoes);
-
                         Intent a = new Intent(CourseCreate.this,CoursesActivity.class);
-//                        CourseCreate.super.onBackPressed();
+                        //CourseCreate.super.onBackPressed();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

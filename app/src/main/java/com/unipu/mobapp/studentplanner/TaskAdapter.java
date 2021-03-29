@@ -1,6 +1,7 @@
 package com.unipu.mobapp.studentplanner;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +17,8 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
 
     public TaskAdapter(@NonNull FirebaseRecyclerOptions<Taskk> options) { super(options); }
 
-
-
-
     @Override
     protected void onBindViewHolder(@NonNull taskViewholder holder, int position, @NonNull Taskk model) {
-
 
         holder.taskName.setText(String.valueOf(model.getTaskName()));
         holder.grade.setText(String.valueOf(model.getGrade()));
@@ -31,9 +28,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
         final String taskName = String.valueOf(model.getTaskName());
         final String grade = String.valueOf(model.getGrade());
         final String descript = String.valueOf(model.getDescript());
-        final String getKeytask = String.valueOf(model.getKeytask());
-
-
+        final String getKeyTask = String.valueOf(model.getKeytask());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +40,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
                 intent.putExtra("taskName", String.valueOf(taskName));
                 intent.putExtra("grade", String.valueOf(grade));
                 intent.putExtra("descript", String.valueOf(descript));
-                intent.putExtra("keytask", String.valueOf(getKeytask));
+                intent.putExtra("keytask", String.valueOf(getKeyTask));
                 v.getContext().startActivity(intent);
             }
 
@@ -63,11 +58,9 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
         return new taskViewholder(view);
     }
 
-
-
     class taskViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        TextView taskName, grade, keytask, descript;
+        TextView taskName, grade, descript;
         public taskViewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -77,7 +70,6 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
             taskName = itemView.findViewById(R.id.taskName);
             grade = itemView.findViewById(R.id.grade);
             descript = itemView.findViewById(R.id.descript);
-
         }
 
         @Override
@@ -89,6 +81,4 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
             v.getContext().startActivity(intent);
         }
     }
-
-
 }

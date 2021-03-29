@@ -1,5 +1,8 @@
 package com.unipu.mobapp.studentplanner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Course {
 
     String courseName;
@@ -7,6 +10,7 @@ public class Course {
     String numActivity;
     String numHomework;
     String keydoes;
+    //Taskk task = new Taskk();
 
     public Course() {
     }
@@ -53,4 +57,7 @@ public class Course {
     public void setExamNum(Long examNum) {
         this.examNum = examNum;
     }
+   /* public void setTask(Taskk task){this.task = task; }
+    public Taskk getTask(){return task;}*/
+
 }

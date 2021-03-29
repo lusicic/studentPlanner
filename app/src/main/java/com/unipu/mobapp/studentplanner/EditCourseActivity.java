@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,7 +30,7 @@ public class EditCourseActivity extends AppCompatActivity {
 
     EditText editTitle, editColloquium, editActivity, editHome;
     Button btnEditSave, btnDelete, btnTaskCreate;
-    DatabaseReference reference, reference2;
+    DatabaseReference reference, mBase;
     TaskAdapter adapter;
 
     Integer brojac = new Random().nextInt();
@@ -50,7 +51,6 @@ public class EditCourseActivity extends AppCompatActivity {
         btnEditSave = findViewById(R.id.btnCreate);
         btnDelete = findViewById(R.id.btnCancelNotes);
 
-
         //get a value
         editTitle.setText(getIntent().getStringExtra("courseName"));
         editColloquium.setText(getIntent().getStringExtra("examNum"));
@@ -58,9 +58,12 @@ public class EditCourseActivity extends AppCompatActivity {
         editActivity.setText(getIntent().getStringExtra("numActivity"));
 
         final String keykeyDoes = getIntent().getStringExtra("keydoes");
+
+
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
+
         reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + keykeyDoes);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +85,6 @@ public class EditCourseActivity extends AppCompatActivity {
             }
         });
 
-
         btnEditSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +98,7 @@ public class EditCourseActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("numActivity").setValue(editActivity.getText().toString());
                         dataSnapshot.getRef().child("keydoes").setValue(keykeyDoes);
                         Intent a = new Intent(EditCourseActivity.this, CoursesActivity.class);
-                        // CourseCreate.super.onBackPressed();
+                        //EditCourseActivity.super.onBackPressed();
                         startActivity(a);
                     }
 
@@ -107,13 +109,6 @@ public class EditCourseActivity extends AppCompatActivity {
                 });
             }
         });
-
-
-        //   OD OVOG DIJELA SAM DODAVALA NOVO ,ODNOSNO ISPIS KOJI BI TREBAO DOCI U INCOMING....
-
-        final String courseID = getIntent().getExtras().getString("keydoes");
-
-
 
         btnTaskCreate = (Button) findViewById(R.id.btnTaskCreate);
         btnTaskCreate.setOnClickListener(new View.OnClickListener() {
@@ -126,7 +121,7 @@ public class EditCourseActivity extends AppCompatActivity {
             }
         });
 
-        reference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course"+courseID).child("Task").child("Task");
+        mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + keykeyDoes).child("Task");
         taskView = findViewById(R.id.theTasks);
 
         // To display the Recycler view linearly
@@ -136,9 +131,8 @@ public class EditCourseActivity extends AppCompatActivity {
 
         FirebaseRecyclerOptions<Taskk> options
                 = new FirebaseRecyclerOptions.Builder<Taskk>()
-                .setQuery(reference2, Taskk.class)
+                .setQuery(mBase, Taskk.class)
                 .build();
-
         adapter = new TaskAdapter(options);
         taskView.setAdapter(adapter);
     }

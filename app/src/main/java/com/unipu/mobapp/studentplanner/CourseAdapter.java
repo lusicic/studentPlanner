@@ -1,6 +1,7 @@
 package com.unipu.mobapp.studentplanner;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,7 +66,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
 
     class courseViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        TextView courseName, examNum, keydoes, numActivity, numHomework ;
+        TextView courseName, examNum, numActivity, numHomework ;
         public courseViewholder(@NonNull View itemView)
         {
             super(itemView);

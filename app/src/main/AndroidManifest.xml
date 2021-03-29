@@ -42,7 +42,7 @@
 
         <activity android:name=".Taskk"
             tools:ignore="Instantiatable" />
-        <activity android:name="TaskAdapter"
+        <activity android:name=".TaskAdapter"
             tools:ignore="Instantiatable" />
         <activity android:name=".TaskCreateActivity"/>
         <activity android:name=".LoginUser">
