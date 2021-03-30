@@ -3,6 +3,7 @@ package com.unipu.mobapp.studentplanner;
 public class Taskk {
     String taskName;
     String grade;
+    String taskType;
     String descript;
     String keytask;
 
@@ -11,9 +12,10 @@ public class Taskk {
 
     }
 
-    public Taskk(String taskName, String grade, String descript, String keytask) {
+    public Taskk(String taskName, String grade, String taskType, String descript, String keytask) {
         this.taskName = taskName;
         this.grade = grade;
+        this.taskType = taskType;
         this.descript = descript;
         this.keytask = keytask;
     }
@@ -32,6 +34,14 @@ public class Taskk {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getTaskType() {
+        return taskType;
+    }
+
+    public void setTaskType(String taskType) {
+        this.taskType = taskType;
     }
 
     public String getDescript() {

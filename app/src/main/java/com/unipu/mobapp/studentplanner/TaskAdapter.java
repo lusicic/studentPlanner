@@ -27,6 +27,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
         //dodano za povlacenje iz baze u edit
         final String taskName = String.valueOf(model.getTaskName());
         final String grade = String.valueOf(model.getGrade());
+        final String taskType = String.valueOf(model.getTaskType());
         final String descript = String.valueOf(model.getDescript());
         final String getKeyTask = String.valueOf(model.getKeytask());
 
@@ -39,6 +40,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
                 //dodano za povlacenje iz baze u edit
                 intent.putExtra("taskName", String.valueOf(taskName));
                 intent.putExtra("grade", String.valueOf(grade));
+                intent.putExtra("taskType", String.valueOf(taskType));
                 intent.putExtra("descript", String.valueOf(descript));
                 intent.putExtra("keytask", String.valueOf(getKeyTask));
                 v.getContext().startActivity(intent);
@@ -60,7 +62,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
 
     class taskViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        TextView taskName, grade, descript;
+        TextView taskName, grade, taskType, descript;
         public taskViewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -69,6 +71,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
 
             taskName = itemView.findViewById(R.id.taskName);
             grade = itemView.findViewById(R.id.grade);
+            taskType = itemView.findViewById(R.id.taskType);
             descript = itemView.findViewById(R.id.descript);
         }
 
@@ -77,6 +80,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
             Intent intent = new Intent (v.getContext(), TaskCreateActivity.class);
             intent.putExtra("taskName", String.valueOf(taskName));
             intent.putExtra("grade", String.valueOf(grade));
+            intent.putExtra("taskType", String.valueOf(taskType));
             intent.putExtra("descript", String.valueOf(descript));
             v.getContext().startActivity(intent);
         }

@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +28,7 @@ import java.util.Random;
 public class TaskCreateActivity extends AppCompatActivity {
 
     RadioGroup radioGroup;
-    RadioButton radioButton;
+    RadioButton rbtnTaskType;
     Button btnSave, btnCancel;
 
     TextView textView;
@@ -36,6 +37,8 @@ public class TaskCreateActivity extends AppCompatActivity {
     DatabaseReference reference;
     Integer brojac = new Random().nextInt();
     String keytask = Integer.toString(brojac);
+
+    private String taskType = "";
 
 
     @Override
@@ -50,7 +53,7 @@ public class TaskCreateActivity extends AppCompatActivity {
         textView = findViewById(R.id.addHomework);
 
         radioGroup = findViewById(R.id.radioGroup);
-        radioButton = findViewById(R.id.radioButton);
+        //radioButton = findViewById(R.id.radioButton);
 
         taskName = (EditText) findViewById(R.id.taskName);
         grade = (EditText) findViewById(R.id.grade);
@@ -62,6 +65,9 @@ public class TaskCreateActivity extends AppCompatActivity {
         taskName.setText(getIntent().getStringExtra("taskName"));
         grade.setText(getIntent().getStringExtra("grade"));
         descript.setText(getIntent().getStringExtra("descript"));
+
+        rbtnTaskType = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
+        taskType = rbtnTaskType.getText().toString();
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
@@ -80,6 +86,7 @@ public class TaskCreateActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("taskName").setValue(taskName.getText().toString());
                         dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
+                        dataSnapshot.getRef().child("taskType").setValue(taskType);
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keytask);
 
@@ -100,11 +107,24 @@ public class TaskCreateActivity extends AppCompatActivity {
                 TaskCreateActivity.super.onBackPressed();
             }
         });
+
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+                switch (i){
+                    case R.id.exam:
+                        taskType = "exam";
+                        break;
+                    case R.id.homework:
+                        taskType = "homework";
+                        break;
+                    case R.id.activity:
+                        taskType = "activity";
+                        break;
+                }
+            }
+        });
     }
 
-    public void checkButton(View V) {
-        int radioId = radioGroup.getCheckedRadioButtonId();
-        radioButton = findViewById(radioId);
-        Toast.makeText(this, "Selected " + radioButton.getText(), Toast.LENGTH_SHORT).show();
-    }
+
 }
