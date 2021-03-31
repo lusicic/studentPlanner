@@ -26,6 +26,7 @@
         <activity android:name=".StatisticActivity" />
         <activity android:name=".CoursesActivity" />
         <activity android:name=".CalendarActivity" />
+        <activity android:name=".EditTaskActivity" />
         <activity
             android:name=".Course"
             tools:ignore="Instantiatable" />
