@@ -68,7 +68,7 @@ public class CourseCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("numHomework").setValue(numberHomework.getText().toString());
                         dataSnapshot.getRef().child("keydoes").setValue(keydoes);
                         Intent a = new Intent(CourseCreate.this,CoursesActivity.class);
-                        //CourseCreate.super.onBackPressed();
+                        CourseCreate.super.onBackPressed();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
