@@ -36,7 +36,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent (v.getContext(), TaskCreateActivity.class);
+                Intent intent = new Intent (v.getContext(), EditTaskActivity.class);
 
                 //dodano za povlacenje iz baze u edit
                 intent.putExtra("taskName", String.valueOf(taskName));
@@ -80,13 +80,15 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent (v.getContext(), TaskCreateActivity.class);
+            Intent intent = new Intent (v.getContext(), EditTaskActivity.class);
             intent.putExtra("taskName", String.valueOf(taskName));
             intent.putExtra("grade", String.valueOf(grade));
             intent.putExtra("taskType", String.valueOf(taskType));
             intent.putExtra("editDate", String.valueOf(editDate));
             intent.putExtra("descript", String.valueOf(descript));
+
             v.getContext().startActivity(intent);
+
         }
     }
 }
