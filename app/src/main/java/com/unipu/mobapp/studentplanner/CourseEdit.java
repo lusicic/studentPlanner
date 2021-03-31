@@ -131,7 +131,7 @@ public class CourseEdit extends AppCompatActivity {
                 = new FirebaseRecyclerOptions.Builder<Task>()
                 .setQuery(mBase, Task.class)
                 .build();
-        adapter = new TaskAdapter(options);
+        adapter = new TaskAdapter(options, keykeyDoes);
         taskView.setAdapter(adapter);
     }
 

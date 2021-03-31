@@ -52,7 +52,8 @@ public class TaskEdit extends AppCompatActivity {
         descript.setText(getIntent().getStringExtra("descript"));
 
         final String keykey = getIntent().getStringExtra("keytask");
-        final String courseID = getIntent().getExtras().getString("keydoes");
+
+        final String courseID = getIntent().getStringExtra("courseID");
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();

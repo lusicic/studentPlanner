@@ -14,7 +14,12 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskViewholder> {
 
-    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Task> options) { super(options); }
+    private final String data;
+
+    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Task> options, String data) {
+        super(options);
+        this.data = data;
+    }
 
     @Override
     protected void onBindViewHolder(@NonNull taskViewholder holder, int position, @NonNull Task model) {
@@ -44,6 +49,8 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
                 intent.putExtra("descript", String.valueOf(descript));
                 intent.putExtra("editDate", String.valueOf(editDate));
                 intent.putExtra("keytask", String.valueOf(getKeyTask));
+                intent.putExtra("courseID", String.valueOf(data));
+
                 v.getContext().startActivity(intent);
             }
 
@@ -57,13 +64,15 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
     {
         View view
                 = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.task, parent, false);
+                        .inflate(R.layout.task, parent, false);
         return new taskViewholder(view);
     }
 
     class taskViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
         TextView taskName, grade, taskType, descript, editDate;
+        String courseID ="1522667365";
+
         public taskViewholder(@NonNull View itemView)
         {
             super(itemView);
