@@ -15,18 +15,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ScheduleActivity"></activity>
-        <activity android:name=".EditCourseActivity" />
-        <activity android:name=".EditTaskActivity"/>
-        <activity android:name=".EditNotesActivity" />
+        <activity android:name=".CourseEdit" />
+        <activity android:name=".TaskEdit"/>
+        <activity android:name=".NotesEdit" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SignupUser" />
-        <activity android:name=".ForgotActivity" />
+        <activity android:name=".UserSignup" />
+        <activity android:name=".UserForgotPass" />
         <activity android:name=".StatisticActivity" />
-        <activity android:name=".CoursesActivity" />
+        <activity android:name=".CoursesMenu" />
         <activity android:name=".CalendarActivity" />
-        <activity android:name=".EditTaskActivity" />
+
         <activity
             android:name=".Course"
             tools:ignore="Instantiatable" />
@@ -35,19 +34,19 @@
             tools:ignore="Instantiatable" />
         <activity android:name=".CourseCreate" />
         <activity
-            android:name=".Notey"
+            android:name=".Note"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".NoteyAdapter"
+            android:name=".NoteAdapter"
             tools:ignore="Instantiatable" />
         <activity android:name=".NotesCreate" />
 
-        <activity android:name=".Taskk"
+        <activity android:name=".Task"
             tools:ignore="Instantiatable" />
         <activity android:name=".TaskAdapter"
             tools:ignore="Instantiatable" />
-        <activity android:name=".TaskCreateActivity"/>
-        <activity android:name=".LoginUser">
+        <activity android:name=".TaskCreate"/>
+        <activity android:name=".UserLogin">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

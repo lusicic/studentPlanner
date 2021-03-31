@@ -20,7 +20,7 @@ public class NotesActivity extends AppCompatActivity {
     Button btnAdd;
 
     private RecyclerView recyclerView;
-    NoteyAdapter adapter; // Create Object of the Adapter class
+    NoteAdapter adapter; // Create Object of the Adapter class
     DatabaseReference mbase; // Create object of the
 
     @Override
@@ -41,7 +41,7 @@ public class NotesActivity extends AppCompatActivity {
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
-        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Notey");
+        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Note");
 
         recyclerView = findViewById(R.id.theNotes);
 
@@ -49,13 +49,13 @@ public class NotesActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // It is a class provide by the FirebaseUI to make a query in the database to fetch appropriate data
-        FirebaseRecyclerOptions<Notey> options
-                = new FirebaseRecyclerOptions.Builder<Notey>()
-                .setQuery(mbase, Notey.class)
+        FirebaseRecyclerOptions<Note> options
+                = new FirebaseRecyclerOptions.Builder<Note>()
+                .setQuery(mbase, Note.class)
                 .build();
         // Connecting object of required Adapter class to
         // the Adapter class itself
-        adapter = new NoteyAdapter(options);
+        adapter = new NoteAdapter(options);
         // Connecting Adapter class with the Recycler view*/
         recyclerView.setAdapter(adapter);
     }

@@ -1,6 +1,6 @@
 package com.unipu.mobapp.studentplanner;
 
-public class Taskk {
+public class Task {
     String taskName;
     String grade;
     String taskType;
@@ -8,12 +8,12 @@ public class Taskk {
     String keytask;
     String editDate;
 
-    //trebao bi ga hvatati u recycler kao Course.java ili Notey.java
-    public Taskk(){
+    //trebao bi ga hvatati u recycler kao Course.java ili Note.java
+    public Task(){
 
     }
 
-    public Taskk(String taskName, String grade, String taskType, String descript, String keytask, String editDate) {
+    public Task(String taskName, String grade, String taskType, String descript, String keytask, String editDate) {
         this.taskName = taskName;
         this.grade = grade;
         this.taskType = taskType;

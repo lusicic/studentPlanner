@@ -1,7 +1,6 @@
 package com.unipu.mobapp.studentplanner;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +12,12 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 
-public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.taskViewholder> {
+public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskViewholder> {
 
-    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Taskk> options) { super(options); }
+    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Task> options) { super(options); }
 
     @Override
-    protected void onBindViewHolder(@NonNull taskViewholder holder, int position, @NonNull Taskk model) {
+    protected void onBindViewHolder(@NonNull taskViewholder holder, int position, @NonNull Task model) {
 
         holder.taskName.setText(String.valueOf(model.getTaskName()));
         holder.grade.setText(String.valueOf(model.getGrade()));
@@ -36,7 +35,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent (v.getContext(), EditTaskActivity.class);
+                Intent intent = new Intent (v.getContext(), TaskEdit.class);
 
                 //dodano za povlacenje iz baze u edit
                 intent.putExtra("taskName", String.valueOf(taskName));
@@ -80,7 +79,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent (v.getContext(), EditTaskActivity.class);
+            Intent intent = new Intent (v.getContext(), TaskEdit.class);
             intent.putExtra("taskName", String.valueOf(taskName));
             intent.putExtra("grade", String.valueOf(grade));
             intent.putExtra("taskType", String.valueOf(taskType));

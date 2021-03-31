@@ -1,7 +1,6 @@
 package com.unipu.mobapp.studentplanner;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +38,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent (v.getContext(), EditCourseActivity.class);
+                Intent intent = new Intent (v.getContext(), CourseEdit.class);
 
                 //dodano za povlacenje iz baze u edit
                 intent.putExtra("courseName", String.valueOf(courseName));
@@ -81,7 +80,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent (v.getContext(), EditCourseActivity.class);
+            Intent intent = new Intent (v.getContext(), CourseEdit.class);
             intent.putExtra("courseName", String.valueOf(courseName));
             intent.putExtra("examNum", String.valueOf(examNum));
             intent.putExtra("numHomework", String.valueOf(numHomework));

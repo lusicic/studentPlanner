@@ -3,7 +3,6 @@ package com.unipu.mobapp.studentplanner;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -27,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 
 
-public class EditNotesActivity extends AppCompatActivity {
+public class NotesEdit extends AppCompatActivity {
 
     EditText editTitle, editDate, editDescr;
     Button btnEditSave, btnDelete;
@@ -48,7 +47,7 @@ public class EditNotesActivity extends AppCompatActivity {
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(EditNotesActivity.this,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(NotesEdit.this,
                         android.R.style.Theme_Material_Dialog_NoActionBar,
                         onDateSetListener, year, month, day);
                 datePickerDialog.getWindow();
@@ -74,7 +73,7 @@ public class EditNotesActivity extends AppCompatActivity {
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Notey").child("Notey" + key);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Note").child("Note" + key);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,11 +82,11 @@ public class EditNotesActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(EditNotesActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(EditNotesActivity.this, NotesActivity.class);
+                            Toast.makeText(NotesEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(NotesEdit.this, NotesActivity.class);
                             startActivity(intent);
                         }else {
-                            Toast.makeText(EditNotesActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(NotesEdit.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -102,7 +101,7 @@ public class EditNotesActivity extends AppCompatActivity {
                         snapshot.getRef().child("noteTitle").setValue(editTitle.getText().toString());
                         snapshot.getRef().child("noteDate").setValue(editDate.getText().toString());
                         snapshot.getRef().child("noteDesc").setValue(editDescr.getText().toString());
-                        Intent intent = new Intent(EditNotesActivity.this, NotesActivity.class);
+                        Intent intent = new Intent(NotesEdit.this, NotesActivity.class);
                         startActivity(intent);
                     }
 

@@ -1,9 +1,6 @@
 package com.unipu.mobapp.studentplanner;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-import java.io.Serializable;
-
 // FirebaseRecyclerAdapter is a class provided by
 // FirebaseUI. it provides functions to bind, adapt and show
 // database contents in a Recycler View
-public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.noteyViewholder> {
+public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.noteyViewholder> {
 
-    public NoteyAdapter(
-            @NonNull FirebaseRecyclerOptions<Notey> options)
+    public NoteAdapter(
+            @NonNull FirebaseRecyclerOptions<Note> options)
     {
         super(options);
     }
@@ -32,7 +27,7 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
     @Override
     protected void
     onBindViewHolder(@NonNull final noteyViewholder holder,
-                     int position, @NonNull Notey model)
+                     int position, @NonNull Note model)
     {
 
         // Add firstname from model class (here
@@ -52,7 +47,7 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
             @Override
             public void onClick(View v) {
 
-                    Intent intent = new Intent (v.getContext(), EditNotesActivity.class);
+                    Intent intent = new Intent (v.getContext(), NotesEdit.class);
 
                     //dodano za povlacenje iz baze u edit
                     intent.putExtra("noteTitle", String.valueOf(noteTitle));
@@ -103,7 +98,7 @@ public class NoteyAdapter extends FirebaseRecyclerAdapter<Notey, NoteyAdapter.no
 // zbog class noteyViewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent (v.getContext(), EditNotesActivity.class);
+            Intent intent = new Intent (v.getContext(), NotesEdit.class);
 
             //dodano za povlacenje iz baze u edit
             intent.putExtra("noteTitle", String.valueOf(noteTitle));

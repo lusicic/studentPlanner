@@ -10,7 +10,7 @@ public class Course {
     String numActivity;
     String numHomework;
     String keydoes;
-    //Taskk task = new Taskk();
+    //Task task = new Task();
 
     public Course() {
     }
@@ -57,7 +57,7 @@ public class Course {
     public void setExamNum(Long examNum) {
         this.examNum = examNum;
     }
-   /* public void setTask(Taskk task){this.task = task; }
-    public Taskk getTask(){return task;}*/
+   /* public void setTask(Task task){this.task = task; }
+    public Task getTask(){return task;}*/
 
 }

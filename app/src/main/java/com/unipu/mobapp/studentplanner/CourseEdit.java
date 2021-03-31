@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +14,6 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Random;
 
-public class EditCourseActivity extends AppCompatActivity {
+public class CourseEdit extends AppCompatActivity {
 
     EditText editTitle, editColloquium, editActivity, editHome;
     Button btnEditSave, btnDelete, btnTaskCreate;
@@ -71,14 +69,14 @@ public class EditCourseActivity extends AppCompatActivity {
             public void onClick(View v) {
                 reference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public void onComplete(@NonNull Task<Void> task) {
+                    public void onComplete(@NonNull com.google.android.gms.tasks.Task task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(EditCourseActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(EditCourseActivity.this, CoursesActivity.class);
+                            Toast.makeText(CourseEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(CourseEdit.this, CoursesMenu.class);
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(EditCourseActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(CourseEdit.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -97,8 +95,8 @@ public class EditCourseActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("numHomework").setValue(editHome.getText().toString());
                         dataSnapshot.getRef().child("numActivity").setValue(editActivity.getText().toString());
                         dataSnapshot.getRef().child("keydoes").setValue(keykeyDoes);
-                        Intent a = new Intent(EditCourseActivity.this, CoursesActivity.class);
-                        //EditCourseActivity.super.onBackPressed();
+                        Intent a = new Intent(CourseEdit.this, CoursesMenu.class);
+                        //CourseEdit.super.onBackPressed();
                         startActivity(a);
                     }
 
@@ -114,7 +112,7 @@ public class EditCourseActivity extends AppCompatActivity {
         btnTaskCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent newTask = new Intent(EditCourseActivity.this, TaskCreateActivity.class);
+                Intent newTask = new Intent(CourseEdit.this, TaskCreate.class);
                 newTask.putExtra("keydoes", keykeyDoes);
                 startActivity(newTask);
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
@@ -129,9 +127,9 @@ public class EditCourseActivity extends AppCompatActivity {
         taskView.setLayoutManager(
                 new LinearLayoutManager(this));
 
-        FirebaseRecyclerOptions<Taskk> options
-                = new FirebaseRecyclerOptions.Builder<Taskk>()
-                .setQuery(mBase, Taskk.class)
+        FirebaseRecyclerOptions<Task> options
+                = new FirebaseRecyclerOptions.Builder<Task>()
+                .setQuery(mBase, Task.class)
                 .build();
         adapter = new TaskAdapter(options);
         taskView.setAdapter(adapter);

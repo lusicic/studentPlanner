@@ -2,7 +2,7 @@ package com.unipu.mobapp.studentplanner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Notey {
+public class Note {
 
         String noteTitle;
         String noteDate;
@@ -11,9 +11,9 @@ public class Notey {
 
     // Mandatory empty constructor
     // for use of FirebaseUI
-    public Notey() {}
+    public Note() {}
 
-    public Notey(String noteTitle, String noteDesc, String noteDate, String key){
+    public Note(String noteTitle, String noteDesc, String noteDate, String key){
         this.noteTitle = noteTitle;
         this.noteDate = noteDate;
         this.noteDesc = noteDesc;

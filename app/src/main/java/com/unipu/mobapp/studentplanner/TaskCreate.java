@@ -26,7 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Calendar;
 import java.util.Random;
 
-public class TaskCreateActivity extends AppCompatActivity {
+public class TaskCreate extends AppCompatActivity {
 
     RadioGroup radioGroup;
     RadioButton rbtnTaskType;
@@ -62,7 +62,7 @@ public class TaskCreateActivity extends AppCompatActivity {
                 int year = cal.get(Calendar.YEAR);
                 int month = cal.get(Calendar.MONTH);
                 int day = cal.get(Calendar.DAY_OF_MONTH);
-                DatePickerDialog datePickerDialog = new DatePickerDialog(TaskCreateActivity.this,
+                DatePickerDialog datePickerDialog = new DatePickerDialog(TaskCreate.this,
                         android.R.style.Theme_Material_Dialog_NoActionBar,
                         onDateSetListener, year, month, day);
                 datePickerDialog.getWindow();
@@ -117,8 +117,8 @@ public class TaskCreateActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keytask);
 
-                        Intent intent = new Intent(TaskCreateActivity.this, EditCourseActivity.class);
-                        TaskCreateActivity.super.onBackPressed();
+                        Intent intent = new Intent(TaskCreate.this, CourseEdit.class);
+                        TaskCreate.super.onBackPressed();
                     }
 
                     @Override
@@ -131,7 +131,7 @@ public class TaskCreateActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TaskCreateActivity.super.onBackPressed();
+                TaskCreate.super.onBackPressed();
             }
         });
 

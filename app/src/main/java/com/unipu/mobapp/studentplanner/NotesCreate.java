@@ -78,7 +78,7 @@ public class NotesCreate extends AppCompatActivity {
         btnSaveNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Notey").child("Notey" + brojac);
+                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Note").child("Note" + brojac);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange( DataSnapshot dataSnapshot) {

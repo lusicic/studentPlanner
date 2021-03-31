@@ -23,7 +23,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(MenuActivity.this, LoginUser.class));
+                startActivity(new Intent(MenuActivity.this, UserLogin.class));
                 overridePendingTransition(R.anim.activity_anim_two, R.anim.activity_anim_two);
             }
         });
@@ -41,7 +41,7 @@ public class MenuActivity extends AppCompatActivity {
         btnCourses.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, CoursesActivity.class));
+                startActivity(new Intent(MenuActivity.this, CoursesMenu.class));
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });

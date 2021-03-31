@@ -19,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignupUser extends AppCompatActivity implements View.OnClickListener{
+public class UserSignup extends AppCompatActivity implements View.OnClickListener{
 
     private TextView signup, banner;
     private EditText editTextEmail, editTextPassword;
@@ -50,7 +50,7 @@ public class SignupUser extends AppCompatActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.txtBanner:
-                startActivity(new Intent(this, LoginUser.class));
+                startActivity(new Intent(this, UserLogin.class));
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
                 break;
 
@@ -105,17 +105,17 @@ public class SignupUser extends AppCompatActivity implements View.OnClickListene
                                 public void onComplete(@NonNull Task<Void> task) {
 
                                     if(task.isSuccessful()){
-                                        Toast.makeText(SignupUser.this, "User has been successfully", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(UserSignup.this, "User has been successfully", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                     else{
-                                        Toast.makeText(SignupUser.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(UserSignup.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             });
                         }else{
-                            Toast.makeText(SignupUser.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
+                            Toast.makeText(UserSignup.this, "Sign up failed! Try again", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

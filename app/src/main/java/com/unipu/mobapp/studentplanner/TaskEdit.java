@@ -2,18 +2,14 @@ package com.unipu.mobapp.studentplanner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Random;
 
-public class EditTaskActivity extends AppCompatActivity {
+public class TaskEdit extends AppCompatActivity {
 
     EditText taskName, grade, descript, editDate;
     Button btnEdit, buttonDelete;
@@ -71,12 +67,12 @@ public class EditTaskActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(EditTaskActivity.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(EditTaskActivity.this, CoursesActivity.class);
+                            Toast.makeText(TaskEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(TaskEdit.this, CoursesMenu.class);
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(EditTaskActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(TaskEdit.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -95,8 +91,8 @@ public class EditTaskActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
                         dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keykey);
-                        Intent a = new Intent(EditTaskActivity.this, CoursesActivity.class);
-                        //EditCourseActivity.super.onBackPressed();
+                        Intent a = new Intent(TaskEdit.this, CoursesMenu.class);
+                        //CourseEdit.super.onBackPressed();
                         startActivity(a);
                     }
 

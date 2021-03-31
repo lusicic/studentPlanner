@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#47444C"
     android:orientation="vertical"
-    tools:context=".EditCourseActivity">
+    tools:context=".CourseEdit">
 
     <LinearLayout
         android:layout_width="match_parent"
