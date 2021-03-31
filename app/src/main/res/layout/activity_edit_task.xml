@@ -21,7 +21,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
             android:fontFamily="@font/assistant"
-            android:text="Create New Task"
+            android:text="New"
             android:textAlignment="center"
             android:textColor="#FF9800"
             android:textSize="35sp" />

@@ -16,6 +16,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ScheduleActivity"></activity>
         <activity android:name=".EditCourseActivity" />
+        <activity android:name=".EditTaskActivity"/>
         <activity android:name=".EditNotesActivity" />
         <activity android:name=".NotesActivity" />
         <activity android:name=".MenuActivity" />

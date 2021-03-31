@@ -3,7 +3,6 @@ package com.unipu.mobapp.studentplanner;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -11,7 +10,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
@@ -86,8 +84,8 @@ public class TaskCreateActivity extends AppCompatActivity {
         descript = (EditText) findViewById(R.id.descript);
         editDate = (EditText) findViewById(R.id.editDate);
 
-        btnSave = findViewById(R.id.btnSave);
-        btnCancel = findViewById(R.id.btnCancel);
+        btnSave = findViewById(R.id.btnEdit);
+        btnCancel = findViewById(R.id.buttonDelete);
 
         taskName.setText(getIntent().getStringExtra("taskName"));
         grade.setText(getIntent().getStringExtra("grade"));

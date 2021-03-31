@@ -45,8 +45,8 @@ public class CourseCreate extends AppCompatActivity {
         numberActivity = (EditText) findViewById(R.id.numActivity);
         numberHomework = (EditText) findViewById(R.id.numHomework);
 
-        btnSave = findViewById(R.id.btnSave);
-        btnCancel = findViewById(R.id.btnCancel);
+        btnSave = findViewById(R.id.btnEdit);
+        btnCancel = findViewById(R.id.buttonDelete);
 
         //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         //final String userId = String.valueOf(user);
