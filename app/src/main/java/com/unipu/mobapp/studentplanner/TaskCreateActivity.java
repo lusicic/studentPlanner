@@ -1,10 +1,12 @@
 package com.unipu.mobapp.studentplanner;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Calendar;
 import java.util.Random;
 
 public class TaskCreateActivity extends AppCompatActivity {
@@ -31,8 +34,9 @@ public class TaskCreateActivity extends AppCompatActivity {
     RadioButton rbtnTaskType;
     Button btnSave, btnCancel;
 
-    TextView textView;
-    EditText taskName, grade, descript;
+    TextView textView, addDateCalendar;
+    EditText taskName, grade, descript, editDate;
+    private DatePickerDialog.OnDateSetListener onDateSetListener;
 
     DatabaseReference reference;
     Integer brojac = new Random().nextInt();
@@ -51,13 +55,36 @@ public class TaskCreateActivity extends AppCompatActivity {
         textView = findViewById(R.id.addNumber);
         textView = findViewById(R.id.tasktype);
         textView = findViewById(R.id.addHomework);
+        addDateCalendar = (TextView) findViewById(R.id.addDate);
 
+        addDateCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(TaskCreateActivity.this,
+                        android.R.style.Theme_Material_Dialog_NoActionBar,
+                        onDateSetListener, year, month, day);
+                datePickerDialog.getWindow();
+                datePickerDialog.show();
+            }
+        });
+        onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                String date = dayOfMonth + "/" + (month+1) + "/" + year;
+                editDate.setText(date);
+            }
+        };
         radioGroup = findViewById(R.id.radioGroup);
         //radioButton = findViewById(R.id.radioButton);
 
         taskName = (EditText) findViewById(R.id.taskName);
         grade = (EditText) findViewById(R.id.grade);
         descript = (EditText) findViewById(R.id.descript);
+        editDate = (EditText) findViewById(R.id.editDate);
 
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
@@ -65,6 +92,7 @@ public class TaskCreateActivity extends AppCompatActivity {
         taskName.setText(getIntent().getStringExtra("taskName"));
         grade.setText(getIntent().getStringExtra("grade"));
         descript.setText(getIntent().getStringExtra("descript"));
+        editDate.setText(getIntent().getStringExtra("editDate"));
 
         rbtnTaskType = (RadioButton) findViewById(radioGroup.getCheckedRadioButtonId());
         taskType = rbtnTaskType.getText().toString();
@@ -88,6 +116,7 @@ public class TaskCreateActivity extends AppCompatActivity {
                         dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
                         dataSnapshot.getRef().child("taskType").setValue(taskType);
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());
+                        dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keytask);
 
                         Intent intent = new Intent(TaskCreateActivity.this, EditCourseActivity.class);
@@ -125,6 +154,4 @@ public class TaskCreateActivity extends AppCompatActivity {
             }
         });
     }
-
-
 }

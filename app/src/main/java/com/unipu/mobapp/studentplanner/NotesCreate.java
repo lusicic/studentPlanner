@@ -42,6 +42,7 @@ public class NotesCreate extends AppCompatActivity {
         textView = findViewById(R.id.titleTitle);
         textView = findViewById(R.id.titleDescr);
         addDateCalendar = (TextView) findViewById(R.id.titleDate);
+
         addDateCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

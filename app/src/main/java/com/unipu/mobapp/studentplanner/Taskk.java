@@ -6,18 +6,20 @@ public class Taskk {
     String taskType;
     String descript;
     String keytask;
+    String editDate;
 
     //trebao bi ga hvatati u recycler kao Course.java ili Notey.java
     public Taskk(){
 
     }
 
-    public Taskk(String taskName, String grade, String taskType, String descript, String keytask) {
+    public Taskk(String taskName, String grade, String taskType, String descript, String keytask, String editDate) {
         this.taskName = taskName;
         this.grade = grade;
         this.taskType = taskType;
         this.descript = descript;
         this.keytask = keytask;
+        this.editDate = editDate;
     }
 
     public String getTaskName() {
@@ -59,4 +61,6 @@ public class Taskk {
     public void setKeytask(String keytask) {
         this.keytask = keytask;
     }
+    public void setEditDate(String editDate){this.editDate = editDate;}
+    public String getEditDate(){return editDate; }
 }

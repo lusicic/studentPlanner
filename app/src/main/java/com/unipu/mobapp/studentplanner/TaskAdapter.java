@@ -29,6 +29,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
         final String grade = String.valueOf(model.getGrade());
         final String taskType = String.valueOf(model.getTaskType());
         final String descript = String.valueOf(model.getDescript());
+        final String editDate = String.valueOf(model.getEditDate());
         final String getKeyTask = String.valueOf(model.getKeytask());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
                 intent.putExtra("grade", String.valueOf(grade));
                 intent.putExtra("taskType", String.valueOf(taskType));
                 intent.putExtra("descript", String.valueOf(descript));
+                intent.putExtra("editDate", String.valueOf(editDate));
                 intent.putExtra("keytask", String.valueOf(getKeyTask));
                 v.getContext().startActivity(intent);
             }
@@ -62,7 +64,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
 
     class taskViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        TextView taskName, grade, taskType, descript;
+        TextView taskName, grade, taskType, descript, editDate;
         public taskViewholder(@NonNull View itemView)
         {
             super(itemView);
@@ -72,6 +74,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
             taskName = itemView.findViewById(R.id.taskName);
             grade = itemView.findViewById(R.id.grade);
             taskType = itemView.findViewById(R.id.taskType);
+            editDate = itemView.findViewById(R.id.editDate);
             descript = itemView.findViewById(R.id.descript);
         }
 
@@ -81,6 +84,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Taskk, TaskAdapter.task
             intent.putExtra("taskName", String.valueOf(taskName));
             intent.putExtra("grade", String.valueOf(grade));
             intent.putExtra("taskType", String.valueOf(taskType));
+            intent.putExtra("editDate", String.valueOf(editDate));
             intent.putExtra("descript", String.valueOf(descript));
             v.getContext().startActivity(intent);
         }
