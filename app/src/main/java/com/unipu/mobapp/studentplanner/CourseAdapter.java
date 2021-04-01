@@ -32,7 +32,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
         final String examNum = String.valueOf(model.getExamNum());
         final String numActivity = String.valueOf(model.getNumActivity());
         final String numHomework = String.valueOf(model.getNumHomework());
-        final String getKeyDoes = String.valueOf(model.getKeydoes());
+        final String KeyCourse = String.valueOf(model.getKeyCourse());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +45,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
                 intent.putExtra("examNum", String.valueOf(examNum));
                 intent.putExtra("numActivity", String.valueOf(numActivity));
                 intent.putExtra("numHomework", String.valueOf(numHomework));
-                intent.putExtra("keydoes", String.valueOf(getKeyDoes));
+                intent.putExtra("keyCourse", String.valueOf(KeyCourse));
                 v.getContext().startActivity(intent);
             }
 
@@ -65,7 +65,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
 
     class courseViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
-        TextView courseName, examNum, numActivity, numHomework ;
+        TextView courseName, examNum, numActivity, numHomework;
         public courseViewholder(@NonNull View itemView)
         {
             super(itemView);

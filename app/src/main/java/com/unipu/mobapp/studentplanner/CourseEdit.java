@@ -32,7 +32,7 @@ public class CourseEdit extends AppCompatActivity {
     TaskAdapter adapter;
 
     Integer brojac = new Random().nextInt();
-    String keydoes = Integer.toString(brojac);
+    String keyCourse = Integer.toString(brojac);
 
     private RecyclerView taskView;
 
@@ -55,14 +55,14 @@ public class CourseEdit extends AppCompatActivity {
         editHome.setText(getIntent().getStringExtra("numHomework"));
         editActivity.setText(getIntent().getStringExtra("numActivity"));
 
-        final String keykeyDoes = getIntent().getStringExtra("keydoes");
+        final String CourseKey = getIntent().getStringExtra("keyCourse");
 
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + keykeyDoes);
+        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + CourseKey);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +94,7 @@ public class CourseEdit extends AppCompatActivity {
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(editColloquium.getText())));
                         dataSnapshot.getRef().child("numHomework").setValue(editHome.getText().toString());
                         dataSnapshot.getRef().child("numActivity").setValue(editActivity.getText().toString());
-                        dataSnapshot.getRef().child("keydoes").setValue(keykeyDoes);
+                        dataSnapshot.getRef().child("keyCourse").setValue(CourseKey);
                         Intent a = new Intent(CourseEdit.this, CoursesMenu.class);
                         //CourseEdit.super.onBackPressed();
                         startActivity(a);
@@ -113,13 +113,13 @@ public class CourseEdit extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent newTask = new Intent(CourseEdit.this, TaskCreate.class);
-                newTask.putExtra("keydoes", keykeyDoes);
+                newTask.putExtra("keyCourse", CourseKey);
                 startActivity(newTask);
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });
 
-        mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + keykeyDoes).child("Task");
+        mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + CourseKey).child("Task");
         taskView = findViewById(R.id.theTasks);
 
         // To display the Recycler view linearly
@@ -131,7 +131,7 @@ public class CourseEdit extends AppCompatActivity {
                 = new FirebaseRecyclerOptions.Builder<Task>()
                 .setQuery(mBase, Task.class)
                 .build();
-        adapter = new TaskAdapter(options, keykeyDoes);
+        adapter = new TaskAdapter(options, CourseKey);
         taskView.setAdapter(adapter);
     }
 

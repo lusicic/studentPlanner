@@ -23,12 +23,12 @@ import java.util.Random;
 
 public class CourseCreate extends AppCompatActivity {
     TextView textView;
-    EditText titleOfCourse, numberOfColloquium, numberActivity, numberHomework;
+    EditText titleOfCourse, numberOfColloquium, numberActivity, numberHomework, numberGrade;
     Button btnSave, btnCancel;
 
     DatabaseReference reference;
     Integer brojac = new Random().nextInt();
-    String keydoes = Integer.toString(brojac);
+    String keyCourse = Integer.toString(brojac);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -39,17 +39,16 @@ public class CourseCreate extends AppCompatActivity {
         textView = findViewById(R.id.addNumber);
         textView = findViewById(R.id.addActivity);
         textView = findViewById(R.id.addHomework);
+        textView = findViewById(R.id.addGrade);
 
         numberOfColloquium = (EditText) findViewById(R.id.examNum);
         titleOfCourse = (EditText) findViewById(R.id.courseName);
         numberActivity = (EditText) findViewById(R.id.numActivity);
         numberHomework = (EditText) findViewById(R.id.numHomework);
+        numberGrade = (EditText) findViewById(R.id.numGrade);
 
         btnSave = findViewById(R.id.btnEdit);
         btnCancel = findViewById(R.id.buttonDelete);
-
-        //FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        //final String userId = String.valueOf(user);
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
@@ -66,9 +65,10 @@ public class CourseCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(numberOfColloquium.getText())));
                         dataSnapshot.getRef().child("numActivity").setValue(numberActivity.getText().toString());
                         dataSnapshot.getRef().child("numHomework").setValue(numberHomework.getText().toString());
-                        dataSnapshot.getRef().child("keydoes").setValue(keydoes);
+                        dataSnapshot.getRef().child("numGrade").setValue(numberGrade.getText().toString());
+                        dataSnapshot.getRef().child("keyCourse").setValue(keyCourse);
                         Intent a = new Intent(CourseCreate.this, CoursesMenu.class);
-//                        CourseCreate.super.onBackPressed();
+                        CourseCreate.super.onBackPressed();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

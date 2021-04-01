@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class UserSignup extends AppCompatActivity implements View.OnClickListener{
 
     private TextView signup, banner;
-    private EditText editTextEmail, editTextPassword;
+    private EditText editTextEmail, editTextPassword, editUserName, editUserAge, editEducation;
     private ProgressBar progressBar;
 
     private FirebaseAuth mAuth;
@@ -42,6 +42,9 @@ public class UserSignup extends AppCompatActivity implements View.OnClickListene
 
         editTextEmail = (EditText) findViewById(R.id.txtEmail);
         editTextPassword = (EditText) findViewById(R.id.txtPassword);
+        editEducation =  (EditText) findViewById(R.id.txtFaculty);
+        editUserAge = (EditText) findViewById(R.id.txtUserAge);
+        editUserName = (EditText) findViewById(R.id.txtUserName);
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
     }
@@ -65,6 +68,28 @@ public class UserSignup extends AppCompatActivity implements View.OnClickListene
     private void signUp() {
         final String email = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
+        String userName = editUserName.getText().toString().trim();
+        String userFaculty = editEducation.getText().toString().trim();
+        String userAge = editUserAge.getText().toString().trim();
+
+
+        if(userName.isEmpty()){
+            editUserName.setError("User name is required!");
+            editUserName.requestFocus();
+            return;
+        }
+
+        if (userFaculty.isEmpty()){
+            editEducation.setError("User education is required!");
+            editEducation.requestFocus();
+            return;
+        }
+
+        if (userAge.isEmpty()){
+            editUserAge.setError("User age is required!");
+            editUserAge.requestFocus();
+            return;
+        }
 
         if(email.isEmpty()){
             editTextEmail.setError("Email is required");
@@ -89,6 +114,8 @@ public class UserSignup extends AppCompatActivity implements View.OnClickListene
             editTextPassword.requestFocus();
             return;
         }
+
+        progressBar.setVisibility(View.VISIBLE);
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {

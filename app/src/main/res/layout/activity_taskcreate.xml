@@ -37,7 +37,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="280dp"
-            android:layout_marginTop="-27dp"
+            android:layout_marginTop="-20dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/round_grey"
             android:foreground="@drawable/ic_create"
@@ -46,7 +46,6 @@
             android:textColor="#1C1C1C"
             android:textColorLink="#FFFFFF"
             android:textSize="22sp" />
-
         <Button
             android:id="@+id/buttonDelete"
             android:layout_width="50dp"

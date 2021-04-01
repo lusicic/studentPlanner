@@ -3,6 +3,7 @@ package com.unipu.mobapp.studentplanner;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.CalendarContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
@@ -99,7 +101,7 @@ public class TaskCreate extends AppCompatActivity {
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
-        final String courseID = getIntent().getExtras().getString("keydoes");
+        final String courseID = getIntent().getExtras().getString("keyCourse");
 
         reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course"+courseID).child("Task").child("Task" + brojac);
 
@@ -116,7 +118,6 @@ public class TaskCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());
                         dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keytask);
-
                         Intent intent = new Intent(TaskCreate.this, CourseEdit.class);
                         TaskCreate.super.onBackPressed();
                     }
@@ -125,9 +126,17 @@ public class TaskCreate extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
                 });
+                if (!taskName.getText().toString().isEmpty()){
+                    Intent intent = new Intent(Intent.ACTION_INSERT);
+                    intent.setData(CalendarContract.Events.CONTENT_URI);
+                    intent.putExtra(CalendarContract.Events.TITLE, taskName.getText().toString());
+                    intent.putExtra(CalendarContract.Events.DESCRIPTION, descript.getText().toString());
+                    if (intent.resolveActivity(getPackageManager()) != null){
+                        startActivity(intent);}
+                    else{ Toast.makeText(TaskCreate.this, "Fill", Toast.LENGTH_SHORT).show();}
+                } else { Toast.makeText(TaskCreate.this, "Error", Toast.LENGTH_SHORT).show();}
             }
         });
-
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

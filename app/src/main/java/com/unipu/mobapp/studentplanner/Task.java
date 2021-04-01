@@ -61,6 +61,8 @@ public class Task {
     public void setKeytask(String keytask) {
         this.keytask = keytask;
     }
+
     public void setEditDate(String editDate){this.editDate = editDate;}
+
     public String getEditDate(){return editDate; }
 }

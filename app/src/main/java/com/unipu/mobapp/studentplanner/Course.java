@@ -9,37 +9,43 @@ public class Course {
     Long examNum;
     String numActivity;
     String numHomework;
-    String keydoes;
-    //Task task = new Task();
+    String numGrade;
+    String keyCourse;
 
     public Course() {
     }
 
-    public Course(String courseName, Long examNum, String keydoes, String numActivity, String numHomework) {
+    public Course(String courseName, Long examNum, String keyCourse, String numActivity, String numHomework, String numGrade) {
         this.courseName = courseName;
         this.examNum = examNum;
-        this.keydoes = keydoes;
+        this.keyCourse = keyCourse;
         this.numActivity = numActivity;
+        this.numGrade = numGrade;
         this.numHomework = numHomework;
     }
 
-    public String getKeydoes() {
-        return keydoes;
+    public String getKeyCourse() {
+        return keyCourse;
     }
+
     public String getNumActivity(){
         return numActivity;
     }
+
     public void setNumActivity(String numActivity){
         this.numActivity = numActivity;
     }
+
     public String getNumHomework(){
         return numHomework;
     }
+
     public void setNumHomework(String numHomework){
         this.numHomework = numHomework;
     }
-    public void setKeydoes(String keydoes) {
-        this.keydoes = keydoes;
+
+    public void setKeyCourse(String keyCourse) {
+        this.keyCourse = keyCourse;
     }
 
     public String getCourseName() {
@@ -57,7 +63,6 @@ public class Course {
     public void setExamNum(Long examNum) {
         this.examNum = examNum;
     }
-   /* public void setTask(Task task){this.task = task; }
-    public Task getTask(){return task;}*/
-
+    public void setGrade(String numGrade){this.numGrade = numGrade;}
+    public String getGrade(){return numGrade;}
 }

@@ -32,7 +32,6 @@ public class TaskEdit extends AppCompatActivity {
     EditText taskName, grade, descript, editDate;
     Button btnEdit, buttonDelete;
     DatabaseReference mBase;
-    TaskAdapter adapter;
     TextView addDateCalendar;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
@@ -43,6 +42,7 @@ public class TaskEdit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_task);
+
 
         addDateCalendar = (TextView) findViewById(R.id.addDate);
         addDateCalendar.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +92,6 @@ public class TaskEdit extends AppCompatActivity {
         descript.setText(getIntent().getStringExtra("descript"));
 
         final String keykey = getIntent().getStringExtra("keytask");
-
         final String courseID = getIntent().getStringExtra("courseID");
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
@@ -133,13 +132,11 @@ public class TaskEdit extends AppCompatActivity {
                         dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keykey);
                         Intent a = new Intent(TaskEdit.this, CoursesMenu.class);
-                        //CourseEdit.super.onBackPressed();
                         startActivity(a);
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
             }

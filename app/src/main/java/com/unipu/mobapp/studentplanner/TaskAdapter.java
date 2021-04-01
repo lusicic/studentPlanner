@@ -71,7 +71,6 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
     class taskViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
         TextView taskName, grade, taskType, descript, editDate;
-        String courseID ="1522667365";
 
         public taskViewholder(@NonNull View itemView)
         {
@@ -94,9 +93,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
             intent.putExtra("taskType", String.valueOf(taskType));
             intent.putExtra("editDate", String.valueOf(editDate));
             intent.putExtra("descript", String.valueOf(descript));
-
             v.getContext().startActivity(intent);
-
         }
     }
 }
