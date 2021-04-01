@@ -109,7 +109,7 @@ public class TaskEdit extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(TaskEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(TaskEdit.this, CoursesMenu.class);
+                            Intent intent = new Intent(TaskEdit.this, CourseEdit.class);
                             startActivity(intent);
 
                         } else {
