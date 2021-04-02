@@ -98,7 +98,8 @@ public class TaskEdit extends AppCompatActivity {
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
-        mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + courseID).child("Task").child("Task" + keykey);
+        mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
+                .child("Course").child("Course" + courseID).child("Task").child("Task" + keykey);
 
         buttonDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,11 +109,12 @@ public class TaskEdit extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(TaskEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(TaskEdit.this, CourseEdit.class);
+                            Intent intent = new Intent(TaskEdit.this, CoursesMenu.class);
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(TaskEdit.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(TaskEdit.this, task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });

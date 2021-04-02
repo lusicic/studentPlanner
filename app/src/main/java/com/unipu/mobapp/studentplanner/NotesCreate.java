@@ -25,22 +25,22 @@ import java.util.Random;
 
 
 public class NotesCreate extends AppCompatActivity {
-    TextView textView, addDateCalendar;
+    TextView titlePage, titleTitle, titleDesc, addDateCalendar;
     EditText editTitle, editDate, editDesc;
     Button btnSaveNotes, btnCancelNotes;
 
     DatabaseReference reference;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
     Integer brojac = new Random().nextInt();
-    String key = Integer.toString(brojac);
+    String keyNote = Integer.toString(brojac);
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notescreate);
-        textView = findViewById(R.id.titlepage);
-        textView = findViewById(R.id.titleTitle);
-        textView = findViewById(R.id.titleDescr);
+        titlePage = findViewById(R.id.titlepage);
+        titleTitle = findViewById(R.id.titleTitle);
+        titleDesc = findViewById(R.id.titleDescr);
         addDateCalendar = (TextView) findViewById(R.id.titleDate);
 
         addDateCalendar.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +57,7 @@ public class NotesCreate extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -78,25 +79,20 @@ public class NotesCreate extends AppCompatActivity {
         btnSaveNotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Note").child("Note" + brojac);
+                reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid)
+                        .child("Data").child("Note").child("Note" + brojac);
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange( DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("noteTitle").setValue(editTitle.getText().toString());
                         dataSnapshot.getRef().child("noteDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("noteDesc").setValue(editDesc.getText().toString());
-                        dataSnapshot.getRef().child("key").setValue(key);
+                        dataSnapshot.getRef().child("keyNote").setValue(keyNote);
                         Intent a = new Intent(NotesCreate.this, NotesActivity.class);
-                       // a.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                       // a.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                       // a.putExtra("EXIT", true);
-                       // startActivity(a);
-                       // finish();
                         NotesCreate.super.onBackPressed();
                     }
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                    }
+                    public void onCancelled(@NonNull DatabaseError error) {}
                 });
             }
         });

@@ -41,20 +41,22 @@ public class NotesActivity extends AppCompatActivity {
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
-        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Note");
+        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid)
+                .child("Data").child("Note");
 
         recyclerView = findViewById(R.id.theNotes);
 
         // To display the Recycler view linearly
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // It is a class provide by the FirebaseUI to make a query in the database to fetch appropriate data
+        // It is a class provide by the FirebaseUI to make a query in the database
+        // to fetch appropriate data
         FirebaseRecyclerOptions<Note> options
                 = new FirebaseRecyclerOptions.Builder<Note>()
                 .setQuery(mbase, Note.class)
                 .build();
-        // Connecting object of required Adapter class to
-        // the Adapter class itself
+
+        // Connecting object of required Adapter class to the Adapter class itself
         adapter = new NoteAdapter(options);
         // Connecting Adapter class with the Recycler view*/
         recyclerView.setAdapter(adapter);

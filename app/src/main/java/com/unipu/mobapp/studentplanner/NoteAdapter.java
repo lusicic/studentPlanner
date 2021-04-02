@@ -10,9 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
-// FirebaseRecyclerAdapter is a class provided by
-// FirebaseUI. it provides functions to bind, adapt and show
-// database contents in a Recycler View
 public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.noteyViewholder> {
 
     public NoteAdapter(
@@ -21,18 +18,12 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
         super(options);
     }
 
-    // Function to bind the view in Card view(here
-    // "person.xml") iwth data in
-    // model class(here "person.class")
     @Override
     protected void
     onBindViewHolder(@NonNull final noteyViewholder holder,
                      int position, @NonNull Note model)
     {
 
-        // Add firstname from model class (here
-        // "person.class")to appropriate view in Card
-        // view (here "person.xml")
         holder.noteTitle.setText(String.valueOf(model.getNoteTitle()));
         holder.noteDate.setText(String.valueOf(model.getNoteDate()));
         holder.noteDesc.setText(String.valueOf(model.getNoteDesc()));
@@ -41,7 +32,7 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
         final String noteTitle = String.valueOf(model.getNoteTitle());
         final String noteDate = String.valueOf(model.getNoteDate());
         final String noteDesc = String.valueOf(model.getNoteDesc());
-        final String getKey = String.valueOf(model.getKey());
+        final String getKeyNote = String.valueOf(model.getKeyNote());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,19 +44,13 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
                     intent.putExtra("noteTitle", String.valueOf(noteTitle));
                     intent.putExtra("noteDate", String.valueOf(noteDate));
                     intent.putExtra("noteDesc", String.valueOf(noteDesc));
-                    intent.putExtra("key", String.valueOf(getKey));
+                    intent.putExtra("keyNote", String.valueOf(getKeyNote));
                     v.getContext().startActivity(intent);
-
                 }
 
         });
-
     }
 
-   
-    // Function to tell the class about the Card view (here
-    // "person.xml")in
-    // which the data will be shown
     @NonNull
     @Override
     public noteyViewholder
@@ -77,8 +62,7 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
         return new noteyViewholder(view);
     }
 
-    // Sub Class to create references of the views in Crad
-    // view (here "person.xml")
+    // Sub Class to create references of the views in Cradview
     class noteyViewholder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
         TextView noteTitle, noteDate, noteDesc;
@@ -94,8 +78,8 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
 
         }
 
-//ovaj dio je mozda visak je je vec gore dodan ,ali ga za sada ne brisem jer kad ga obrisem javlja error
-// zbog class noteyViewholder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    //ovaj dio je mozda visak je je vec gore dodan ,ali ga za sada ne brisem jer kad ga obrisem javlja error
+    // zbog class noteyViewholder extends RecyclerView.ViewHolder implements View.OnClickListener
         @Override
         public void onClick(View v) {
             Intent intent = new Intent (v.getContext(), NotesEdit.class);
@@ -105,9 +89,6 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
             intent.putExtra("noteDate", String.valueOf(noteDate));
             intent.putExtra("noteDesc", String.valueOf(noteDesc));
             v.getContext().startActivity(intent);
-
         }
-       
     }
-
 }

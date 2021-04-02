@@ -22,7 +22,7 @@ import java.util.Random;
 
 
 public class CourseCreate extends AppCompatActivity {
-    TextView textView;
+    TextView titlePage, addTitle, addNumber, addActivity, addHomework, addGrade;
     EditText titleOfCourse, numberOfColloquium, numberActivity, numberHomework, numberGrade;
     Button btnSave, btnCancel;
 
@@ -34,12 +34,12 @@ public class CourseCreate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coursecreate);
-        textView = findViewById(R.id.titlepage);
-        textView = findViewById(R.id.addtitle);
-        textView = findViewById(R.id.addNumber);
-        textView = findViewById(R.id.addActivity);
-        textView = findViewById(R.id.addHomework);
-        textView = findViewById(R.id.addGrade);
+        titlePage = findViewById(R.id.titlepage);
+        addTitle = findViewById(R.id.addtitle);
+        addNumber = findViewById(R.id.addNumber);
+        addActivity = findViewById(R.id.addActivity);
+        addHomework = findViewById(R.id.addHomework);
+        addGrade = findViewById(R.id.addGrade);
 
         numberOfColloquium = (EditText) findViewById(R.id.examNum);
         titleOfCourse = (EditText) findViewById(R.id.courseName);

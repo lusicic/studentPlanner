@@ -1,33 +1,32 @@
 package com.unipu.mobapp.studentplanner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 public class Note {
 
         String noteTitle;
         String noteDate;
         String noteDesc;
-        String key;
+        String keyNote;
 
-    // Mandatory empty constructor
-    // for use of FirebaseUI
+    // Mandatory empty constructor for use of FirebaseUI
     public Note() {}
 
-    public Note(String noteTitle, String noteDesc, String noteDate, String key){
+    public Note(String noteTitle, String noteDesc, String noteDate, String keyNote){
         this.noteTitle = noteTitle;
         this.noteDate = noteDate;
         this.noteDesc = noteDesc;
-        this.key = key;
+        this.keyNote = keyNote;
     }
 
-    public String getKey(){
-        return key;
-    }
-    public void setKey(String key){
-        this.key = key;
+    //Getter and setter method
+
+    public String getKeyNote(){
+        return keyNote;
     }
 
-    // Getter and setter method
+    public void setKeyNote(String keyNote){
+        this.keyNote = keyNote;
+    }
+
     public String getNoteTitle() {
         return noteTitle;
     }
@@ -51,5 +50,4 @@ public class Note {
     public void setNoteDesc(String noteDesc) {
         this.noteDesc = noteDesc;
     }
-
 }

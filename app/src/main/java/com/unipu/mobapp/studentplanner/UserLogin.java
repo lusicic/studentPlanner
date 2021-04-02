@@ -101,7 +101,8 @@ public class UserLogin extends AppCompatActivity implements View.OnClickListener
                         if (task.isSuccessful()) {
                             startActivity(new Intent(UserLogin.this, MenuActivity.class));
                         } else {
-                            Toast.makeText(UserLogin.this, "Failed to login! Check your credentials", Toast.LENGTH_LONG).show();
+                            Toast.makeText(UserLogin.this, "Failed to login! Check your credentials",
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });

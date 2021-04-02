@@ -69,11 +69,12 @@ public class NotesEdit extends AppCompatActivity {
         btnEditSave = findViewById(R.id.btnCreate);
         btnDelete = findViewById(R.id.btnCancelNotes);
 
-        final String key = getIntent().getStringExtra("key");
+        final String keyNote = getIntent().getStringExtra("keyNote");
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Note").child("Note" + key);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Users")
+                .child(uid).child("Data").child("Note").child("Note" + keyNote);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,12 +87,14 @@ public class NotesEdit extends AppCompatActivity {
                             Intent intent = new Intent(NotesEdit.this, NotesActivity.class);
                             startActivity(intent);
                         }else {
-                            Toast.makeText(NotesEdit.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(NotesEdit.this, task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });
             }
         });
+
         btnEditSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,12 +109,11 @@ public class NotesEdit extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
+                    public void onCancelled(@NonNull DatabaseError error) {}
                 });
             }
         });
+
         //get a value
        editTitle.setText(getIntent().getStringExtra("noteTitle"));
         editDate.setText(getIntent().getStringExtra("noteDate"));

@@ -28,7 +28,7 @@ public class CourseEdit extends AppCompatActivity {
 
     EditText editTitle, editColloquium, editActivity, editHome;
     Button btnEditSave, btnDelete, btnTaskCreate;
-    DatabaseReference reference, mBase;
+    DatabaseReference reference, referenceNewTask;
     TaskAdapter adapter;
 
     Integer brojac = new Random().nextInt();
@@ -57,12 +57,12 @@ public class CourseEdit extends AppCompatActivity {
 
         final String CourseKey = getIntent().getStringExtra("keyCourse");
 
-
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + CourseKey);
+        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
+                .child("Course").child("Course" + CourseKey);
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +76,8 @@ public class CourseEdit extends AppCompatActivity {
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(CourseEdit.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(CourseEdit.this, task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -96,13 +97,12 @@ public class CourseEdit extends AppCompatActivity {
                         dataSnapshot.getRef().child("numActivity").setValue(editActivity.getText().toString());
                         dataSnapshot.getRef().child("keyCourse").setValue(CourseKey);
                         Intent a = new Intent(CourseEdit.this, CoursesMenu.class);
-                        //CourseEdit.super.onBackPressed();
+                        CourseEdit.super.onBackPressed();
                         startActivity(a);
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
             }
@@ -119,17 +119,17 @@ public class CourseEdit extends AppCompatActivity {
             }
         });
 
-        mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course" + CourseKey).child("Task");
+        referenceNewTask = FirebaseDatabase.getInstance().getReference().child("Users").child(uid)
+                .child("Data").child("Course").child("Course" + CourseKey).child("Task");
         taskView = findViewById(R.id.theTasks);
 
         // To display the Recycler view linearly
-
         taskView.setLayoutManager(
                 new LinearLayoutManager(this));
 
         FirebaseRecyclerOptions<Task> options
                 = new FirebaseRecyclerOptions.Builder<Task>()
-                .setQuery(mBase, Task.class)
+                .setQuery(referenceNewTask, Task.class)
                 .build();
         adapter = new TaskAdapter(options, CourseKey);
         taskView.setAdapter(adapter);

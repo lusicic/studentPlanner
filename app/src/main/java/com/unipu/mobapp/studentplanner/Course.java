@@ -1,8 +1,5 @@
 package com.unipu.mobapp.studentplanner;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Course {
 
     String courseName;
@@ -63,6 +60,8 @@ public class Course {
     public void setExamNum(Long examNum) {
         this.examNum = examNum;
     }
+
     public void setGrade(String numGrade){this.numGrade = numGrade;}
+
     public String getGrade(){return numGrade;}
 }

@@ -34,7 +34,7 @@ public class TaskCreate extends AppCompatActivity {
     RadioButton rbtnTaskType;
     Button btnSave, btnCancel;
 
-    TextView textView, addDateCalendar;
+    TextView titlePage,addTitle, addNumber, addTaskType, addHomework, addDateCalendar;
     EditText taskName, grade, descript, editDate;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
@@ -50,11 +50,11 @@ public class TaskCreate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taskcreate);
 
-        textView = findViewById(R.id.titlepage);
-        textView = findViewById(R.id.addtitle);
-        textView = findViewById(R.id.addNumber);
-        textView = findViewById(R.id.tasktype);
-        textView = findViewById(R.id.addHomework);
+        titlePage = findViewById(R.id.titlepage);
+        addTitle = findViewById(R.id.addtitle);
+        addNumber = findViewById(R.id.addNumber);
+        addTaskType = findViewById(R.id.tasktype);
+        addHomework = findViewById(R.id.addHomework);
         addDateCalendar = (TextView) findViewById(R.id.addDate);
 
         addDateCalendar.setOnClickListener(new View.OnClickListener() {
@@ -103,11 +103,13 @@ public class TaskCreate extends AppCompatActivity {
 
         final String courseID = getIntent().getExtras().getString("keyCourse");
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course").child("Course"+courseID).child("Task").child("Task" + brojac);
+        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
+                .child("Course").child("Course"+courseID).child("Task").child("Task" + brojac);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //ovaj dio bi trebao unositi Task unutar postojeceg odabrenog kolegija
                 reference.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -126,6 +128,7 @@ public class TaskCreate extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
                 });
+
                 if (!taskName.getText().toString().isEmpty()){
                     Intent intent = new Intent(Intent.ACTION_INSERT);
                     intent.setData(CalendarContract.Events.CONTENT_URI);

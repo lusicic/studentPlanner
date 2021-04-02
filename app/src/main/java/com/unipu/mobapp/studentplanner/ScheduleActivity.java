@@ -24,9 +24,7 @@ import com.google.firebase.storage.UploadTask;
 public class ScheduleActivity extends AppCompatActivity {
 
     private Button btnAddSchedule;
-
     private Uri imageUri;
-
     private static final int IMAGE_REQUEST = 2;
 
     @Override
@@ -35,7 +33,6 @@ public class ScheduleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
 
         btnAddSchedule = (Button) findViewById(R.id.btnAddSchedule);
-
         btnAddSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +46,6 @@ public class ScheduleActivity extends AppCompatActivity {
         intent.setType("image/");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, IMAGE_REQUEST);
-
     }
 
     @Override
@@ -92,6 +88,4 @@ public class ScheduleActivity extends AppCompatActivity {
             });
         }
     }
-
-
 }

@@ -41,7 +41,8 @@ public class CoursesMenu extends AppCompatActivity {
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
 
-        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data").child("Course");
+        mbase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid)
+                .child("Data").child("Course");
         courseView = findViewById(R.id.theCourses);
 
         // To display the Recycler view linearly

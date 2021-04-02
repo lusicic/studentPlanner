@@ -47,6 +47,5 @@ public class UserForgotPass extends AppCompatActivity {
                 });
             }
         });
-
     }
 }
