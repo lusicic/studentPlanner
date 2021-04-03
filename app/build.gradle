@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.unipu.mobapp.studentplanner"
-        minSdkVersion 16
+        minSdkVersion 29
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -43,4 +43,6 @@ dependencies {
 
     // This dependency includes all material components of the android app.
     implementation 'com.google.android.material:material:1.1.0'
+    implementation 'org.naishadhparmar.zcustomcalendar:zcustomcalendar:1.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

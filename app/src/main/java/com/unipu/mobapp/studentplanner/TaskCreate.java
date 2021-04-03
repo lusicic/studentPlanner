@@ -128,16 +128,6 @@ public class TaskCreate extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError error) {
                     }
                 });
-
-                if (!taskName.getText().toString().isEmpty()){
-                    Intent intent = new Intent(Intent.ACTION_INSERT);
-                    intent.setData(CalendarContract.Events.CONTENT_URI);
-                    intent.putExtra(CalendarContract.Events.TITLE, taskName.getText().toString());
-                    intent.putExtra(CalendarContract.Events.DESCRIPTION, descript.getText().toString());
-                    if (intent.resolveActivity(getPackageManager()) != null){
-                        startActivity(intent);}
-                    else{ Toast.makeText(TaskCreate.this, "Fill", Toast.LENGTH_SHORT).show();}
-                } else { Toast.makeText(TaskCreate.this, "Error", Toast.LENGTH_SHORT).show();}
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
