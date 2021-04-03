@@ -34,6 +34,10 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
         final String numHomework = String.valueOf(model.getNumHomework());
         final String KeyCourse = String.valueOf(model.getKeyCourse());
 
+        final String finExams = String.valueOf(model.getFinExams());
+        final String finHomework = String.valueOf(model.getFinHomework());
+        final String finActivities = String.valueOf(model.getFinActivities());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,6 +50,11 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
                 intent.putExtra("numActivity", String.valueOf(numActivity));
                 intent.putExtra("numHomework", String.valueOf(numHomework));
                 intent.putExtra("keyCourse", String.valueOf(KeyCourse));
+
+                intent.putExtra("finExams", String.valueOf(finExams));
+                intent.putExtra("finHomework", String.valueOf(finHomework));
+                intent.putExtra("finActivites", String.valueOf(finActivities));
+
                 v.getContext().startActivity(intent);
             }
 

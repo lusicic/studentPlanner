@@ -66,6 +66,11 @@ public class CourseCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("numActivity").setValue(numberActivity.getText().toString());
                         dataSnapshot.getRef().child("numHomework").setValue(numberHomework.getText().toString());
                         dataSnapshot.getRef().child("numGrade").setValue(numberGrade.getText().toString());
+
+                        dataSnapshot.getRef().child("finExams").setValue(0);
+                        dataSnapshot.getRef().child("finHomework").setValue(0);
+                        dataSnapshot.getRef().child("finActivities").setValue(0);
+
                         dataSnapshot.getRef().child("keyCourse").setValue(keyCourse);
                         Intent a = new Intent(CourseCreate.this, CoursesMenu.class);
                         CourseCreate.super.onBackPressed();

@@ -9,16 +9,23 @@ public class Course {
     String numGrade;
     String keyCourse;
 
+    Integer finExams;
+    Integer finHomework;
+    Integer finActivities;
+
     public Course() {
     }
 
-    public Course(String courseName, Long examNum, String keyCourse, String numActivity, String numHomework, String numGrade) {
+    public Course(String courseName, Long examNum, String numActivity, String numHomework, String numGrade, String keyCourse, Integer finExams, Integer finHomework, Integer finActivities) {
         this.courseName = courseName;
         this.examNum = examNum;
-        this.keyCourse = keyCourse;
         this.numActivity = numActivity;
-        this.numGrade = numGrade;
         this.numHomework = numHomework;
+        this.numGrade = numGrade;
+        this.keyCourse = keyCourse;
+        this.finExams = finExams;
+        this.finHomework = finHomework;
+        this.finActivities = finActivities;
     }
 
     public String getKeyCourse() {
@@ -64,4 +71,36 @@ public class Course {
     public void setGrade(String numGrade){this.numGrade = numGrade;}
 
     public String getGrade(){return numGrade;}
+
+    public String getNumGrade() {
+        return numGrade;
+    }
+
+    public void setNumGrade(String numGrade) {
+        this.numGrade = numGrade;
+    }
+
+    public Integer getFinExams() {
+        return finExams;
+    }
+
+    public void setFinExams(Integer finExams) {
+        this.finExams = finExams;
+    }
+
+    public Integer getFinHomework() {
+        return finHomework;
+    }
+
+    public void setFinHomework(Integer finHomework) {
+        this.finHomework = finHomework;
+    }
+
+    public Integer getFinActivities() {
+        return finActivities;
+    }
+
+    public void setFinActivities(Integer finActivities) {
+        this.finActivities = finActivities;
+    }
 }

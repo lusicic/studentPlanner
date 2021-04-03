@@ -1,5 +1,6 @@
 package com.unipu.mobapp.studentplanner;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,10 +33,13 @@ public class TaskEdit extends AppCompatActivity {
 
 
     EditText taskName, grade, descript, editDate;
-    Button btnEdit, buttonDelete;
+    Button btnEdit, buttonDelete, btnDoneTask;
     DatabaseReference mBase;
     TextView addDateCalendar;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
+
+    RadioGroup radioGroup;
+    RadioButton rbExam, rbHomework, rbActivity;
 
     Integer brojac = new Random().nextInt();
     String keytask = Integer.toString(brojac);
@@ -75,7 +81,12 @@ public class TaskEdit extends AppCompatActivity {
 
         btnEdit = findViewById(R.id.btnEdit);
         buttonDelete = findViewById(R.id.buttonDelete);
+        btnDoneTask = findViewById(R.id.btnDoneTask);
 
+        radioGroup = findViewById(R.id.radioGroup);
+        rbExam = findViewById(R.id.exam);
+        rbHomework = findViewById(R.id.homework);
+        rbActivity = findViewById(R.id.activity);
 
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -91,8 +102,18 @@ public class TaskEdit extends AppCompatActivity {
         editDate.setText(getIntent().getStringExtra("editDate"));
         descript.setText(getIntent().getStringExtra("descript"));
 
+
         final String keykey = getIntent().getStringExtra("keytask");
         final String courseID = getIntent().getStringExtra("courseID");
+        String taskType = String.valueOf(getIntent().getStringExtra("taskType"));
+
+
+        if(rbHomework.getText().equals(taskType)){
+            rbHomework.setSelected(true);
+        };
+
+
+
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
@@ -143,5 +164,36 @@ public class TaskEdit extends AppCompatActivity {
                 });
             }
         });
+
+        // dohvatit vrijednosti izvrsenih taskova i inkrementirat
+
+        /*btnDoneTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
+                        .child("Course").child("Course" + courseID);
+
+                mBase.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        if(taskType.getText().toString()=="exam")
+
+                        dataSnapshot.getRef().child("finExams").setValue(broj+1);
+                        dataSnapshot.getRef().child("finHomework").setValue(broj+1);
+                        dataSnapshot.getRef().child("finActivities").setValue(broj+1);
+
+
+                        Intent a = new Intent(TaskEdit.this, CoursesMenu.class);
+                        startActivity(a);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+            }
+        });*/
     }
 }
