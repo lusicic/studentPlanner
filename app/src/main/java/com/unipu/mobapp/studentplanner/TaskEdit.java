@@ -8,11 +8,13 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,7 +28,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Random;
 
 public class TaskEdit extends AppCompatActivity {
@@ -38,11 +42,10 @@ public class TaskEdit extends AppCompatActivity {
     TextView addDateCalendar;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
-    RadioGroup radioGroup;
-    RadioButton rbExam, rbHomework, rbActivity;
-
     Integer brojac = new Random().nextInt();
     String keytask = Integer.toString(brojac);
+
+    List<String> spinnerArray =  new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,11 +86,6 @@ public class TaskEdit extends AppCompatActivity {
         buttonDelete = findViewById(R.id.buttonDelete);
         btnDoneTask = findViewById(R.id.btnDoneTask);
 
-        radioGroup = findViewById(R.id.radioGroup);
-        rbExam = findViewById(R.id.exam);
-        rbHomework = findViewById(R.id.homework);
-        rbActivity = findViewById(R.id.activity);
-
         onDateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -108,12 +106,20 @@ public class TaskEdit extends AppCompatActivity {
         String taskType = String.valueOf(getIntent().getStringExtra("taskType"));
 
 
-        if(rbHomework.getText().equals(taskType)){
-            rbHomework.setSelected(true);
-        };
+        spinnerArray.add("exam");
+        spinnerArray.add("homework");
+        spinnerArray.add("activity");
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this, android.R.layout.simple_spinner_item, spinnerArray);
 
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        final Spinner spinnerTaskType = (Spinner) findViewById(R.id.spinnerTaskType);
+        spinnerTaskType.setAdapter(adapter);
 
+        int spinnerPosition = adapter.getPosition(taskType);
+
+        spinnerTaskType.setSelection(spinnerPosition);
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
@@ -152,6 +158,7 @@ public class TaskEdit extends AppCompatActivity {
                         dataSnapshot.getRef().child("taskName").setValue(taskName.getText().toString());
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());
                         dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
+                        dataSnapshot.getRef().child("taskType").setValue(String.valueOf(spinnerTaskType.getSelectedItem().toString()));
                         dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keykey);
                         Intent a = new Intent(TaskEdit.this, CoursesMenu.class);

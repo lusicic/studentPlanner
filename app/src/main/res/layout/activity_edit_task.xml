@@ -9,20 +9,20 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:background="#38363C"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/titlepage"
-            android:layout_width="match_parent"
+            android:layout_width="385dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="28dp"
             android:fontFamily="@font/assistant"
-            android:text="New"
-            android:textAlignment="center"
+            android:text="Edit task"
+            android:textAlignment="textStart"
             android:textColor="#FF9800"
             android:textSize="35sp" />
 
@@ -69,7 +69,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="380dp"
+        android:layout_width="379dp"
         android:layout_height="211dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="0dp"
@@ -135,50 +135,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:background="#38363C"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tasktype"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:fontFamily="@font/assistant"
-            android:text=" Task Type"
-            android:textColor="#FF9800"
-            android:textSize="20dp" />
-
-        <RadioGroup
-            android:id="@+id/radioGroup"
-            android:layout_width="271dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/exam"
-                android:layout_width="80dp"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:orientation="horizontal"
-                android:text="exam" />
-
-            <RadioButton
-                android:id="@+id/homework"
-                android:layout_width="114dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:text="homework" />
-
-            <RadioButton
-                android:id="@+id/activity"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:text="activity" />
-        </RadioGroup>
+        <Spinner
+            android:id="@+id/spinnerTaskType"
+            android:layout_width="399dp"
+            android:layout_height="46dp"
+            android:background="#fff"
+            android:textColor="#000"
+            android:layout_marginLeft="16dp"/>
     </LinearLayout>
 
     <LinearLayout
