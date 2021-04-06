@@ -34,7 +34,8 @@
                     android:text="My Courses"
                     android:textAlignment="center"
                     android:textColor="#FF9800"
-                    android:textSize="28sp" />
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/subtitlepage"
@@ -59,6 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="486dp"
         android:layout_marginTop="30dp"></androidx.recyclerview.widget.RecyclerView>
+
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="50dp"

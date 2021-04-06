@@ -5,11 +5,12 @@
     android:layout_height="match_parent"
     android:background="#47444C"
     android:orientation="vertical"
+    android:outlineAmbientShadowColor="#FF9800"
+    android:outlineSpotShadowColor="#FF9800"
     tools:context=".CourseCreate">
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="198dp"
+        android:layout_height="130dp"
         android:background="#38363C"
         android:orientation="vertical">
 
@@ -18,26 +19,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:layout_marginBottom="28dp"
             android:fontFamily="@font/assistant"
-            android:text="Create New Course"
+            android:text="Create new course"
             android:textAlignment="center"
             android:textColor="#FF9800"
-            android:textSize="35sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#F8F5F5" />
+            android:textColorHighlight="#FFA200"
+            android:textSize="35sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnEdit"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="280dp"
-            android:layout_marginTop="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="335dp"
+            android:layout_marginTop="-5dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/round_grey"
             android:foreground="@drawable/ic_create"
@@ -49,28 +46,27 @@
 
         <Button
             android:id="@+id/buttonDelete"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="345dp"
-            android:layout_marginTop="-51dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="370dp"
+            android:layout_marginTop="-30dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/round_primary"
             android:foreground="@drawable/ic_exit"
             android:textAllCaps="false"
             android:textColor="#776B6B"
             android:textSize="22sp" />
-
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/background"
         android:layout_width="match_parent"
-        android:layout_height="502dp"
+        android:layout_height="551dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
-        android:background="#FFFFFF"
         android:orientation="vertical"
+        android:outlineAmbientShadowColor="#FF9800"
         android:paddingTop="22dp"
         android:paddingBottom="22dp">
 
@@ -88,7 +84,8 @@
                 android:fontFamily="@font/assistant"
                 android:text="Add title"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/courseName"
@@ -97,7 +94,7 @@
                 android:fontFamily="@font/assistant"
                 android:hint="Title of Course"
                 android:inputType="text"
-                android:textColor="#000000" />
+                android:textColor="#FF9800" />
         </LinearLayout>
 
         <LinearLayout
@@ -115,7 +112,8 @@
                 android:fontFamily="@font/assistant"
                 android:text="Add number of colloquium"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/examNum"
@@ -124,7 +122,7 @@
                 android:fontFamily="@font/assistant"
                 android:hint="Number of colloquium"
                 android:inputType="text"
-                android:textColor="#000000" />
+                android:textColor="#FF9800" />
         </LinearLayout>
 
         <LinearLayout
@@ -142,7 +140,8 @@
                 android:fontFamily="@font/assistant"
                 android:text="Add number of activity:"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/numActivity"
@@ -151,7 +150,7 @@
                 android:fontFamily="@font/assistant"
                 android:hint="Number of activity:"
                 android:inputType="text"
-                android:textColor="#000000" />
+                android:textColor="#FF9800" />
         </LinearLayout>
 
         <LinearLayout
@@ -169,7 +168,8 @@
                 android:fontFamily="@font/assistant"
                 android:text="Add number of homework:"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/numHomework"
@@ -178,7 +178,7 @@
                 android:fontFamily="@font/assistant"
                 android:hint="Number of homework:"
                 android:inputType="text"
-                android:textColor="#000000" />
+                android:textColor="#FF9800" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -193,7 +193,8 @@
                     android:fontFamily="@font/assistant"
                     android:text="Grade:"
                     android:textColor="#FF9800"
-                    android:textSize="20dp" />
+                    android:textSize="25dp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/numGrade"
@@ -202,7 +203,7 @@
                     android:fontFamily="@font/assistant"
                     android:hint="Add percentage of grade:"
                     android:inputType="text"
-                    android:textColor="#000000" />
+                    android:textColor="#FF9800" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

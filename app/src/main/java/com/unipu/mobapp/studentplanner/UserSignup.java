@@ -60,6 +60,7 @@ public class UserSignup extends AppCompatActivity implements View.OnClickListene
             case R.id.btnSignup:
                 progressBar.setVisibility(View.VISIBLE);
                 signUp();
+                startActivity(new Intent(this, UserLogin.class));
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
                 break;
         }
@@ -134,7 +135,6 @@ public class UserSignup extends AppCompatActivity implements View.OnClickListene
                                     if(task.isSuccessful()){
                                         Toast.makeText(UserSignup.this, "User has been successfully",
                                                 Toast.LENGTH_LONG).show();
-                                        progressBar.setVisibility(View.GONE);
                                     }
                                     else{
                                         Toast.makeText(UserSignup.this, "Sign up failed! Try again",

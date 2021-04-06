@@ -3,4 +3,8 @@
     <string name="sign_up">sign up</string>
     <string name="txtmail">txtMail</string>
     <string name="log_in">Log in</string>
+    <string-array name="task_options">
+        <item>Delete</item>
+        <item>Edit</item>
+    </string-array>
 </resources>

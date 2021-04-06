@@ -8,6 +8,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -81,7 +82,6 @@ public class TaskEdit extends AppCompatActivity {
         descript = findViewById(R.id.descript);
         editDate =  findViewById(R.id.editDate);
 
-
         btnEdit = findViewById(R.id.btnEdit);
         buttonDelete = findViewById(R.id.buttonDelete);
         btnDoneTask = findViewById(R.id.btnDoneTask);
@@ -111,7 +111,7 @@ public class TaskEdit extends AppCompatActivity {
         spinnerArray.add("activity");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-                this, android.R.layout.simple_spinner_item, spinnerArray);
+                this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         final Spinner spinnerTaskType = (Spinner) findViewById(R.id.spinnerTaskType);

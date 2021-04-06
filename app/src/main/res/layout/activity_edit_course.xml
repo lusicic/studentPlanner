@@ -9,47 +9,52 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="86dp"
+        android:layout_height="116dp"
         android:background="#38363C"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/titlepage"
+        <EditText
+            android:id="@+id/editTitle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="28dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:clickable="true"
             android:fontFamily="@font/assistant"
-            android:text="Course"
-            android:textAlignment="center"
+            android:hint="Course"
+            android:background="@null"
+            android:inputType="text"
+            android:singleLine="false"
             android:textColor="#FF9800"
-            android:textSize="35sp" />
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/btnCreate"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="325dp"
+            android:layout_marginTop="-5dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/round_grey"
+            android:foreground="@drawable/ic_save"
+            android:shadowColor="#EDE6E6"
+            android:textAllCaps="false"
+            android:textColor="#1C1C1C"
+            android:textColorLink="#FFFFFF"
+            android:textSize="22sp" />
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/editTitle"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginTop="35dp"
-        android:clickable="true"
-        android:fontFamily="@font/assistant"
-        android:hint="Course"
-        android:inputType="text"
-        android:singleLine="true"
-        android:textColor="#FF9800"
-        android:textSize="23sp" />
 
     <LinearLayout
         android:id="@+id/background"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
         android:layout_marginRight="16dp"
-        android:background="#FFFFFF"
         android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center"
         android:paddingTop="22dp"
         android:paddingBottom="22dp">
 
@@ -63,9 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/assistant"
-                android:text="Colloquium"
+                android:text="Colloquium:"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="22dp" />
 
             <EditText
                 android:id="@+id/editColloquium"
@@ -76,14 +81,15 @@
                 android:hint="Colloquium"
                 android:inputType="text"
                 android:textColor="#000000" />
+
             <TextView
                 android:id="@+id/titleGrade"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/assistant"
-                android:text="Grade"
+                android:text="Grade:"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="22dp" />
 
             <EditText
                 android:id="@+id/editGrade"
@@ -108,7 +114,7 @@
                 android:fontFamily="@font/assistant"
                 android:text="Activity:"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="22dp" />
 
             <EditText
                 android:id="@+id/editActivity"
@@ -126,7 +132,7 @@
                 android:fontFamily="@font/assistant"
                 android:text="Homework:"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="22dp" />
 
             <EditText
                 android:id="@+id/editHome"
@@ -138,6 +144,7 @@
                 android:textColor="#000000" />
         </LinearLayout>
     </LinearLayout>
+
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -173,7 +180,6 @@
 
     </RelativeLayout>
 
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
@@ -191,30 +197,15 @@
 
     <Button
         android:id="@+id/btnCancelNotes"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="345dp"
-        android:layout_marginTop="-650dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="360dp"
+        android:layout_marginTop="-695dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/round_primary"
         android:foreground="@drawable/ic_delete"
         android:textAllCaps="false"
         android:textColor="#776B6B"
-        android:textSize="22sp" />
-
-    <Button
-        android:id="@+id/btnCreate"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginLeft="300dp"
-        android:layout_marginTop="-35dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/round_grey"
-        android:foreground="@drawable/ic_save"
-        android:shadowColor="#EDE6E6"
-        android:textAllCaps="false"
-        android:textColor="#1C1C1C"
-        android:textColorLink="#FFFFFF"
         android:textSize="22sp" />
 
 

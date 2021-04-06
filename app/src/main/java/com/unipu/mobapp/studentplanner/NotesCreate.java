@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class NotesCreate extends AppCompatActivity {
     TextView titlePage, titleTitle, titleDesc, addDateCalendar;
     EditText editTitle, editDate, editDesc;
     Button btnSaveNotes, btnCancelNotes;
+    CalendarView calendarView;
 
     DatabaseReference reference;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
@@ -38,7 +40,7 @@ public class NotesCreate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notescreate);
-        titlePage = findViewById(R.id.titlepage);
+        titlePage = (TextView) findViewById(R.id.titlepage);
         titleTitle = findViewById(R.id.titleTitle);
         titleDesc = findViewById(R.id.titleDescr);
         addDateCalendar = (TextView) findViewById(R.id.titleDate);
@@ -65,6 +67,7 @@ public class NotesCreate extends AppCompatActivity {
                 editDate.setText(date);
             }
         };
+
         editDate = (EditText) findViewById(R.id.editDate);
         editTitle = (EditText) findViewById(R.id.editTitle);
         editDesc = (EditText) findViewById(R.id.editDescr);

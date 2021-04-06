@@ -24,19 +24,14 @@
             android:text="Create New Task"
             android:textAlignment="center"
             android:textColor="#FF9800"
-            android:textSize="35sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="20dp"
-            android:background="#F8F5F5" />
+            android:textSize="35sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnEdit"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="280dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="335dp"
             android:layout_marginTop="-20dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/round_grey"
@@ -48,10 +43,10 @@
             android:textSize="22sp" />
         <Button
             android:id="@+id/buttonDelete"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="345dp"
-            android:layout_marginTop="-51dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="370dp"
+            android:layout_marginTop="-30dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/round_primary"
             android:foreground="@drawable/ic_exit"
@@ -62,11 +57,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="230dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
-        android:background="#FFFFFF"
         android:orientation="vertical"
         android:paddingTop="22dp"
         android:paddingBottom="22dp">
@@ -85,7 +79,7 @@
                 android:fontFamily="@font/assistant"
                 android:text="Task Name"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/taskName"
@@ -94,7 +88,7 @@
                 android:fontFamily="@font/assistant"
                 android:hint="Task Name"
                 android:inputType="text"
-                android:textColor="#000000" />
+                android:textColor="#FF9800" />
         </LinearLayout>
 
         <LinearLayout
@@ -112,7 +106,7 @@
                 android:fontFamily="@font/assistant"
                 android:text="Grade Percentage"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/grade"
@@ -121,14 +115,15 @@
                 android:fontFamily="@font/assistant"
                 android:hint="Grade Percentage"
                 android:inputType="text"
-                android:textColor="#000000" />
+                android:textColor="#FF9800" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:background="#38363C"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -139,9 +134,11 @@
             android:layout_marginTop="2dp"
             android:layout_marginBottom="2dp"
             android:fontFamily="@font/assistant"
+            android:gravity="center"
             android:text=" Task Type"
             android:textColor="#FF9800"
-            android:textSize="20dp" />
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
@@ -179,7 +176,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
-        android:background="#FFFFFF"
         android:orientation="vertical"
         android:paddingTop="22dp"
         android:paddingBottom="22dp">
@@ -199,7 +195,7 @@
                 android:fontFamily="@font/assistant"
                 android:text="Description:"
                 android:textColor="#FF9800"
-                android:textSize="20dp" />
+                android:textSize="25dp" />
 
             <EditText
                 android:id="@+id/descript"
@@ -208,7 +204,7 @@
                 android:fontFamily="@font/assistant"
                 android:hint="Description"
                 android:inputType="text"
-                android:textColor="#000000" />
+                android:textColor="#FF9800" />
         </LinearLayout>
     </LinearLayout>
 
@@ -218,7 +214,6 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
-        android:background="#FFFFFF"
         android:orientation="vertical"
         android:paddingTop="22dp"
         android:paddingBottom="22dp">
@@ -228,13 +223,14 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/addDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Date"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:foreground="@drawable/ic_calendar"
                 android:textColor="#FF9800"
                 android:textSize="20dp" />
 
@@ -242,9 +238,11 @@
                 android:id="@+id/editDate"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
+                android:background="@null"
                 android:ems="10"
-                android:hint="Add date"
-                android:inputType="text" />
+                android:gravity="center"
+                android:inputType="text"
+                android:textColor="#FF9800" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
