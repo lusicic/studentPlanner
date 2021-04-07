@@ -104,7 +104,10 @@ public class TaskEdit extends AppCompatActivity {
         final String keykey = getIntent().getStringExtra("keytask");
         final String courseID = getIntent().getStringExtra("courseID");
         String taskType = String.valueOf(getIntent().getStringExtra("taskType"));
+        String statusOfTask = String.valueOf(getIntent().getStringExtra("finished"));
 
+        String finishedN = "in progress";
+        String finishedY = "done";
 
         spinnerArray.add("exam");
         spinnerArray.add("homework");
@@ -192,14 +195,17 @@ public class TaskEdit extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        if(taskType.equals("exam")) {
+                        if((taskType.equals("exam")) && (statusOfTask.equals(finishedN))) {
                             dataSnapshot.getRef().child("finExams").setValue(finExams + 1);
+                            dataSnapshot.getRef().child("Task").child("Task" + keykey).child("finished").setValue(finishedY);
                         }
-                        else if(taskType.equals("homework")) {
+                        else if((taskType.equals("homework")) && (statusOfTask.equals(finishedN))) {
                             dataSnapshot.getRef().child("finHomework").setValue(finHomework + 1);
+                            dataSnapshot.getRef().child("Task").child("Task" + keykey).child("finished").setValue(finishedY);
                         }
-                        else if(taskType.equals("activity")) {
+                        else if((taskType.equals("activity")) && (statusOfTask.equals(finishedN))) {
                             dataSnapshot.getRef().child("finActivity").setValue(finActivities + 1);
+                            dataSnapshot.getRef().child("Task").child("Task" + keykey).child("finished").setValue(finishedY);
                         }
 
                         Intent a = new Intent(TaskEdit.this, CoursesMenu.class);

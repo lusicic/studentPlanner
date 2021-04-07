@@ -4,6 +4,7 @@ public class Task {
     String taskName;
     String grade;
     String taskType;
+    String finished;
     String descript;
     String keytask;
     String editDate;
@@ -13,10 +14,11 @@ public class Task {
 
     }
 
-    public Task(String taskName, String grade, String taskType, String descript, String keytask, String editDate) {
+    public Task(String taskName, String grade, String taskType, String finished, String descript, String keytask, String editDate) {
         this.taskName = taskName;
         this.grade = grade;
         this.taskType = taskType;
+        this.finished = finished;
         this.descript = descript;
         this.keytask = keytask;
         this.editDate = editDate;
@@ -44,6 +46,14 @@ public class Task {
 
     public void setTaskType(String taskType) {
         this.taskType = taskType;
+    }
+
+    public String getFinished() {
+        return finished;
+    }
+
+    public void setFinished(String finished) {
+        this.finished = finished;
     }
 
     public String getDescript() {

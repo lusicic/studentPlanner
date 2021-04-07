@@ -43,6 +43,7 @@ public class TaskCreate extends AppCompatActivity {
     String keytask = Integer.toString(brojac);
 
     private String taskType = "";
+    private String finishedN = "in progress";
 
 
     @Override
@@ -117,6 +118,7 @@ public class TaskCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("taskName").setValue(taskName.getText().toString());
                         dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
                         dataSnapshot.getRef().child("taskType").setValue(taskType);
+                        dataSnapshot.getRef().child("finished").setValue(finishedN);
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());
                         dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keytask);

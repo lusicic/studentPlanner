@@ -36,6 +36,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
         final String taskName = String.valueOf(model.getTaskName());
         final String grade = String.valueOf(model.getGrade());
         final String taskType = String.valueOf(model.getTaskType());
+        final String finished = String.valueOf(model.getFinished());
         final String descript = String.valueOf(model.getDescript());
         final String editDate = String.valueOf(model.getEditDate());
         final String getKeyTask = String.valueOf(model.getKeytask());
@@ -54,6 +55,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
                 intent.putExtra("taskName", String.valueOf(taskName));
                 intent.putExtra("grade", String.valueOf(grade));
                 intent.putExtra("taskType", String.valueOf(taskType));
+                intent.putExtra("finished", String.valueOf(finished));
                 intent.putExtra("descript", String.valueOf(descript));
                 intent.putExtra("editDate", String.valueOf(editDate));
                 intent.putExtra("keytask", String.valueOf(getKeyTask));
