@@ -4,6 +4,10 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
     defaultConfig {
         applicationId "com.unipu.mobapp.studentplanner"
@@ -46,4 +50,5 @@ dependencies {
     implementation 'org.naishadhparmar.zcustomcalendar:zcustomcalendar:1.0.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.applandeo:material-calendar-view:1.7.0'
 }

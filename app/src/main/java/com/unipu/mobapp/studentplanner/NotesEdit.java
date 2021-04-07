@@ -9,8 +9,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -32,6 +34,7 @@ public class NotesEdit extends AppCompatActivity {
     Button btnEditSave, btnDelete;
     DatabaseReference databaseReference;
     TextView addDateCalendar;
+
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
     @Override
