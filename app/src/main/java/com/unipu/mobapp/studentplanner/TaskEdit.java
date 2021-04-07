@@ -39,7 +39,7 @@ public class TaskEdit extends AppCompatActivity {
 
     EditText taskName, grade, descript, editDate;
     Button btnEdit, buttonDelete, btnDoneTask;
-    DatabaseReference mBase;
+    DatabaseReference mBase, mBase2;
     TextView addDateCalendar;
     private DatePickerDialog.OnDateSetListener onDateSetListener;
 
@@ -121,6 +121,11 @@ public class TaskEdit extends AppCompatActivity {
 
         spinnerTaskType.setSelection(spinnerPosition);
 
+        final Integer finExams = Integer.valueOf(getIntent().getIntExtra("finExams", 0));
+        final Integer finHomework = Integer.valueOf(getIntent().getIntExtra("finHomework", 0));
+        final Integer finActivities = Integer.valueOf(getIntent().getIntExtra("finActivities", 0));
+
+
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
@@ -174,23 +179,28 @@ public class TaskEdit extends AppCompatActivity {
 
         // dohvatit vrijednosti izvrsenih taskova i inkrementirat
 
-        /*btnDoneTask.setOnClickListener(new View.OnClickListener() {
+        mBase2 = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
+                .child("Course").child("Course" + courseID);
+
+        btnDoneTask.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
-                        .child("Course").child("Course" + courseID);
 
-                mBase.addValueEventListener(new ValueEventListener() {
+
+                mBase2.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                        if(taskType.getText().toString()=="exam")
-
-                        dataSnapshot.getRef().child("finExams").setValue(broj+1);
-                        dataSnapshot.getRef().child("finHomework").setValue(broj+1);
-                        dataSnapshot.getRef().child("finActivities").setValue(broj+1);
-
+                        if(taskType.equals("exam")) {
+                            dataSnapshot.getRef().child("finExams").setValue(finExams + 1);
+                        }
+                        else if(taskType.equals("homework")) {
+                            dataSnapshot.getRef().child("finHomework").setValue(finHomework + 1);
+                        }
+                        else if(taskType.equals("activity")) {
+                            dataSnapshot.getRef().child("finActivity").setValue(finActivities + 1);
+                        }
 
                         Intent a = new Intent(TaskEdit.this, CoursesMenu.class);
                         startActivity(a);
@@ -201,6 +211,6 @@ public class TaskEdit extends AppCompatActivity {
                     }
                 });
             }
-        });*/
+        });
     }
 }

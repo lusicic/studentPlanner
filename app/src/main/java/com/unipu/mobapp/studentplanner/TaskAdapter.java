@@ -11,14 +11,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 
+import java.util.HashMap;
+
 
 public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskViewholder> {
 
     private final String data;
+    private final HashMap<String, Integer> finishedTasks;
 
-    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Task> options, String data) {
+    public TaskAdapter(@NonNull FirebaseRecyclerOptions<Task> options, String data, HashMap<String, Integer> finishedTasks) {
         super(options);
         this.data = data;
+        this.finishedTasks = finishedTasks;
     }
 
     @Override
@@ -36,6 +40,10 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
         final String editDate = String.valueOf(model.getEditDate());
         final String getKeyTask = String.valueOf(model.getKeytask());
 
+        final Integer finExams = Integer.valueOf(finishedTasks.get("finExams"));
+        final Integer finHomework = Integer.valueOf(finishedTasks.get("finHomework"));
+        final Integer finActivities = Integer.valueOf(finishedTasks.get("finActivities"));
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +58,11 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
                 intent.putExtra("editDate", String.valueOf(editDate));
                 intent.putExtra("keytask", String.valueOf(getKeyTask));
                 intent.putExtra("courseID", String.valueOf(data));
+
+                intent.putExtra("finExams", finExams);
+                intent.putExtra("finHomework", finHomework);
+                intent.putExtra("finActivities", finActivities);
+
                 v.getContext().startActivity(intent);
             }
 

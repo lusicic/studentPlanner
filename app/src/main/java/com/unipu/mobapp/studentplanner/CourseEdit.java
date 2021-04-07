@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class CourseEdit extends AppCompatActivity {
@@ -56,6 +57,16 @@ public class CourseEdit extends AppCompatActivity {
         editActivity.setText(getIntent().getStringExtra("numActivity"));
 
         final String CourseKey = getIntent().getStringExtra("keyCourse");
+
+
+        Integer numFinExams = getIntent().getIntExtra("finExams", 0);
+        Integer numFinHomework = getIntent().getIntExtra("finHomework", 0);
+        Integer numFinActivities = getIntent().getIntExtra("finActivities", 0);
+
+        HashMap<String, Integer> finishedTasks = new HashMap<String, Integer>();
+        finishedTasks.put("finExams", numFinExams);
+        finishedTasks.put("finHomework", numFinHomework);
+        finishedTasks.put("finActivities", numFinActivities);
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
@@ -131,7 +142,7 @@ public class CourseEdit extends AppCompatActivity {
                 = new FirebaseRecyclerOptions.Builder<Task>()
                 .setQuery(referenceNewTask, Task.class)
                 .build();
-        adapter = new TaskAdapter(options, CourseKey);
+        adapter = new TaskAdapter(options, CourseKey, finishedTasks);
         taskView.setAdapter(adapter);
     }
 
