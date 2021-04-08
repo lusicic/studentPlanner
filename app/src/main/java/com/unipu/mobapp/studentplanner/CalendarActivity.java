@@ -39,7 +39,41 @@ public class CalendarActivity extends AppCompatActivity {
         final String uid = usery.getUid();
         //final String courseID = getIntent().getExtras().getString("keyCourse");
 
-        reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
+        final List<String> courseIDs = new ArrayList<String>();
+        final List<String> taskNames = new ArrayList<String>();
+
+        DatabaseReference mBase;
+        mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
+                .child("Course");
+
+        mBase.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot listSnapshot: dataSnapshot.getChildren()) {
+                    String courseID = listSnapshot.child("keyCourse").getValue(String.class);
+
+                    /*for (int i = 0; i < courseIDs.size(); i++) {
+                        String taskName = listSnapshot.child("Course"+String.valueOf(courseIDs.get(i))).getValue(String.class);
+                        taskNames.add(taskName);
+                    }*/
+
+                }
+
+                Log.d("list", courseIDs.toString());
+                Log.d("listy", taskNames.toString());
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        /*reference = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
                 .child("Course").child("Course1046928906").child("courseName"); //child("Course" + courseID);
         Log.i("reference", String.valueOf(reference));
 
@@ -59,7 +93,7 @@ public class CalendarActivity extends AppCompatActivity {
 
             }
         };
-        reference.addListenerForSingleValueEvent(eventListener);
+        reference.addListenerForSingleValueEvent(eventListener);*/
 
         /*for (Task istanca:lista_taskova){
             String sDate = instanca.edit_date;
