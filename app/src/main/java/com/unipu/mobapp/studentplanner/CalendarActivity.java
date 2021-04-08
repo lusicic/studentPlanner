@@ -25,7 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class CalendarActivity extends AppCompatActivity {
-    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -37,12 +36,12 @@ public class CalendarActivity extends AppCompatActivity {
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();
         final String uid = usery.getUid();
-        //final String courseID = getIntent().getExtras().getString("keyCourse");
 
         final List<String> courseIDs = new ArrayList<String>();
         final List<String> taskNames = new ArrayList<String>();
 
-        DatabaseReference mBase;
+        DatabaseReference mBase, reference;
+
         mBase = FirebaseDatabase.getInstance().getReference().child("Users").child(uid).child("Data")
                 .child("Course");
 
@@ -52,18 +51,16 @@ public class CalendarActivity extends AppCompatActivity {
 
                 for (DataSnapshot listSnapshot: dataSnapshot.getChildren()) {
                     String courseID = listSnapshot.child("keyCourse").getValue(String.class);
+                    courseIDs.add(courseID);
 
-                    /*for (int i = 0; i < courseIDs.size(); i++) {
+                    for (int i = 0; i < courseIDs.size(); i++) {
                         String taskName = listSnapshot.child("Course"+String.valueOf(courseIDs.get(i))).getValue(String.class);
                         taskNames.add(taskName);
-                    }*/
-
+                    }
                 }
 
                 Log.d("list", courseIDs.toString());
                 Log.d("listy", taskNames.toString());
-
-
             }
 
             @Override
@@ -94,13 +91,6 @@ public class CalendarActivity extends AppCompatActivity {
             }
         };
         reference.addListenerForSingleValueEvent(eventListener);*/
-
-        /*for (Task istanca:lista_taskova){
-            String sDate = instanca.edit_date;
-            Date edit_date = new SimpleDateFormat("dd/MM/yyyy").parse(sDate);
-            Calendar calendar = new Calendar();
-            Calendar.set(datum.getYear...)
-        }*/
 
         Calendar calendar = Calendar.getInstance();
         events.add(new EventDay(calendar, R.drawable.sample_icon));
