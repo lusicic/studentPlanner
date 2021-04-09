@@ -44,7 +44,6 @@
             android:textColorLink="#FFFFFF"
             android:textSize="22sp" />
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/background"
         android:layout_width="fill_parent"
@@ -63,23 +62,44 @@
             android:layout_height="fill_parent"
             android:orientation="horizontal">
 
+
             <TextView
                 android:id="@+id/titleColloquium"
+                android:layout_marginRight="11dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/assistant"
                 android:text="Colloquium:"
+                android:textStyle="bold"
                 android:textColor="#FF9800"
                 android:textSize="22dp" />
 
+            <TextView
+                android:id="@+id/exam"
+                android:layout_width="20dp"
+                android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
+                android:textColor="#000000"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:id="@+id/hint"
+                android:layout_width="20dp"
+                android:text="/"
+                android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
+                android:textSize="22dp"/>
+
             <EditText
                 android:id="@+id/editColloquium"
-                android:layout_width="match_parent"
+                android:layout_width="20dp"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
+                android:background="@null"
                 android:fontFamily="@font/assistant"
-                android:hint="Colloquium"
                 android:inputType="text"
+                android:textSize="22dp"
+                android:textStyle="bold"
                 android:textColor="#000000" />
 
             <TextView
@@ -87,17 +107,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/assistant"
+                android:layout_marginRight="11dp"
                 android:text="Grade:"
+                android:textStyle="bold"
                 android:textColor="#FF9800"
                 android:textSize="22dp" />
 
             <EditText
                 android:id="@+id/editGrade"
                 android:layout_width="match_parent"
+                android:background="@null"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/assistant"
-                android:hint="Grade"
                 android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
@@ -113,16 +135,36 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/assistant"
                 android:text="Activity:"
+                android:textStyle="bold"
+                android:layout_marginRight="11dp"
                 android:textColor="#FF9800"
                 android:textSize="22dp" />
 
-            <EditText
-                android:id="@+id/editActivity"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/activity"
+                android:layout_width="20dp"
                 android:layout_height="45dp"
                 android:fontFamily="@font/assistant"
-                android:hint="Activity:"
+                android:textColor="#000000"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:id="@+id/help"
+                android:layout_width="20dp"
+                android:text="/"
+                android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
+                android:textSize="22dp"/>
+
+            <EditText
+                android:id="@+id/editActivity"
+                android:layout_width="22dp"
+                android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
                 android:inputType="text"
+                android:background="@null"
+                android:textSize="22dp"
+                android:textStyle="bold"
                 android:textColor="#000000" />
 
             <TextView
@@ -131,17 +173,38 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/assistant"
                 android:text="Homework:"
+                android:layout_marginRight="11dp"
+                android:textStyle="bold"
                 android:textColor="#FF9800"
                 android:textSize="22dp" />
 
-            <EditText
-                android:id="@+id/editHome"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/homework"
+                android:layout_width="20dp"
+                android:layout_height="45dp"
+                android:textColor="#000000"
+                android:fontFamily="@font/assistant"
+                android:textSize="22dp"/>
+
+            <TextView
+                android:id="@+id/pomoc"
+                android:layout_width="20dp"
+                android:text="/"
                 android:layout_height="45dp"
                 android:fontFamily="@font/assistant"
-                android:hint="Homework:"
+                android:textSize="22dp"/>
+
+            <EditText
+                android:id="@+id/editHome"
+                android:layout_width="20dp"
+                android:layout_height="45dp"
+                android:fontFamily="@font/assistant"
+                android:background="@null"
                 android:inputType="text"
+                android:textSize="22dp"
+                android:textStyle="bold"
                 android:textColor="#000000" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -176,22 +239,17 @@
             android:background="@drawable/menu_button"
             android:foreground="@drawable/ic_new"
             android:textColor="#FFFFFF" />
-
-
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/theTasks"
             android:layout_width="match_parent"
             android:layout_height="486dp"
             android:paddingTop="40dp"></androidx.recyclerview.widget.RecyclerView>
-
-
     </RelativeLayout>
 
 

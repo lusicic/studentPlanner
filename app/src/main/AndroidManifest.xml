@@ -24,7 +24,6 @@
         <activity android:name=".UserForgotPass" />
         <activity android:name=".StatisticActivity" />
         <activity android:name=".CoursesMenu" />
-        <activity android:name=".CalendarActivity" />
 
         <activity
             android:name=".Course"

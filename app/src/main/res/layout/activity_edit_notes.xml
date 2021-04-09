@@ -132,6 +132,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/assistant"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:text="Description"
                 android:textColor="#FF9800"
                 android:textSize="25dp"
@@ -143,6 +145,7 @@
                 android:layout_height="45dp"
                 android:background="@null"
                 android:fontFamily="@font/assistant"
+                android:gravity="center"
                 android:hint="Add description"
                 android:inputType="text"
                 android:textColor="#FF9800" />

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -28,6 +29,7 @@ import java.util.Random;
 public class CourseEdit extends AppCompatActivity {
 
     EditText editTitle, editColloquium, editActivity, editHome;
+    TextView exam, activty, homework;
     Button btnEditSave, btnDelete, btnTaskCreate;
     DatabaseReference reference, referenceNewTask;
     TaskAdapter adapter;
@@ -49,6 +51,9 @@ public class CourseEdit extends AppCompatActivity {
 
         btnEditSave = findViewById(R.id.btnCreate);
         btnDelete = findViewById(R.id.btnCancelNotes);
+        exam = (TextView) findViewById(R.id.exam);
+        homework = (TextView) findViewById(R.id.homework);
+        activty = (TextView) findViewById(R.id.activity);
 
         //get a value
         editTitle.setText(getIntent().getStringExtra("courseName"));
@@ -58,10 +63,12 @@ public class CourseEdit extends AppCompatActivity {
 
         final String CourseKey = getIntent().getStringExtra("keyCourse");
 
-
         Integer numFinExams = getIntent().getIntExtra("finExams", 0);
+        exam.setText(numFinExams.toString());
         Integer numFinHomework = getIntent().getIntExtra("finHomework", 0);
+        homework.setText(numFinHomework.toString());
         Integer numFinActivities = getIntent().getIntExtra("finActivities", 0);
+        activty.setText(numFinActivities.toString());
 
         HashMap<String, Integer> finishedTasks = new HashMap<String, Integer>();
         finishedTasks.put("finExams", numFinExams);

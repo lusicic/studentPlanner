@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#716666"
+    android:background="#47444C"
     android:orientation="vertical"
     tools:context=".NotesActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:background="@drawable/linear_layout"
+        android:background="#38363C"
         android:orientation="vertical">
 
         <LinearLayout
@@ -34,7 +34,8 @@
                     android:text="My Notes"
                     android:textAlignment="center"
                     android:textColor="#FF9800"
-                    android:textSize="28sp" />
+                    android:textSize="30sp"
+                    android:textStyle="bold"/>
 
                 <TextView
                     android:id="@+id/subtitlepage"

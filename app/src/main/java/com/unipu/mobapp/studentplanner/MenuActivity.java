@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private Button logout, btnStat, btnCourses, btnSchedule, btnCalendar, btnNotes;
+    private Button logout, btnStat, btnCourses, btnSchedule, btnNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,15 +51,6 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MenuActivity.this, ScheduleActivity.class));
-                overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
-            }
-        });
-
-        btnCalendar = (Button) findViewById(R.id.btnCalendar);
-        btnCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MenuActivity.this, CalendarActivity.class));
                 overridePendingTransition(R.anim.activity_anim, R.anim.activity_anim);
             }
         });

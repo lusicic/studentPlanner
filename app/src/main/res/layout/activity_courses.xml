@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#716666"
+    android:background="#47444C"
     android:orientation="vertical"
     tools:context=".CoursesMenu">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:background="@drawable/linear_layout"
+        android:background="#38363C"
         android:orientation="vertical">
 
         <LinearLayout
@@ -45,7 +45,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="28dp"
                     android:fontFamily="@font/assistant"
-                    android:text="All my Courses"
+                    android:text="All my courses"
                     android:textAlignment="center"
                     android:textColor="#DCB479"
                     android:textSize="18sp" />

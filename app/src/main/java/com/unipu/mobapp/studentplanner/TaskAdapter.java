@@ -60,11 +60,9 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
                 intent.putExtra("editDate", String.valueOf(editDate));
                 intent.putExtra("keytask", String.valueOf(getKeyTask));
                 intent.putExtra("courseID", String.valueOf(data));
-
                 intent.putExtra("finExams", finExams);
                 intent.putExtra("finHomework", finHomework);
                 intent.putExtra("finActivities", finActivities);
-
                 v.getContext().startActivity(intent);
             }
 
