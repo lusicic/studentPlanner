@@ -46,7 +46,9 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
                     intent.putExtra("noteDesc", String.valueOf(noteDesc));
                     intent.putExtra("keyNote", String.valueOf(getKeyNote));
                     v.getContext().startActivity(intent);
+
                 }
+
 
         });
     }
@@ -89,6 +91,7 @@ public class NoteAdapter extends FirebaseRecyclerAdapter<Note, NoteAdapter.notey
             intent.putExtra("noteDate", String.valueOf(noteDate));
             intent.putExtra("noteDesc", String.valueOf(noteDesc));
             v.getContext().startActivity(intent);
+
         }
     }
 }

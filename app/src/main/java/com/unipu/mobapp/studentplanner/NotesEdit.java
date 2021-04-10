@@ -87,15 +87,21 @@ public class NotesEdit extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(NotesEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(NotesEdit.this, NotesActivity.class);
-                            startActivity(intent);
+                            Intent i = new Intent(NotesEdit.this, NotesActivity.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+                            finish();
                         }else {
                             Toast.makeText(NotesEdit.this, task.getException().getMessage(),
                                     Toast.LENGTH_LONG).show();
+                            finish();
                         }
                     }
+
                 });
+
             }
+
         });
 
         btnEditSave.setOnClickListener(new View.OnClickListener() {
@@ -107,14 +113,21 @@ public class NotesEdit extends AppCompatActivity {
                         snapshot.getRef().child("noteTitle").setValue(editTitle.getText().toString());
                         snapshot.getRef().child("noteDate").setValue(editDate.getText().toString());
                         snapshot.getRef().child("noteDesc").setValue(editDescr.getText().toString());
-                        Intent intent = new Intent(NotesEdit.this, NotesActivity.class);
-                        startActivity(intent);
+                        Intent i = new Intent(NotesEdit.this, NotesActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        finish();
+
+
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError error) {}
+                    public void onCancelled(@NonNull DatabaseError error) {finish();}
+
                 });
+
             }
+
         });
 
         //get a value

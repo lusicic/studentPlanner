@@ -147,8 +147,10 @@ public class TaskEdit extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(TaskEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(TaskEdit.this, CoursesMenu.class);
-                            startActivity(intent);
+                            Intent i = new Intent(TaskEdit.this, CoursesMenu.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+                            finish();
 
                         } else {
                             Toast.makeText(TaskEdit.this, task.getException().getMessage(),
@@ -168,12 +170,14 @@ public class TaskEdit extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("taskName").setValue(taskName.getText().toString());
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());
-                        dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
+                        dataSnapshot.getRef().child("grade").setValue(Integer.parseInt(String.valueOf(grade.getText())));
                         dataSnapshot.getRef().child("taskType").setValue(String.valueOf(spinnerTaskType.getSelectedItem().toString()));
                         dataSnapshot.getRef().child("editDate").setValue(editDate.getText().toString());
                         dataSnapshot.getRef().child("keytask").setValue(keykey);
-                        Intent a = new Intent(TaskEdit.this, CoursesMenu.class);
-                        startActivity(a);
+                        Intent i = new Intent(TaskEdit.this, CoursesMenu.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        finish();
                     }
 
                     @Override
@@ -214,8 +218,10 @@ public class TaskEdit extends AppCompatActivity {
                             dataSnapshot.getRef().child("Task").child("Task" + keykey).child("finished").setValue(finishedY);
                         }
 
-                        Intent a = new Intent(TaskEdit.this, CoursesMenu.class);
-                        startActivity(a);
+                        Intent i = new Intent(TaskEdit.this, MenuActivity.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        finish();
                     }
 
                     @Override

@@ -96,8 +96,10 @@ public class CourseEdit extends AppCompatActivity {
                     public void onComplete(@NonNull com.google.android.gms.tasks.Task task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(CourseEdit.this, "Deleted", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(CourseEdit.this, CoursesMenu.class);
-                            startActivity(intent);
+                            Intent i = new Intent(CourseEdit.this, CoursesMenu.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(i);
+                            finish();
 
                         } else {
                             Toast.makeText(CourseEdit.this, task.getException().getMessage(),
@@ -120,9 +122,10 @@ public class CourseEdit extends AppCompatActivity {
                         dataSnapshot.getRef().child("numHomework").setValue(editHome.getText().toString());
                         dataSnapshot.getRef().child("numActivity").setValue(editActivity.getText().toString());
                         dataSnapshot.getRef().child("keyCourse").setValue(CourseKey);
-                        Intent a = new Intent(CourseEdit.this, CoursesMenu.class);
-                        CourseEdit.super.onBackPressed();
-                        startActivity(a);
+                        Intent i = new Intent(CourseEdit.this, CoursesMenu.class);
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(i);
+                        finish();
                     }
 
                     @Override

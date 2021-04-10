@@ -34,6 +34,7 @@ public class NotesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(NotesActivity.this, NotesCreate.class);
                 startActivity(intent);
+                finish();
             }
         });
 
