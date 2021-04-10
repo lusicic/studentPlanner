@@ -93,13 +93,17 @@ public class TaskEdit extends AppCompatActivity {
 
         //get a value
         taskName.setText(getIntent().getStringExtra("taskName"));
-        grade.setText(getIntent().getStringExtra("grade"));
+
+        final Integer taskGrade = Integer.valueOf(getIntent().getIntExtra("grade", 0));
+        grade.setText(taskGrade.toString());
+
         editDate.setText(getIntent().getStringExtra("editDate"));
         descript.setText(getIntent().getStringExtra("descript"));
 
 
         final String keykey = getIntent().getStringExtra("keytask");
         final String courseID = getIntent().getStringExtra("courseID");
+
         String taskType = String.valueOf(getIntent().getStringExtra("taskType"));
         String statusOfTask = String.valueOf(getIntent().getStringExtra("finished"));
 
@@ -120,6 +124,8 @@ public class TaskEdit extends AppCompatActivity {
         int spinnerPosition = adapter.getPosition(taskType);
 
         spinnerTaskType.setSelection(spinnerPosition);
+
+        final Integer finGrade = Integer.valueOf(getIntent().getIntExtra("finGrade", 0));
 
         final Integer finExams = Integer.valueOf(getIntent().getIntExtra("finExams", 0));
         final Integer finHomework = Integer.valueOf(getIntent().getIntExtra("finHomework", 0));
@@ -194,14 +200,17 @@ public class TaskEdit extends AppCompatActivity {
 
                         if((taskType.equals("exam")) && (statusOfTask.equals(finishedN))) {
                             dataSnapshot.getRef().child("finExams").setValue(finExams + 1);
+                            dataSnapshot.getRef().child("finGrade").setValue(finGrade + taskGrade);
                             dataSnapshot.getRef().child("Task").child("Task" + keykey).child("finished").setValue(finishedY);
                         }
                         else if((taskType.equals("homework")) && (statusOfTask.equals(finishedN))) {
                             dataSnapshot.getRef().child("finHomework").setValue(finHomework + 1);
+                            dataSnapshot.getRef().child("finGrade").setValue(finGrade + taskGrade);
                             dataSnapshot.getRef().child("Task").child("Task" + keykey).child("finished").setValue(finishedY);
                         }
                         else if((taskType.equals("activity")) && (statusOfTask.equals(finishedN))) {
                             dataSnapshot.getRef().child("finActivity").setValue(finActivities + 1);
+                            dataSnapshot.getRef().child("finGrade").setValue(finGrade + taskGrade);
                             dataSnapshot.getRef().child("Task").child("Task" + keykey).child("finished").setValue(finishedY);
                         }
 

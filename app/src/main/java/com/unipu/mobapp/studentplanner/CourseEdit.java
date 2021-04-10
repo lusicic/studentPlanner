@@ -79,6 +79,7 @@ public class CourseEdit extends AppCompatActivity {
         finishedTasks.put("finExams", numFinExams);
         finishedTasks.put("finHomework", numFinHomework);
         finishedTasks.put("finActivities", numFinActivities);
+        finishedTasks.put("finGrade", finGrade);
 
         final FirebaseAuth auth = FirebaseAuth.getInstance();
         final FirebaseUser usery = auth.getCurrentUser();

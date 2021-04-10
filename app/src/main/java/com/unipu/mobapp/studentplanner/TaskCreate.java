@@ -91,7 +91,10 @@ public class TaskCreate extends AppCompatActivity {
         btnCancel = findViewById(R.id.buttonDelete);
 
         taskName.setText(getIntent().getStringExtra("taskName"));
-        grade.setText(getIntent().getStringExtra("grade"));
+
+        Integer taskGrade = getIntent().getIntExtra("grade", 0);
+        grade.setText(taskGrade.toString());
+
         descript.setText(getIntent().getStringExtra("descript"));
         editDate.setText(getIntent().getStringExtra("editDate"));
 
@@ -116,7 +119,7 @@ public class TaskCreate extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         dataSnapshot.getRef().child("taskName").setValue(taskName.getText().toString());
-                        dataSnapshot.getRef().child("grade").setValue(grade.getText().toString());
+                        dataSnapshot.getRef().child("grade").setValue(Long.parseLong(String.valueOf(grade.getText())));
                         dataSnapshot.getRef().child("taskType").setValue(taskType);
                         dataSnapshot.getRef().child("finished").setValue(finishedN);
                         dataSnapshot.getRef().child("descript").setValue(descript.getText().toString());

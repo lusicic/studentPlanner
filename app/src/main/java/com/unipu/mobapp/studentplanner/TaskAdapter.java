@@ -41,6 +41,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
         final String editDate = String.valueOf(model.getEditDate());
         final String getKeyTask = String.valueOf(model.getKeytask());
 
+        final Integer finGrade = Integer.valueOf(finishedTasks.get("finGrade"));
         final Integer finExams = Integer.valueOf(finishedTasks.get("finExams"));
         final Integer finHomework = Integer.valueOf(finishedTasks.get("finHomework"));
         final Integer finActivities = Integer.valueOf(finishedTasks.get("finActivities"));
@@ -53,13 +54,15 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
 
                 //dodano za povlacenje iz baze u edit
                 intent.putExtra("taskName", String.valueOf(taskName));
-                intent.putExtra("grade", String.valueOf(grade));
+                intent.putExtra("grade", grade);
                 intent.putExtra("taskType", String.valueOf(taskType));
                 intent.putExtra("finished", String.valueOf(finished));
                 intent.putExtra("descript", String.valueOf(descript));
                 intent.putExtra("editDate", String.valueOf(editDate));
                 intent.putExtra("keytask", String.valueOf(getKeyTask));
                 intent.putExtra("courseID", String.valueOf(data));
+
+                intent.putExtra("finGrade", finGrade);
                 intent.putExtra("finExams", finExams);
                 intent.putExtra("finHomework", finHomework);
                 intent.putExtra("finActivities", finActivities);
