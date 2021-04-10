@@ -33,7 +33,7 @@
             android:id="@+id/btnCreate"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="325dp"
+            android:layout_marginLeft="350dp"
             android:layout_marginTop="-5dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/round_grey"
@@ -43,6 +43,20 @@
             android:textColor="#1C1C1C"
             android:textColorLink="#FFFFFF"
             android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/btnCancelNotes"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-80dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/background_delete"
+            android:foreground="@drawable/ic_delete"
+            android:textAllCaps="false"
+            android:textColor="#776B6B"
+            android:textSize="22sp" />
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/background"
@@ -116,11 +130,12 @@
             <TextView
                 android:id="@+id/txtGrade"
                 android:layout_width="match_parent"
-                android:background="@null"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
+                android:background="@null"
                 android:fontFamily="@font/assistant"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="22sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -252,18 +267,7 @@
     </RelativeLayout>
 
 
-    <Button
-        android:id="@+id/btnCancelNotes"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="360dp"
-        android:layout_marginTop="-695dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/round_primary"
-        android:foreground="@drawable/ic_delete"
-        android:textAllCaps="false"
-        android:textColor="#776B6B"
-        android:textSize="22sp" />
+
 
 
 </LinearLayout>
