@@ -113,14 +113,13 @@
                 android:textColor="#FF9800"
                 android:textSize="22dp" />
 
-            <EditText
-                android:id="@+id/editGrade"
+            <TextView
+                android:id="@+id/txtGrade"
                 android:layout_width="match_parent"
                 android:background="@null"
                 android:layout_height="45dp"
                 android:layout_alignParentLeft="true"
                 android:fontFamily="@font/assistant"
-                android:inputType="text"
                 android:textColor="#000000" />
         </LinearLayout>
 

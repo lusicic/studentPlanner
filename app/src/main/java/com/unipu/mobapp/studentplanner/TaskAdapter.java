@@ -34,7 +34,7 @@ public class TaskAdapter extends FirebaseRecyclerAdapter<Task, TaskAdapter.taskV
 
         //dodano za povlacenje iz baze u edit
         final String taskName = String.valueOf(model.getTaskName());
-        final String grade = String.valueOf(model.getGrade());
+        final Integer grade = Integer.valueOf(model.getGrade());
         final String taskType = String.valueOf(model.getTaskType());
         final String finished = String.valueOf(model.getFinished());
         final String descript = String.valueOf(model.getDescript());

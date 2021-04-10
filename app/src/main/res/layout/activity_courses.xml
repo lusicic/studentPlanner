@@ -27,14 +27,14 @@
                 <TextView
                     android:id="@+id/titlepage"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="66dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/assistant"
-                    android:text="My Courses"
+                    android:text="Courses"
                     android:textAlignment="center"
                     android:textColor="#FF9800"
-                    android:textSize="28sp"
+                    android:textSize="35sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -45,10 +45,11 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="28dp"
                     android:fontFamily="@font/assistant"
-                    android:text="All my courses"
+                    android:text="overview"
                     android:textAlignment="center"
                     android:textColor="#DCB479"
-                    android:textSize="18sp" />
+                    android:textSize="16sp"
+                    android:visibility="invisible" />
             </LinearLayout>
 
         </LinearLayout>
@@ -63,7 +64,7 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_width="50dp"
+        android:layout_width="51dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginLeft="0dp"

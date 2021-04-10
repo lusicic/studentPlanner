@@ -2,7 +2,7 @@ package com.unipu.mobapp.studentplanner;
 
 public class Task {
     String taskName;
-    String grade;
+    Integer grade;
     String taskType;
     String finished;
     String descript;
@@ -14,7 +14,7 @@ public class Task {
 
     }
 
-    public Task(String taskName, String grade, String taskType, String finished, String descript, String keytask, String editDate) {
+    public Task(String taskName, Integer grade, String taskType, String finished, String descript, String keytask, String editDate) {
         this.taskName = taskName;
         this.grade = grade;
         this.taskType = taskType;
@@ -32,11 +32,11 @@ public class Task {
         this.taskName = taskName;
     }
 
-    public String getGrade() {
+    public Integer getGrade() {
         return grade;
     }
 
-    public void setGrade(String grade) {
+    public void setGrade(Integer grade) {
         this.grade = grade;
     }
 

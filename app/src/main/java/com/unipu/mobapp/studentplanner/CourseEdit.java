@@ -29,7 +29,7 @@ import java.util.Random;
 public class CourseEdit extends AppCompatActivity {
 
     EditText editTitle, editColloquium, editActivity, editHome;
-    TextView exam, activty, homework;
+    TextView exam, activty, homework, txtGrade;
     Button btnEditSave, btnDelete, btnTaskCreate;
     DatabaseReference reference, referenceNewTask;
     TaskAdapter adapter;
@@ -54,6 +54,8 @@ public class CourseEdit extends AppCompatActivity {
         exam = (TextView) findViewById(R.id.exam);
         homework = (TextView) findViewById(R.id.homework);
         activty = (TextView) findViewById(R.id.activity);
+        txtGrade = (TextView) findViewById(R.id.txtGrade);
+
 
         //get a value
         editTitle.setText(getIntent().getStringExtra("courseName"));
@@ -69,6 +71,9 @@ public class CourseEdit extends AppCompatActivity {
         homework.setText(numFinHomework.toString());
         Integer numFinActivities = getIntent().getIntExtra("finActivities", 0);
         activty.setText(numFinActivities.toString());
+
+        Integer finGrade = getIntent().getIntExtra("finGrade", 0);
+        txtGrade.setText(finGrade.toString());
 
         HashMap<String, Integer> finishedTasks = new HashMap<String, Integer>();
         finishedTasks.put("finExams", numFinExams);

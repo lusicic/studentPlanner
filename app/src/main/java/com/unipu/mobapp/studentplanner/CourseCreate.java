@@ -22,8 +22,8 @@ import java.util.Random;
 
 
 public class CourseCreate extends AppCompatActivity {
-    TextView titlePage, addTitle, addNumber, addActivity, addHomework, addGrade;
-    EditText titleOfCourse, numberOfColloquium, numberActivity, numberHomework, numberGrade;
+    TextView titlePage, addTitle, addNumber, addActivity, addHomework;
+    EditText titleOfCourse, numberOfColloquium, numberActivity, numberHomework;
     Button btnSave, btnCancel;
 
     DatabaseReference reference;
@@ -39,13 +39,11 @@ public class CourseCreate extends AppCompatActivity {
         addNumber = findViewById(R.id.addNumber);
         addActivity = findViewById(R.id.addActivity);
         addHomework = findViewById(R.id.addHomework);
-        addGrade = findViewById(R.id.addGrade);
 
         numberOfColloquium = (EditText) findViewById(R.id.examNum);
         titleOfCourse = (EditText) findViewById(R.id.courseName);
         numberActivity = (EditText) findViewById(R.id.numActivity);
         numberHomework = (EditText) findViewById(R.id.numHomework);
-        numberGrade = (EditText) findViewById(R.id.numGrade);
 
         btnSave = findViewById(R.id.btnEdit);
         btnCancel = findViewById(R.id.buttonDelete);
@@ -65,7 +63,7 @@ public class CourseCreate extends AppCompatActivity {
                         dataSnapshot.getRef().child("examNum").setValue(Long.parseLong(String.valueOf(numberOfColloquium.getText())));
                         dataSnapshot.getRef().child("numActivity").setValue(numberActivity.getText().toString());
                         dataSnapshot.getRef().child("numHomework").setValue(numberHomework.getText().toString());
-                        dataSnapshot.getRef().child("numGrade").setValue(numberGrade.getText().toString());
+                        dataSnapshot.getRef().child("finGrade").setValue(0);
 
                         dataSnapshot.getRef().child("finExams").setValue(0);
                         dataSnapshot.getRef().child("finHomework").setValue(0);

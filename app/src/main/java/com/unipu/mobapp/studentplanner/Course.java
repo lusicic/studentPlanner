@@ -6,7 +6,7 @@ public class Course {
     Long examNum;
     String numActivity;
     String numHomework;
-    String numGrade;
+    Integer finGrade;
     String keyCourse;
 
     Integer finExams;
@@ -16,12 +16,12 @@ public class Course {
     public Course() {
     }
 
-    public Course(String courseName, Long examNum, String numActivity, String numHomework, String numGrade, String keyCourse, Integer finExams, Integer finHomework, Integer finActivities) {
+    public Course(String courseName, Long examNum, String numActivity, String numHomework, Integer finGrade, String keyCourse, Integer finExams, Integer finHomework, Integer finActivities) {
         this.courseName = courseName;
         this.examNum = examNum;
         this.numActivity = numActivity;
         this.numHomework = numHomework;
-        this.numGrade = numGrade;
+        this.finGrade = finGrade;
         this.keyCourse = keyCourse;
         this.finExams = finExams;
         this.finHomework = finHomework;
@@ -68,16 +68,12 @@ public class Course {
         this.examNum = examNum;
     }
 
-    public void setGrade(String numGrade){this.numGrade = numGrade;}
-
-    public String getGrade(){return numGrade;}
-
-    public String getNumGrade() {
-        return numGrade;
+    public Integer getFinGrade() {
+        return finGrade;
     }
 
-    public void setNumGrade(String numGrade) {
-        this.numGrade = numGrade;
+    public void setFinGrade(Integer finGrade) {
+        this.finGrade = finGrade;
     }
 
     public Integer getFinExams() {

@@ -34,6 +34,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
         final String numHomework = String.valueOf(model.getNumHomework());
         final String KeyCourse = String.valueOf(model.getKeyCourse());
 
+        final Integer finGrade = Integer.valueOf(model.getFinGrade());
         final Integer finExams = Integer.valueOf(model.getFinExams());
         final Integer finHomework = Integer.valueOf(model.getFinHomework());
         final Integer finActivities = Integer.valueOf(model.getFinActivities());
@@ -51,6 +52,7 @@ public class  CourseAdapter extends FirebaseRecyclerAdapter<Course, CourseAdapte
                 intent.putExtra("numHomework", String.valueOf(numHomework));
                 intent.putExtra("keyCourse", String.valueOf(KeyCourse));
 
+                intent.putExtra("finGrade", finGrade);
                 intent.putExtra("finExams", finExams);
                 intent.putExtra("finHomework", finHomework);
                 intent.putExtra("finActivites", finActivities);
